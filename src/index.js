@@ -47,8 +47,9 @@ app.on('activate', () => {
   }
 });
 
+var AADC;
 // Catch the IDSForm Submit Data.
-ipcMain.on('hs:add', (e, hs) => {
-  mainWindow.webContents.send('hs:add', hs);
-
+ipcMain.on('AADC:add', (e, AADCData) => {
+  AADC = AADCData
+  console.log(AADC);
 })

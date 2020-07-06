@@ -198,11 +198,13 @@
     const he = document.querySelector("#HE").value;
     const AAR = document.querySelector("#AAR").value;
     const DAAR = document.querySelector("#DAAR").value;
+    var AADC = [];
+    AADC.push(hs);
+    AADC.push(he);
+    AADC.push(AAR);
+    AADC.push(DAAR);
 
-    ipcRenderer.send("hs:add", hs);
-    ipcRenderer.send("he:add", he);
-    ipcRenderer.send("AAR:add", AAR);
-    ipcRenderer.send("DAAR:add", DARR);
+    ipcRenderer.send("AADC:add", AADC);
   })
 </script>
 <script>
