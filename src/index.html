@@ -11,11 +11,11 @@
   <div class="container-fluid">
     <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;"><span
         style="font-weight: 999;">ZDV</span><span style="font-weight: 200;">IDS</span></h1>
-    <button type="button" class="btn btn-outline-secondary"data-toggle="modal" data-target="#atismodal">ATIS</button>
-    <button type="button" class="btn btn-outline-secondary">PIREP</button>
+    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">ATIS</button>
+    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">PIREP</button>
     <button type="button" class="btn btn-outline-secondary">TMU</button>
     <button type="button" class="btn btn-outline-secondary">COMMS</button>
-    <button type="button" class="btn btn-outline-secondary">CHARTS</button>
+    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">CHARTS</button>
     <button type="button" class="btn btn-outline-secondary">ACTIVE AREA</button>
     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">AADC</button>
   </div>
@@ -173,9 +173,114 @@
       <div class="modal-footer">
         <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true"
           value="Cancel">
-        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_ids" value="Update ATIS Info">
+        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_atis" value="Update ATIS Info">
       </div>
+    </div>
+  </div>
+</div>
 
+<!--PIREP MODAL-->
+<div class="modal" id="pirepmodal" role="dialog" aria-labelledby="pirepmodallabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="idsmodallabel">Input a PIREP</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-black" aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row">
+          <div class="col-9">
+            <div class="row">
+              <div class="col-4">
+                <input class="form-control" placeholder="Location (VOR)" name="pireploc" type="text">
+              </div>
+              <div class="col-4">
+                <input class="form-control" placeholder="Clouds" name="pirepclo" type="text">
+              </div>
+              <div class="col-4">
+                <input class="form-control" placeholder="Visability" name="pirepvis" type="text">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-4">
+                    <input class="form-control" placeholder="Precipitation" name="pirepthu" type="text">
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" placeholder="Ice" name="pirepice" type="text">
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" placeholder="Windshear" name="pirepwin" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <input class="form-control" placeholder="Extra Information" name="pirepext" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="row">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true"
+          value="Cancel">
+        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_pirep" value="Input PIREP">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--CHARTS MODAL-->
+<div class="modal" id="chartsmodal" role="dialog" aria-labelledby="chartsmodallabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="idsmodallabel">Charts Viewer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-black" aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row">
+          <div class="col-9">
+            <div class="row">
+              <div class="col-4">
+                <input class="form-control" placeholder="Field Identifier" name="chartsicao" type="text">
+              </div>
+              
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class='viewer' id='viewer'>
+
+                </div>
+                <div class="row">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true"
+          value="Cancel">
+        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_pirep" value="Input PIREP">
+      </div>
     </div>
   </div>
 </div>
