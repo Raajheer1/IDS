@@ -94,10 +94,11 @@
             <div class="col-9">
               <div class="row">
                 <div class="col-3">
-                  <input class="form-control" placeholder="Hour Start" name="HS" id="HS" type="text">
+                  <input class="form-control" placeholder="Hour Start Zulu" name="HS" id="HS" type="text">
+                  <p style="color: black;">Ex: 0100</p>
                 </div>
                 <div class="col-3">
-                  <input class="form-control" placeholder="End" name="HE" id= "HE" type="text">
+                  <input class="form-control" placeholder="End Zulu" name="HE" id= "HE" type="text">
                 </div>
                 <div class="col-3">
                   <input class="form-control" placeholder="AAR" name="AAR" id="AAR" type="text">
@@ -299,10 +300,10 @@
   const IDSForm = document.getElementById("IDSForm");
   IDSForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const hs = document.querySelector("#HS").value;
-    const he = document.querySelector("#HE").value;
-    const AAR = document.querySelector("#AAR").value;
-    const DAAR = document.querySelector("#DAAR").value;
+    const hs = document.querySelector("#HS").value/100;
+    const he = document.querySelector("#HE").value/100;
+    const AAR = parseInt(document.querySelector("#AAR").value);
+    const DAAR = parseInt(document.querySelector("#DAAR").value);
     var AADC = [];
     AADC.push(hs);
     AADC.push(he);

@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu, ipcMain} = require('electron');
+var XMLHttpRequest = require('xhr2');
 const path = require('path');
 let mainWindow;
 
@@ -51,5 +52,11 @@ var AADC;
 // Catch the IDSForm Submit Data.
 ipcMain.on('AADC:add', (e, AADCData) => {
   AADC = AADCData
-  console.log(AADC);
+  var d = new Date();
+  var hour = d.getUTCHours();
+  AADC[0] = AADC[0] - hour;
+  AADC[1] = AADC[1] - hour;
+  var request = new XMLHttpRequest();
+  request.open("GET", "https://aadc.denartcc.org/ids.php?AAR="+AADC[2]+"&HS="+AADC[0]+"&HE="+AADC[1]+"&DAAR="+AADC[3]);
+  request.send();
 })
