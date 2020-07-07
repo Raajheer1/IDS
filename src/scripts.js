@@ -34,12 +34,28 @@ DENAirportConfig.send();
 
 DENAirportConfig.onload = function() {
     if(DENAirportConfig.status != 200){
-        console.log("error pulling AAR Data");
+        console.log("error pulling Real World AAR Data");
     } else {
         var DenData = JSON.parse(DENAirportConfig.response)[0]
         document.getElementById("RWAAR").innerHTML = DenData["arrRate"];
         document.getElementById("RWADR").innerHTML = DenData["depRate"];
         document.getElementById("RWLR").innerHTML = DenData["arrRwy"];
         document.getElementById("RWDR").innerHTML = DenData["depRwy"];
+        document.getElementById("RWLR1").innerHTML = DenData["arrRwy"];
+        document.getElementById("RWDR1").innerHTML = DenData["depRwy"];
+        document.getElementById("DENVMC").innerHTML = DenData["weather"];
+    }
+}
+
+var DENAtis = new XMLHttpRequest();
+DENAtis.open("GET", "https://denartcc.org/atis/KDEN");
+DENAtis.send();
+
+DENAtis.onload = function() {
+    if(DENAtis.status != 200){
+        console.log("error pulling ATIS Data");
+    } else {
+        var DenData = JSON.parse(DENAtis.response)[0]
+        document.getElementById("DENLET").innerHTML = DenData["atis_letter"];
     }
 }
