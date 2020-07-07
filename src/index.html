@@ -21,6 +21,7 @@
           <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">CHARTS</button>
           <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">ACTIVE AREA</button>
           <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">AADC</button>
+          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">RW Config</button>
         </div>
         <table class="facility r_D01 KDEN table table-borderless p-0 mb-1 text-white"
           style="background-color: rgb(47, 47, 47); border: 1px solid rgb(79, 77, 77); margin-top: 15px;">
@@ -126,7 +127,7 @@
               <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - AAR</h5>
               <div class="p-2 mt-3 d-flex metarlike"
                 style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
-                id="editatis_code" oncontextmenu="return false;">114</div>
+                id="editatis_code" oncontextmenu="return false;"><span id="ActiveAAR"></span></div>
               <input name="code" type="hidden" value="">
             </div>
             <div class="col-9">
@@ -161,6 +162,70 @@
           <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true"
             value="Cancel AADC">
           <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_aadc" value="Update AADC">
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- RW Modal -->
+  <div class="modal" id="rwmodal" role="dialog" aria-labelledby="rwmodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <form id="IDSForm">
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rwmodallabel">Real World Airport Config</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-black" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <div class="col-3">
+              <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - AAR</h5>
+              <div class="p-2 mt-3 d-flex metarlike"
+                style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
+                id="editatis_code" oncontextmenu="return false;"><span id="RWAAR"></span></div>
+              <input name="code" type="hidden" value="">
+            </div>
+            <div class="col-3">
+              <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - ADR</h5>
+              <div class="p-2 mt-3 d-flex metarlike"
+                style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
+                id="editatis_code" oncontextmenu="return false;"><span id="RWADR"></span></div>
+              <input name="code" type="hidden" value="">
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-3">
+                  <input class="form-control" placeholder="Hour Start Zulu" name="HS" id="HS" type="text">
+                  <p style="color: black;">Ex: 0100</p>
+                </div>
+                <div class="col-3">
+                  <input class="form-control" placeholder="End Zulu" name="HE" id= "HE" type="text">
+                </div>
+                <div class="col-3">
+                  <input class="form-control" placeholder="AAR" name="AAR" id="AAR" type="text">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="row">
+                    <h5
+                      style="padding-top: 13px; padding-bottom: 13px; text-align: center; padding-left: 30px; margin-right: 23px;">
+                      Default:</h5>
+                    <div class="col-3">
+                      <input class="form-control" placeholder="AAR" name="DEFAULTAAR" id="DAAR" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true"
+            value="Close">
         </div>
       </form>
       </div>

@@ -54,6 +54,9 @@ ipcMain.on('AADC:add', (e, AADCData) => {
   AADC = AADCData
   var d = new Date();
   var hour = d.getUTCHours();
+  if(hour > AADC[0]){
+    hour = hour-24;
+  }
   AADC[0] = AADC[0] - hour;
   AADC[1] = AADC[1] - hour;
   var request = new XMLHttpRequest();

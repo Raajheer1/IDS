@@ -16,5 +16,14 @@ request.onload = function() {
     }
 }
 
-//GET AAR from AADC
-//request.open("GET", )
+var request1 = new XMLHttpRequest();
+request1.open("GET", "https://aadc.denartcc.org/AAR.php");
+request1.send();
+
+request1.onload = function() {
+    if(request1.status != 200){
+        console.log("error pulling AAR Data");
+    } else {
+        document.getElementById("ActiveAAR").innerHTML = request1.response;
+    }
+}
