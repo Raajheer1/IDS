@@ -27,4 +27,3 @@ request1.onload = function() {
         document.getElementById("ActiveAAR").innerHTML = request1.response;
     }
 }
-console.log("Hello");
