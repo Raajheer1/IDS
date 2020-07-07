@@ -27,3 +27,19 @@ request1.onload = function() {
         document.getElementById("ActiveAAR").innerHTML = request1.response;
     }
 }
+
+var DENAirportConfig = new XMLHttpRequest();
+DENAirportConfig.open("GET", "https://runwayweather.com/api/airport_config/");
+DENAirportConfig.send();
+
+DENAirportConfig.onload = function() {
+    if(DENAirportConfig.status != 200){
+        console.log("error pulling AAR Data");
+    } else {
+        var DenData = JSON.parse(DENAirportConfig.response)[0]
+        document.getElementById("RWAAR").innerHTML = DenData["arrRate"];
+        document.getElementById("RWADR").innerHTML = DenData["depRate"];
+        document.getElementById("RWLR").innerHTML = DenData["arrRwy"];
+        document.getElementById("RWDR").innerHTML = DenData["depRwy"];
+    }
+}
