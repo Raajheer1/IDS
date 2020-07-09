@@ -1,10 +1,7 @@
+//Metar + Wind & Altimeter
 var request = new XMLHttpRequest();
-//const metar = fetch('http://metar.vatsim.net/KDEN');
-//const text = metar.text();
-
 request.open("GET", "http://metar.vatsim.net/KDEN");
 request.send();
-
 request.onload = function() {
     if(request.status != 200){
         console.log("error pulling VATSIM Data");
@@ -16,10 +13,10 @@ request.onload = function() {
     }
 }
 
+//Pulls the active AAR
 var request1 = new XMLHttpRequest();
 request1.open("GET", "https://aadc.denartcc.org/AAR.php");
 request1.send();
-
 request1.onload = function() {
     if(request1.status != 200){
         console.log("error pulling AAR Data");
@@ -28,10 +25,10 @@ request1.onload = function() {
     }
 }
 
+//Pulls the Real World Config
 var DENAirportConfig = new XMLHttpRequest();
 DENAirportConfig.open("GET", "https://runwayweather.com/api/airport_config/");
 DENAirportConfig.send();
-
 DENAirportConfig.onload = function() {
     if(DENAirportConfig.status != 200){
         console.log("error pulling Real World AAR Data");
@@ -47,10 +44,10 @@ DENAirportConfig.onload = function() {
     }
 }
 
+//Pulls the VATSIM ATIS Letter
 var DENAtis = new XMLHttpRequest();
 DENAtis.open("GET", "https://denartcc.org/atis/KDEN");
 DENAtis.send();
-
 DENAtis.onload = function() {
     if(DENAtis.status != 200){
         console.log("error pulling ATIS Data");
