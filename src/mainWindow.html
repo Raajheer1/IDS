@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
 </head>
 
-<body style="background: url('img/Denver.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+<body
+  style="background: url('img/Denver.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="https://denartcc.org"><img src="img/logo.png" style="max-height: 80px;"></a>
+      <a class="navbar-brand js-scroll-trigger" href="https://denartcc.org"><img src="img/logo.png"
+          style="max-height: 80px;"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -22,7 +24,7 @@
               style="color: black;">IDS4</a></li>
           <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#"
               style="color: black;">ER-IDS</a></li>
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#"
+          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="documents.html"
               style="color: black;">DOCUMENTS</a></li>
         </ul>
       </div>
@@ -31,7 +33,7 @@
   <div class="container" style="height: 100%; display: flex; align-items: center; justify-content: center;">
     <h1 style="font-size: 75px; padding-top: 25%; text-align: center;">Denver Information <br>Display System</h1>
   </div>
-  
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -43,28 +45,6 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
 </body>
-<script src="./scripts.js"></script>
-<script>
-  console.log(process);
-  const electron = require('electron');
-  const { ipcRenderer } = electron;
-
-  const IDSForm = document.getElementById("IDSForm");
-  IDSForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const hs = document.querySelector("#HS").value / 100;
-    const he = document.querySelector("#HE").value / 100;
-    const AAR = parseInt(document.querySelector("#AAR").value);
-    const DAAR = parseInt(document.querySelector("#DAAR").value);
-    var AADC = [];
-    AADC.push(hs);
-    AADC.push(he);
-    AADC.push(AAR);
-    AADC.push(DAAR);
-
-    ipcRenderer.send("AADC:add", AADC);
-  })
-</script>
 <script>
   require('./renderer.js')
 </script>

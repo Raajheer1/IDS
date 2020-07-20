@@ -14,7 +14,7 @@ const createWindow = () => {
     width:1920,
     height:1080,
     frame:false,
-    icon:__dirname+"/img/icon.ico",
+    icon:__dirname+"/img/icon.png",
     webPreferences: {
       nodeIntegration: true
     }
