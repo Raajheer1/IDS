@@ -13,14 +13,15 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width:1920,
     height:1080,
-    icon:__dirname+"/img/icon.png",
+    frame:false,
+    icon:__dirname+"/img/icon.ico",
     webPreferences: {
       nodeIntegration: true
     }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'mainWindow.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
