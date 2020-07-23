@@ -563,7 +563,12 @@
 
 
   const PIREPForm = document.getElementById("PIREPForm");
-
+  PIREPForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(document.querySelector("#pireploc").value);
+    console.log(document.querySelector("#pireptime").value);
+    console.log(document.querySelector("#pirepact").value);
+  })
 </script>
 <script>
   require('./renderer.js')
