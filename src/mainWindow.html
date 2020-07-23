@@ -9,7 +9,7 @@
 
 <body
   style="background: url('img/Denver.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="margin-top: 15px;">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="https://denartcc.org"><img src="img/logo.png"
           style="max-height: 80px;"></a>
@@ -30,8 +30,8 @@
       </div>
     </div>
   </nav>
-  <div class="container" style="height: 100%; display: flex; align-items: center; justify-content: center;">
-    <h1 style="font-size: 75px; padding-top: 25%; text-align: center;">Denver Information <br>Display System</h1>
+  <div class="container" style="height: 75%; display: flex; align-items: center; justify-content: center;">
+    <h1 style="font-size: 75px; text-align: center;">Denver Information <br>Display System</h1>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -44,6 +44,17 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+  <script>
+    const customTitlebar = require('custom-electron-titlebar');
+      let IDSTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex("#242322"),
+        shadow: true,
+        icon: "./img/icon.png"
+    });
+
+    IDSTitleBar.updateTitle('ZDVARTCC');
+    IDSTitleBar.titleHorizontalAlignment("center");
+  </script>
 </body>
 <script>
   require('./renderer.js')

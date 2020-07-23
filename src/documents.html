@@ -7,7 +7,7 @@
 </head>
 
 <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
-    <div class="container-fluid" id="activeareatable" style="justify-content: center; text-align: center;">
+    <div class="container-fluid" id="activeareatable" style="justify-content: center; text-align: center; margin-top: 15px;">
         <h1 style="text-align: center; color: aliceblue; display:inline; vertical-align: middle;">
             <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;"> Documents</span>
         </h1>
@@ -39,6 +39,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script>
+        const customTitlebar = require('custom-electron-titlebar');
+        let IDSTitleBar = new customTitlebar.Titlebar({
+            backgroundColor: customTitlebar.Color.fromHex("#242322"),
+            shadow: true,
+            icon: "./img/icon.png"
+        });
+
+        IDSTitleBar.updateTitle('Documents - ZDVARTCC');
+        IDSTitleBar.titleHorizontalAlignment("center");
+    </script>
 </body>
 <script>
     require('./renderer.js')

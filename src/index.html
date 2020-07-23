@@ -8,7 +8,7 @@
 </head>
 
 <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
-  <div class="container-fluid" id="activeareatable">
+  <div class="container-fluid" id="activeareatable" style="margin-top: 15px;">
     <div class="row">
       <div class="container-fluid">
         <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;"><span
@@ -496,6 +496,17 @@
   <script>window.jQuery = window.$ = module.exports</script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script>
+    const customTitlebar = require('custom-electron-titlebar');
+    let IDSTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex("#242322"),
+        shadow: true,
+        icon: "./img/icon.png"
+    });
+
+    IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
+    IDSTitleBar.titleHorizontalAlignment("center");
+</script>
 </body>
   <script src="./scripts.js"></script>
   <script>
