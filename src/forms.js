@@ -34,16 +34,11 @@ console.log(process);
         "pireprmk": document.querySelector("#pireprmk").value
     };
     var datafile = require('./data/data.json');
-    console.log(datafile);
-    console.log("===========");
-    console.log(PirepSubmission);
     datafile.PIREP.push(PirepSubmission);
-    console.log("==================")
-    console.log(datafile);
-    fs.writeFile('./src/data/data.json', datafile, (err, result) => {
+    var final = JSON.stringify(datafile);
+    fs.writeFile('./src/data/data.json', final, (err, result) => {
         if(err) {
             console.log("***ERROR***", err);
         }
-        console.log(result);
     });
   });
