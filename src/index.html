@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- 
+
 <head>
   <meta charset="utf-8">
   <title>Denver IDS</title>
@@ -11,16 +11,22 @@
   <div class="container-fluid" id="activeareatable" style="margin-top: 15px;">
     <div class="row">
       <div class="container-fluid">
-        <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;"><span
-            style="font-weight: 999;">ZDV</span><span style="font-weight: 200;">IDS</span></h1>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">ATIS</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">PIREP</button>
+        <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;">
+          <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;">IDS</span></h1>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+          data-target="#atismodal">ATIS</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+          data-target="#pirepmodal">PIREP</button>
         <button type="button" class="btn btn-outline-secondary">TMU</button>
         <button type="button" class="btn btn-outline-secondary">COMMS</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">CHARTS</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">ACTIVE AREA</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">AADC</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">RW Config</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+          data-target="#chartsmodal">CHARTS</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+          data-target="#activeareamodal">ACTIVE AREA</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+          data-target="#aadcmodal">AADC</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">RW
+          Config</button>
         <a href="mainWindow.html"><button type="button" class="btn btn-outline-secondary">Back</button></a>
       </div>
     </div>
@@ -32,10 +38,12 @@
             <tr>
               <td class="px-3 py-1" width="100px" style="text-align: center; vertical-align: middle">
                 <span class="metarlike" style="font-size: 1.2rem">KDEN</span>
-                <div class="metarlike badge badge-dark mt-2 apch" style="width: 100%; border-radius: 0px" id="KDEN"><span id="DENVMC"></span></div>
+                <div class="metarlike badge badge-dark mt-2 apch" style="width: 100%; border-radius: 0px" id="KDEN">
+                  <span id="DENVMC"></span></div>
               </td>
               <td width="60px" style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle">
-                <h1 class="m-0 atis" id="KDEN" style="font-size: 2rem; font-weight: bold"><span id="DENLET" style="color: white;"></span></h1>
+                <h1 class="m-0 atis" id="KDEN" style="font-size: 2rem; font-weight: bold"><span id="DENLET"
+                    style="color: white;"></span></h1>
               </td>
               <td width="175px" style="vertical-align: middle">
                 <table class="mb-0 metarlike" style="width: 100%">
@@ -63,11 +71,13 @@
                         <td style="position: relative; height: 1.2rem; overflow: hidden;" class="p-0 important"><span
                             class="prettywx metarlike" id="KDEN"
                             style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span
-                              id="KDENWINDDIR"></span> @ <span id="KDENWINDSPD"></span> <span id="KDENALT"></span></span></td>
+                              id="KDENWINDDIR"></span> @ <span id="KDENWINDSPD"></span> <span
+                              id="KDENALT"></span></span></td>
                       </tr>
                       <tr>
-                        <td style="position: relative; height: 1.2rem; overflow: hidden;" class="p-0"><span class="metar"
-                            id="KDEN" style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span
+                        <td style="position: relative; height: 1.2rem; overflow: hidden;" class="p-0"><span
+                            class="metar" id="KDEN"
+                            style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span
                               id="KDENMETAR"></span></span></td>
                       </tr>
                     </tbody>
@@ -182,355 +192,381 @@
     </div> 
   </div> -->
 
-<!-- IDS Modal -->
-  <div class="modal" id="aadcmodal" role="dialog" aria-labelledby="aadcmodallabel" aria-hidden="true">
+      <!-- IDS Modal -->
+      <div class="modal" id="aadcmodal" role="dialog" aria-labelledby="aadcmodallabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <form id="IDSForm">
+            <div class="modal-content text-white">
+              <div class="modal-header">
+                <h5 class="modal-title" id="aadcmodallabel">Update AADC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span class="text-black" aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - AAR</h5>
+                    <div class="p-2 mt-3 d-flex metarlike"
+                      style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
+                      id="editatis_code" oncontextmenu="return false;"><span id="ActiveAAR"></span></div>
+                    <input name="code" type="hidden" value="">
+                  </div>
+                  <div class="col-9">
+                    <div class="row">
+                      <div class="col-3">
+                        <input class="form-control" placeholder="Hour Start Zulu" name="HS" id="HS" type="text">
+                        <p style="color: black;">Ex: 0100</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="form-control" placeholder="End Zulu" name="HE" id="HE" type="text">
+                      </div>
+                      <div class="col-3">
+                        <input class="form-control" placeholder="AAR" name="AAR" id="AAR" type="text">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-12">
+                        <div class="row">
+                          <h5
+                            style="padding-top: 13px; padding-bottom: 13px; text-align: center; padding-left: 30px; margin-right: 23px;">
+                            Default:</h5>
+                          <div class="col-3">
+                            <input class="form-control" placeholder="AAR" name="DEFAULTAAR" id="DAAR" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc"
+                  data-dismiss="modal" aria-hidden="true" value="Cancel AADC">
+                <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_aadc"
+                  value="Update AADC">
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- RW Modal -->
+    <div class="modal" id="rwmodal" role="dialog" aria-labelledby="rwmodallabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <form id="IDSForm">
+          <div class="modal-content text-white">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rwmodallabel">Real World Airport Config</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-black" aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group row">
+                <div class="col-3">
+                  <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN AAR</h5>
+                  <div class="p-2 mt-3 d-flex metarlike"
+                    style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #5f5f5f;"
+                    id="editatis_code" oncontextmenu="return false;"><span id="RWAAR"></span></div>
+                  <input name="code" type="hidden" value="">
+                </div>
+                <div class="col-3">
+                  <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN ADR</h5>
+                  <div class="p-2 mt-3 d-flex metarlike"
+                    style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #5f5f5f;"
+                    id="editatis_code" oncontextmenu="return false;"><span id="RWADR"></span></div>
+                  <input name="code" type="hidden" value="">
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col">
+                      <h5 style="color: black; vertical-align: middle;">Landing Runways:</h6>
+                        <h5 style="color: black; vertical-align: middle;"><span id="RWLR"></span></h6>
+                    </div>
+                  </div>
+                  <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
+                  <div class="row">
+                    <div class="col">
+                      <h5 style="color: black; vertical-align: middle;">Departing Runways:</h6>
+                        <h5 style="color: black; vertical-align: middle;"><span id="RWDR"></span></h6>
+                    </div>
+                  </div>
+                  <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc"
+                data-dismiss="modal" aria-hidden="true" value="Close">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATIS MODAL -->
+  <div class="modal" id="atismodal" role="dialog" aria-labelledby="atismodallabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <form id="IDSForm">
       <div class="modal-content text-white">
         <div class="modal-header">
-          <h5 class="modal-title" id="aadcmodallabel">Update AADC</h5>
+          <h5 class="modal-title" id="idsmodallabel">Update ATIS Info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="text-black" aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group row">
-            <div class="col-3">
-              <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - AAR</h5>
-              <div class="p-2 mt-3 d-flex metarlike"
-                style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
-                id="editatis_code" oncontextmenu="return false;"><span id="ActiveAAR"></span></div>
-              <input name="code" type="hidden" value="">
-            </div>
             <div class="col-9">
               <div class="row">
-                <div class="col-3">
-                  <input class="form-control" placeholder="Hour Start Zulu" name="HS" id="HS" type="text">
-                  <p style="color: black;">Ex: 0100</p>
+                <div class="col-4">
+                  <input class="form-control" placeholder="Field Identifier" name="atisfield" type="text">
                 </div>
-                <div class="col-3">
-                  <input class="form-control" placeholder="End Zulu" name="HE" id= "HE" type="text">
+                <div class="col-4">
+                  <input class="form-control" placeholder="Landing" name="atisland" type="text">
                 </div>
-                <div class="col-3">
-                  <input class="form-control" placeholder="AAR" name="AAR" id="AAR" type="text">
+                <div class="col-4">
+                  <input class="form-control" placeholder="Departing" name="atisdep" type="text">
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-12">
                   <div class="row">
-                    <h5
-                      style="padding-top: 13px; padding-bottom: 13px; text-align: center; padding-left: 30px; margin-right: 23px;">
-                      Default:</h5>
-                    <div class="col-3">
-                      <input class="form-control" placeholder="AAR" name="DEFAULTAAR" id="DAAR" type="text">
+                    <div class="col-12">
+                      <input class="form-control" placeholder="Extra Information" name="atisextrainfo" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="row">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" id="editats_remove" class="btn btn-danger pull-left" name="do_removeids"
+            data-dismiss="modal" aria-hidden="true" value="Cancel">
+          <input type="submit" id="editats_update" class="btn btn-outline-primary" name="do_atis"
+            value="Update ATIS Info">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--PIREP MODAL-->
+  <div class="modal" id="pirepmodal" role="dialog" aria-labelledby="pirepmodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="idsmodallabel">Input a PIREP</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-black" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form id="PIREPForm">
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-3">
+                    <input class="form-control" placeholder="Location" name="pireploc" id="pireploc" type="text">
+                  </div>
+                  <div class="col-3">
+                    <input class="form-control" placeholder="Time" name="pireptime" id="pireptime" type="text">
+                  </div>
+                  <div class="col-3">
+                    <input class="form-control" placeholder="Altitude" name="pirepalt" id="pirepalt" type="text">
+                  </div>
+                  <div class="col-3">
+                    <input class="form-control" placeholder="Aircraft" name="pirepact" id="pirepact" type="text">
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-12">
+                        <input class="form-control" placeholder="Sky Conditions" name="pirepsky" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-4">
+                        <input class="form-control" placeholder="Temp" name="pireptmp" type="text">
+                      </div>
+                      <div class="col-8">
+                        <input class="form-control" placeholder="Wind" name="pirepwnd" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-12">
+                        <input class="form-control" placeholder="Remarks" name="pireprmk" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true"
-            value="Cancel AADC">
-          <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_aadc" value="Update AADC">
-        </div>
-      </form>
+          <div class="modal-footer">
+            <input type="submit" id="editprp_remove" class="btn btn-danger pull-left" name="do_removeids"
+              data-dismiss="modal" aria-hidden="true" value="Cancel">
+            <input type="submit" id="editprp_update" class="btn btn-outline-primary" name="do_pirep"
+              value="Input PIREP">
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
-  <!-- RW Modal -->
-  <div class="modal" id="rwmodal" role="dialog" aria-labelledby="rwmodallabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <form id="IDSForm">
+  <!--CHARTS MODAL-->
+  <div class="modal" id="chartsmodal" role="dialog" aria-labelledby="chartsmodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content text-white">
         <div class="modal-header">
-          <h5 class="modal-title" id="rwmodallabel">Real World Airport Config</h5>
+          <h5 class="modal-title" id="chartsmodallabel">Charts Viewer</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="text-black" aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group row">
-            <div class="col-3">
-              <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN AAR</h5>
-              <div class="p-2 mt-3 d-flex metarlike"
-                style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #5f5f5f;"
-                id="editatis_code" oncontextmenu="return false;"><span id="RWAAR"></span></div>
-              <input name="code" type="hidden" value="">
-            </div>
-            <div class="col-3">
-              <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN ADR</h5>
-              <div class="p-2 mt-3 d-flex metarlike"
-                style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #5f5f5f;"
-                id="editatis_code" oncontextmenu="return false;"><span id="RWADR"></span></div>
-              <input name="code" type="hidden" value="">
-            </div>
-            <div class="col-6">
+            <div class="col-12">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.simcharts.info"></iframe>
+              </div>
               <div class="row">
-                <div class="col">
-                  <h5 style="color: black; vertical-align: middle;">Landing Runways:</h6>
-                  <h5 style="color: black; vertical-align: middle;"><span id="RWLR"></span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--ACTIVE AREA MODAL-->
+  <div class="modal" id="activeareamodal" role="dialog" aria-labelledby="activemodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="activemodallabel">Active Airspaces</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-black" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <div class="col-9">
+              <div class="row">
+                <div class="col-4">
+                  <input class="form-control" placeholder="Airspace ID" name="airspaceid" type="text">
+                </div>
+                <div class="col-4">
+                  <input class="form-control" placeholder="Altitudes (FL180-FL270)" name="airspacealt" type="text">
+                </div>
+                <div class="col-4">
+                  <input class="form-control" placeholder="Active Until (Z)" name="airspaceend" type="text">
                 </div>
               </div>
-              <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
-              <div class="row">
-                <div class="col">
-                  <h5 style="color: black; vertical-align: middle;">Departing Runways:</h6>
-                  <h5 style="color: black; vertical-align: middle;"><span id="RWDR"></span></h6>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <input class="form-control" placeholder="Extra Information" name="airspaceextra" type="text">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
+              <div class="row mt-3">
+                <div class="col-12">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="row">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true"
-            value="Close">
-        </div>
-      </form>
-      </div>
-    </div>
-  </div>
-
-<!-- ATIS MODAL -->
-<div class="modal" id="atismodal" role="dialog" aria-labelledby="atismodallabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="idsmodallabel">Update ATIS Info</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="text-black" aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <div class="col-9">
-            <div class="row">
-              <div class="col-4">
-                <input class="form-control" placeholder="Field Identifier" name="atisfield" type="text">
-              </div>
-              <div class="col-4">
-                <input class="form-control" placeholder="Landing" name="atisland" type="text">
-              </div>
-              <div class="col-4">
-                <input class="form-control" placeholder="Departing" name="atisdep" type="text">
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <input class="form-control" placeholder="Extra Information" name="atisextrainfo" type="text">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true"
-          value="Cancel">
-        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_atis" value="Update ATIS Info">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--PIREP MODAL-->
-<div class="modal" id="pirepmodal" role="dialog" aria-labelledby="pirepmodallabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="idsmodallabel">Input a PIREP</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="text-black" aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <div class="col-9">
-            <div class="row">
-              <div class="col-4">
-                <input class="form-control" placeholder="Location (VOR)" name="pireploc" type="text">
-              </div>
-              <div class="col-4">
-                <input class="form-control" placeholder="Clouds" name="pirepclo" type="text">
-              </div>
-              <div class="col-4">
-                <input class="form-control" placeholder="Visability" name="pirepvis" type="text">
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-4">
-                    <input class="form-control" placeholder="Precipitation" name="pirepthu" type="text">
-                  </div>
-                  <div class="col-4">
-                    <input class="form-control" placeholder="Ice" name="pirepice" type="text">
-                  </div>
-                  <div class="col-4">
-                    <input class="form-control" placeholder="Windshear" name="pirepwin" type="text">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <input class="form-control" placeholder="Extra Information" name="pirepext" type="text">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true"
-          value="Cancel">
-        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_pirep" value="Input PIREP">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--CHARTS MODAL-->
-<div class="modal" id="chartsmodal" role="dialog" aria-labelledby="chartsmodallabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="chartsmodallabel">Charts Viewer</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="text-black" aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <div class="col-12">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.simcharts.info"></iframe>
-            </div>
-            <div class="row">
-            </div>
-          </div>
+          <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids"
+            data-dismiss="modal" aria-hidden="true" value="Cancel">
+          <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_activearea"
+            value="Submit Active Area">
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!--ACTIVE AREA MODAL-->
-<div class="modal" id="activeareamodal" role="dialog" aria-labelledby="activemodallabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="activemodallabel">Active Airspaces</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="text-black" aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <div class="col-9">
-            <div class="row">
-              <div class="col-4">
-                <input class="form-control" placeholder="Airspace ID" name="airspaceid" type="text">
-              </div>
-              <div class="col-4">
-                <input class="form-control" placeholder="Altitudes (FL180-FL270)" name="airspacealt" type="text">
-              </div>
-              <div class="col-4">
-                <input class="form-control" placeholder="Active Until (Z)" name="airspaceend" type="text">
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <input class="form-control" placeholder="Extra Information" name="airspaceextra" type="text">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="row">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true"
-          value="Cancel">
-        <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_activearea" value="Submit Active Area">
-      </div>
-    </div>
-  </div>
-</div>
 
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
   <script>window.jQuery = window.$ = module.exports</script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
   <script>
     const customTitlebar = require('custom-electron-titlebar');
     let IDSTitleBar = new customTitlebar.Titlebar({
-        backgroundColor: customTitlebar.Color.fromHex("#242322"),
-        shadow: true,
-        icon: "./img/icon.png"
+      backgroundColor: customTitlebar.Color.fromHex("#242322"),
+      shadow: true,
+      icon: "./img/icon.png"
     });
 
     IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
     IDSTitleBar.titleHorizontalAlignment("center");
-</script>
+  </script>
 </body>
-  <script src="./scripts.js"></script>
-  <script>
-    console.log(process);
-    const electron = require('electron');
-    const {ipcRenderer} = electron;
+<script src="./scripts.js"></script>
+<script>
+  console.log(process);
+  const electron = require('electron');
+  const { ipcRenderer } = electron;
 
-    const IDSForm = document.getElementById("IDSForm");
-    IDSForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const hs = document.querySelector("#HS").value/100 +1;
-      const he = document.querySelector("#HE").value/100 +1;
-      const AAR = parseInt(document.querySelector("#AAR").value);
-      const DAAR = parseInt(document.querySelector("#DAAR").value);
-      var AADC = [];
-      AADC.push(hs);
-      AADC.push(he);
-      AADC.push(AAR);
-      AADC.push(DAAR);
+  const IDSForm = document.getElementById("IDSForm");
+  IDSForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const hs = document.querySelector("#HS").value / 100 + 1;
+    const he = document.querySelector("#HE").value / 100 + 1;
+    const AAR = parseInt(document.querySelector("#AAR").value);
+    const DAAR = parseInt(document.querySelector("#DAAR").value);
+    var AADC = [];
+    AADC.push(hs);
+    AADC.push(he);
+    AADC.push(AAR);
+    AADC.push(DAAR);
 
-      ipcRenderer.send("AADC:add", AADC);
-    })
-  </script>
-  <script>
-    require('./renderer.js')
-  </script>
+    ipcRenderer.send("AADC:add", AADC);
+  })
+
+
+  const PIREPForm = document.getElementById("PIREPForm");
+
+</script>
+<script>
+  require('./renderer.js')
+</script>
+
 </html>
