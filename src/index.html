@@ -17,7 +17,8 @@
           data-target="#atismodal">ATIS</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
           data-target="#pirepmodal">PIREP</button>
-        <button type="button" class="btn btn-outline-secondary">TMU</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+        data-target="#tmumodal">TMU</button>
         <button type="button" class="btn btn-outline-secondary">COMMS</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
           data-target="#chartsmodal">CHARTS</button>
@@ -88,7 +89,7 @@
           </tbody>
         </table>
       </div>
-      <!-- <div class="col-lg-4">
+      <div class="col-lg-4">
         <p class="text-center text-light h4">Traffic Management Unit</p>
         <table class="table">
           <table class="table table-md table-dark">
@@ -190,7 +191,7 @@
         </table>
       </div>   
     </div> 
-  </div> -->
+  </div>
 
       <!-- IDS Modal -->
       <div class="modal" id="aadcmodal" role="dialog" aria-labelledby="aadcmodallabel" aria-hidden="true">
@@ -320,20 +321,20 @@
             <div class="col-9">
               <div class="row">
                 <div class="col-4">
-                  <input class="form-control" placeholder="Field Identifier" name="atisfield" type="text">
+                  <input class="form-control" placeholder="Field Identifier" name="atisfield" id="atisfield" type="text">
                 </div>
                 <div class="col-4">
-                  <input class="form-control" placeholder="Landing" name="atisland" type="text">
+                  <input class="form-control" placeholder="Landing" name="atisland" id="atisland" type="text">
                 </div>
                 <div class="col-4">
-                  <input class="form-control" placeholder="Departing" name="atisdep" type="text">
+                  <input class="form-control" placeholder="Departing" name="atisdep" id="atisdep" type="text">
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-12">
                   <div class="row">
                     <div class="col-12">
-                      <input class="form-control" placeholder="Extra Information" name="atisextrainfo" type="text">
+                      <input class="form-control" placeholder="Extra Information" name="atisextrainfo" id="atisextrainfo" type="text">
                     </div>
                   </div>
                 </div>
@@ -475,20 +476,20 @@
             <div class="col-9">
               <div class="row">
                 <div class="col-4">
-                  <input class="form-control" placeholder="Airspace ID" name="airspaceid" type="text">
+                  <input class="form-control" placeholder="Airspace ID" name="airspaceid" id="airspaceid" type="text">
                 </div>
                 <div class="col-4">
-                  <input class="form-control" placeholder="Altitudes (FL180-FL270)" name="airspacealt" type="text">
+                  <input class="form-control" placeholder="Altitudes (FL180-FL270)" name="airspacealt" id="airspacealt" type="text">
                 </div>
                 <div class="col-4">
-                  <input class="form-control" placeholder="Active Until (Z)" name="airspaceend" type="text">
+                  <input class="form-control" placeholder="Active Until (Z)" name="airspaceend" id="airspaceend" type="text">
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-12">
                   <div class="row">
                     <div class="col-12">
-                      <input class="form-control" placeholder="Extra Information" name="airspaceextra" type="text">
+                      <input class="form-control" placeholder="Extra Information" name="airspaceextra" id="airspaceextra" type="text">
                     </div>
                   </div>
                 </div>
@@ -516,6 +517,141 @@
     </div>
   </div>
 
+<!--TMU MODAL-->
+<div class="modal" id="tmumodal" role="dialog" aria-labelledby="tmulabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="activemodallabel">Traffic Management Unit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-black" aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col-3">
+           <p class="h5 text-center">NW | LONGZ</p>
+          </div>
+          <div class="dropdown" style="vertical-align: middle;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="longzdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+           <p class="h5 text-center">NW | FLATI</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="flatidrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <p class="h5 text-center">NE | AALLE</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="aalledrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <p class="h5 text-center">NE | LAWGR</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="lawgrdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <p class="h5 text-center">SE | CLASH</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="clashdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <p class="h5 text-center">SE | NIIXX</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="niixxdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <p class="h5 text-center">SW | TBARR</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="tbarrdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <p class="h5 text-center">SW | SSKII</p>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="sskiidrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ------
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Open</a>
+              <a class="dropdown-item" href="#">Closed</a>
+              <a class="dropdown-item" href="#">------</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
