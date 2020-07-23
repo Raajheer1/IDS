@@ -1,6 +1,7 @@
 console.log(process);
   const electron = require('electron');
   const { ipcRenderer } = electron;
+  var fs = require('fs');
 
   const IDSForm = document.getElementById("IDSForm");
   IDSForm.addEventListener('submit', (e) => {
@@ -22,12 +23,27 @@ console.log(process);
   const PIREPForm = document.getElementById("PIREPForm");
   PIREPForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(document.querySelector("#pireploc").value);
-    console.log(document.querySelector("#pireptime").value);
-    console.log(document.querySelector("#pirepalt").value);
-    console.log(document.querySelector("#pirepact").value);
-    console.log(document.querySelector("#pirepsky").value);
-    console.log(document.querySelector("#pireptmp").value);
-    console.log(document.querySelector("#pirepwnd").value);
-    console.log(document.querySelector("#pireprmk").value);
+    var PirepSubmission = {
+        "pireploc": document.querySelector("#pireploc").value,
+        "pireptime": document.querySelector("#pireptime").value,
+        "pirepalt": document.querySelector("#pirepalt").value,
+        "pirepact": document.querySelector("#pirepact").value,
+        "pirepsky": document.querySelector("#pirepsky").value,
+        "pireptmp": document.querySelector("#pireptmp").value,
+        "pirepwnd": document.querySelector("#pirepwnd").value,
+        "pireprmk": document.querySelector("#pireprmk").value
+    };
+    var datafile = require('./data/data.json');
+    console.log(datafile);
+    console.log("===========");
+    console.log(PirepSubmission);
+    datafile.PIREP.push(PirepSubmission);
+    console.log("==================")
+    console.log(datafile);
+    fs.writeFile('./src/data/data.json', datafile, (err, result) => {
+        if(err) {
+            console.log("***ERROR***", err);
+        }
+        console.log(result);
+    });
   });
