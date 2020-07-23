@@ -7,27 +7,30 @@
 </head>
 
 <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
-    <div class="container-fluid" id="activeareatable" style="justify-content: center; text-align: center;">
-        <h1 style="text-align: center; color: aliceblue; display:inline; vertical-align: middle;">
-            <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;"> Documents</span>
-        </h1>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="mainWindow.html"><button type="button" class="btn"><h1 style="color:white;"><</h1></button></a>
+        </div>
+        <div class="col-md-4 justify-content-center text-center">
+            <h1 style="text-align: center; color: aliceblue; display:inline; vertical-align: middle;">
+                <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;"> Documents</span>
+            </h1>
+        </div>
     </div>
+    
     <div class="container-fluid" id="activeareatable" style="justify-content: center; text-align: center;height: 850px;">
         <div class="row" style="margin-bottom: 15px;">
             <div class="container-fluid">
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">VRC</button>
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">vSTARS</button>
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">vERAM</button>
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">vATIS</button>
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">SOPs</button>
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">LOAs</button>
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">References</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">VRC</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">vSTARS</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">vERAM</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">vATIS</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">SOPs</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">LOAs</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">References</button>
             </div>
           </div>
           <iframe class="embed-responsive-item" style="overflow:hidden;height:100%;width:100%;" height="100%" width="100%" src="https://denartcc.org/documents"></iframe>
-          <div class="container-fluid" id="activeareatable" style="justify-content: center; text-align: center;">
-            <a href="mainWindow.html"><button type="button" class="btn btn-outline-secondary">Back</button></a>
-          </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
