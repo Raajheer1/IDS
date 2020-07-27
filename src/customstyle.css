@@ -1,7 +1,17 @@
-.vertcenter {
+.tmuvcform {
     font-size: .83em;
     margin-top: 1.67em;
     margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.vertcenter {
+    font-size: .83em;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
