@@ -1,7 +1,7 @@
 function pullData(){
     //Metar + Wind & Altimeter
     var request = new XMLHttpRequest();
-    request.open("GET", "http://metar.vatsim.net/KDEN");
+    request.open("GET", "https://metar.vatsim.net/KDEN");
     request.send();
     request.onload = function() {
         if(request.status != 200){
