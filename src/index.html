@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Denver IDS</title>
   <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <link rel="stylesheet" href="./customstyle.css">
 </head>
 
 <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
@@ -280,15 +281,15 @@
               <div class="col-6">
                 <div class="row">
                   <div class="col">
-                    <h5 style="color: black; vertical-align: middle;">Landing Runways:</h6>
-                      <h5 style="color: black; vertical-align: middle;"><span id="RWLR"></span></h6>
+                    <h5 style="color: black; vertical-align: middle; text-align: center;">Landing Runways:</h6>
+                      <h5 style="color: black; vertical-align: middle; text-align: center;"><span id="RWLR"></span></h6>
                   </div>
                 </div>
                 <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
                 <div class="row">
                   <div class="col">
-                    <h5 style="color: black; vertical-align: middle;">Departing Runways:</h6>
-                      <h5 style="color: black; vertical-align: middle;"><span id="RWDR"></span></h6>
+                    <h5 style="color: black; vertical-align: middle; text-align: center;">Departing Runways:</h6>
+                      <h5 style="color: black; vertical-align: middle; text-align: center;"><span id="RWDR"></span></h6>
                   </div>
                 </div>
                 <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
@@ -299,6 +300,7 @@
             <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc"
               data-dismiss="modal" aria-hidden="true" value="Close">
           </div>
+        </div>
       </form>
     </div>
   </div>
@@ -534,128 +536,342 @@
           </button>
         </div>
         <div class="modal-body">
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">NW | LONGZ</p>
+          <!--DEP GATES-->
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">N | YAMMI</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="longzdrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">OPEN</button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuyammi" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">NW | FLATI</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">N | RIKKK</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="flatidrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmurikkk" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">NE | AALLE</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">N | BRYCC</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="aalledrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmubrycc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">NE | LAWGR</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">N | YOKES</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="lawgrdrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuyokes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">SE | CLASH</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">E | EEONS</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="clashdrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmueeons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">SE | NIIXX</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">E | EMMYS</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="niixxdrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuemmys" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">SW | TBARR</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">E | EXTAN</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="tbarrdrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuextan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-3">
-              <p class="h5 text-center">SW | SSKII</p>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">E | EPKEE</p>
+              </div>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="sskiidrop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                ------
-              </button>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuepkee" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Open</a>
                 <a class="dropdown-item" href="#">Closed</a>
-                <a class="dropdown-item" href="#">------</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">S | STAKR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmustakr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">S | SHOJO</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmushojo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">S | SCAGS</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuscags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">S | SOLAR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmusolar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">W | BAYLR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmubaylr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">W | CONNR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuconnr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">W | COORZ</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmucoorz" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">W | ZIMMR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuzimmr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+
+          <!--ARRIVAL GATES-->
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">NE | AALLE</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuaalle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">NE | LAWGR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmulawgr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">SE | CLASH</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuclash" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">SE | NIIXX</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuniixx" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">SW | TBARR</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmutbarr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">SW | SSKII</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmusskii" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">NW | LONGZ</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmulongz" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="vertcenter">
+                <p class="h5 text-center">NW | FLATI</p>
+              </div>
+            </div>
+            <div class="dropdown my-auto">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="tmuflati" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPEN</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Open</a>
+                <a class="dropdown-item" href="#">Closed</a>
               </div>
             </div>
           </div>
