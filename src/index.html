@@ -517,9 +517,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <input type="submit" id="editids_remove" class="btn btn-danger pull-left" name="do_removeids"
+          <input type="submit" id="editAA_remove" class="btn btn-danger pull-left" name="do_removeids"
             data-dismiss="modal" aria-hidden="true" value="Cancel">
-          <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_activearea"
+          <input type="submit" id="editAA_update" class="btn btn-outline-primary" name="do_activearea"
             value="Submit Active Area">
         </div>
       </div>
@@ -1460,6 +1460,7 @@
   <script>
     (function() {
       var SendPIREP = document.querySelector("#editprp_update");
+      var SendActiveArea = document.querySelector("#editAA_update")
 
       let ws;
 
@@ -1512,6 +1513,28 @@
               }
           });
           ws.send(finalPirep);
+        }
+
+        SendActiveArea.onclick = () => {
+          if(!ws) {
+            console.log("There aint no damn websocket fool!");
+            return;
+          }
+          var AASubmission = {
+              "AirspaceID": document.querySelector("#airspaceid").value,
+              "AirspaceALT": document.querySelector("#airspacealt").value,
+              "AirspaceEND": document.querySelector("#airspaceend").value,
+              "AirspaceEXTRA": document.querySelector("#airspaceextra").value
+          };
+          var datafile = require('./data/data.json');
+          datafile.ActiveAreas.push(AASubmission);
+          var finalAA = JSON.stringify(datafile);
+          fs.writeFile('./src/data/data.json', finalAA, (err, result) => {
+              if(err) {
+                  console.log("***ERROR***", err);
+              }
+          });
+          ws.send(finalAA);
         }
       }
 
