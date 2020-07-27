@@ -900,6 +900,67 @@
 
     IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
   </script>
+  <script>
+    (function() {
+      var SendPIREP = document.querySelector("#editprp_update");
+
+      let ws;
+
+      function init() {
+        if(ws) {
+          ws.onerror = ws.onopen = ws.onclose == null;
+          ws.close();
+        }
+
+        ws = new WebSocket('wss://iws.raajpatel.com:8080');
+        
+        ws.onopen = () => {
+          console.log("WS Connection opened!");
+        }
+
+        ws.onmessage = ({data}) => {
+          fs.writeFile("./src/data/data.json", data, (err, result) => {
+            console.log(data);
+            if(err){
+              console.log("RAAAAAJ THERE WAS AN ERROR YOU DING ALING: ", err);
+            }
+          });
+        }
+
+        ws.onclose = () => {
+          ws = null;
+        }
+
+        SendPIREP.onclick = () => {
+          if(!ws) {
+            console.log("There aint no damn websocket fool!");
+            return;
+          }
+          var PirepSubmission = {
+              "pireploc": document.querySelector("#pireploc").value,
+              "pireptime": document.querySelector("#pireptime").value,
+              "pirepalt": document.querySelector("#pirepalt").value,
+              "pirepact": document.querySelector("#pirepact").value,
+              "pirepsky": document.querySelector("#pirepsky").value,
+              "pireptmp": document.querySelector("#pireptmp").value,
+              "pirepwnd": document.querySelector("#pirepwnd").value,
+              "pireprmk": document.querySelector("#pireprmk").value
+          };
+          var datafile = require('./data/data.json');
+          datafile.PIREP.push(PirepSubmission);
+          var finalPirep = JSON.stringify(datafile);
+          fs.writeFile('./src/data/data.json', finalPirep, (err, result) => {
+              if(err) {
+                  console.log("***ERROR***", err);
+              }
+          });
+          ws.send(finalPirep);
+        }
+      }
+
+      init();
+   })();
+  </script>
 </body>
 <script src="./scripts.js"></script>
 <script src="./forms.js"></script>
