@@ -5,39 +5,7 @@
   <meta charset="utf-8">
   <title>Denver IDS</title>
   <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-  <style>
-    .output {
-      text-align: center;
-      font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      color: white;
-
-      h1 {
-        font-size: 30px;
-      }
-    }
-
-    /* Cursor Styling */
-
-    .cursor::after {
-      content: '';
-      display: inline-block;
-      margin-left: 3px;
-      background-color: white;
-      animation-name: blink;
-      animation-duration: 0.5s;
-      animation-iteration-count: infinite;
-    }
-
-    h1.cursor::after {
-      height: 24px;
-      width: 13px;
-    }
-
-    p.cursor::after {
-      height: 13px;
-      width: 6px;
-    }
-  </style>
+  <link rel="stylesheet" href="./customstyle.css">
 </head>
 
 <body
@@ -60,7 +28,7 @@
           <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="documents.html"
               style="color: black;">DOCUMENTS</a></li>
           <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#"
-              style="color: black;"><span id="name">1</span></a></li>
+              style="color: black;"><u><span id="name"></span></u></a></li>
         </ul>
       </div>
     </div>
@@ -109,12 +77,11 @@
 
 // Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
 var textArray = [
-  "Welcome "+ UserData[1] + " " + UserData[2],
-  "Welcome "+ UserData[3] + " " + UserData[4] + " " + UserData[5]];
+  "Welcome "+ UserData[1] + " " + UserData[2] + "|"+ UserData[3] + " " + UserData[4] + " " + UserData[5]];
 
 // Speed (in milliseconds) of typing.
 var speedForward = 100, //Typing Speed
-    speedWait = 1000, // Wait between typing and backspacing
+    speedWait = 1000000000, // Wait between typing and backspacing
     speedBetweenLines = 1000, //Wait between first and second lines
     speedBackspace = 25; //Backspace Speed
 
