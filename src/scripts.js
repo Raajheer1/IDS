@@ -57,7 +57,23 @@ function pullData(){
             document.getElementById("DENLET").innerHTML = DenData["atis_letter"];
         }
     }
-    setTimeout(pullData, 5000);
+    setTimeout(pullData, 15000);
+
+
+    //Reading JSON File
+    var datafile = require('./data/data.json');
+    
+    //ATIS
+    var ATIS = datafile.ATIS;
+
+    //PIREP
+    var PIREP = datafile.PIREP;
+
+    //TMU
+    var TMU = datafile.TMU;
+
+    //ActiveAreas
+    var ActiveAreas = datafile.ActiveAreas;
 };
 
 pullData();

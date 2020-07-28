@@ -1,1 +1,6 @@
-{"ATIS":[],"PIREP":[{"pireploc":"","pireptime":"","pirepalt":"","pirepact":"","pirepsky":"","pireptmp":"","pirepwnd":"","pireprmk":""}],"TMU":[],"ActiveAreas":[]}
+{
+    "ATIS": [],
+    "PIREP": [],
+    "TMU": [],
+    "ActiveAreas": []
+}

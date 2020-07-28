@@ -22,7 +22,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'mainWindow.html'));
+  mainWindow.loadFile(path.join(__dirname, 'login.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
@@ -64,4 +64,17 @@ ipcMain.on('AADC:add', (e, AADCData) => {
   var request = new XMLHttpRequest();
   request.open("GET", "https://aadc.denartcc.org/ids.php?AAR="+AADC[2]+"&HS="+AADC[0]+"&HE="+AADC[1]+"&DAAR="+AADC[3]);
   request.send();
-})
+});
+
+//Catch User Information
+var UserData;
+
+ipcMain.on("USER:add", (e, UserArray) => {
+  UserData = UserArray;
+  mainWindow.loadFile(path.join(__dirname, 'mainWindow.html'));
+});
+
+ipcMain.on('synchronous-message', (event, arg) => {
+  console.log(arg);
+  event.returnValue = UserData;
+});
