@@ -8,6 +8,10 @@
     vertical-align: middle;
 }
 
+.flightstrip {
+    font-size: 1.1em;
+}
+
 .vertcenter {
     font-size: .83em;
     margin-top: 0.8em;
