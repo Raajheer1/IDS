@@ -26,6 +26,8 @@
           data-target="#activeareamodal">ACTIVE AREA</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
           data-target="#aadcmodal">AADC</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+          data-target="#cdrmodal">CDRs</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">RW
           Config</button>
         <a href="mainWindow.html"><button type="button" class="btn btn-outline-secondary">Back</button></a>
@@ -165,7 +167,7 @@
                           <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
                           <span class="flightstrip" style="margin-top: 5px;">0140</span>
                           <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
-                          <span class="flightstrip">     </span>
+                          <span class="flightstrip"> </span>
                         </td>
                       </tr>
                     </tbody>
@@ -399,7 +401,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content text-white">
         <div class="modal-header">
-          <h5 class="modal-title" id="idsmodallabel">Update ATIS Info</h5>
+          <h5 class="modal-title" id="atismodallabel">Update ATIS Info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="text-black" aria-hidden="true">×</span>
           </button>
@@ -409,14 +411,10 @@
             <div class="form-group row">
               <div class="col-9">
                 <div class="row">
-                  <div class="col-4">
-                    <input class="form-control" placeholder="Field Identifier" name="atisfield" id="atisfield"
-                      type="text">
-                  </div>
-                  <div class="col-4">
+                  <div class="col-6">
                     <input class="form-control" placeholder="Landing" name="atisland" id="atisland" type="text">
                   </div>
-                  <div class="col-4">
+                  <div class="col-6">
                     <input class="form-control" placeholder="Departing" name="atisdep" id="atisdep" type="text">
                   </div>
                 </div>
@@ -1597,111 +1595,229 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-    <script>window.jQuery = window.$ = module.exports</script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"></script>
-    <script>
-      const customTitlebar = require('custom-electron-titlebar');
-      let IDSTitleBar = new customTitlebar.Titlebar({
-        backgroundColor: customTitlebar.Color.fromHex("#242322"),
-        shadow: true,
-        icon: "./img/icon.png"
-      });
+  <!-- CDR MODAL -->
+  <div class="modal" id="cdrmodal" role="dialog" aria-labelledby="cdrmodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cdrmodallabel">Coded Departure Routes</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-black" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form id="CDRForm">
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-9">
+                <div class="row">
+                  <div class="col-6" style="align-items: center;">
+                    <input class="form-control" placeholder="Coded Departure Route" name="cdrentry" id="cdrentry"
+                      type="text">
+                    <label>Ex: PHXS3</label>
+                  </div>
+                  <div class="col-6" style="align-items: center;">
+                    <input type="submit" id="editcdr_update" class="btn btn-outline-primary" name="do_cdr"
+              value="Fetch Route">
+                  </div>
+                </div>
+                <div class="row mt-3" style="align-items: center;">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-12">
+                        <span class="CodedDepRoutes">Origin:<span id="CDROrig"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Destination:<span id="CDRDest"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Departure Gate:<span id="CDRDepFix"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Route:<span id="CDRRoute"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Departure CNTR:<span id="CDRDCNTR"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Arrival CNTR:<span id="CDRACNTR"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Transition CNTR(s):<span id="CDRTCNTR"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Coordination Req:<span id="CDRCoordReq"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Playbook:<span id="CDRPlay"></span></span>
+                        <hr style="background-color: white; width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <span class="CodedDepRoutes" style="margin-top: 5px;">Nav Equipment:<span id="CDRNavEqp"></span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" id="editcdr_remove" class="btn btn-danger pull-left" name="do_removecdr"
+              data-dismiss="modal" aria-hidden="true" value="Close">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-      IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
-    </script>
-    <script>
-      (function () {
-        var SendPIREP = document.querySelector("#editprp_update");
-        var SendActiveArea = document.querySelector("#editAA_update")
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery = window.$ = module.exports</script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script>
+    const customTitlebar = require('custom-electron-titlebar');
+    let IDSTitleBar = new customTitlebar.Titlebar({
+      backgroundColor: customTitlebar.Color.fromHex("#242322"),
+      shadow: true,
+      icon: "./img/icon.png"
+    });
 
-        let ws;
+    IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
+  </script>
+  <script>
+    (function () {
+      var SendPIREP = document.querySelector("#editprp_update");
+      var SendActiveArea = document.querySelector("#editAA_update");
+      var SendATIS = document.querySelector("#editats_update");
+      var SendCDR = document.querySelector("#editcdr_update");
 
-        function init() {
-          if (ws) {
-            ws.onerror = ws.onopen = ws.onclose == null;
-            ws.close();
-          }
+      let ws;
 
-          ws = new WebSocket('wss://iws.raajpatel.com:8080');
-
-          ws.onopen = () => {
-            console.log("WS Connection opened!");
-          }
-
-          ws.onmessage = ({ data }) => {
-            fs.writeFile("./src/data/data.json", data, (err, result) => {
-              console.log(data);
-              if (err) {
-                console.log("RAAAAAJ THERE WAS AN ERROR YOU DING ALING: ", err);
-              }
-            });
-          }
-
-          ws.onclose = () => {
-            ws = null;
-          }
-
-          SendPIREP.onclick = () => {
-            if (!ws) {
-              console.log("There aint no damn websocket fool!");
-              return;
-            }
-            var PirepSubmission = {
-              "pireploc": document.querySelector("#pireploc").value,
-              "pireptime": document.querySelector("#pireptime").value,
-              "pirepalt": document.querySelector("#pirepalt").value,
-              "pirepact": document.querySelector("#pirepact").value,
-              "pirepsky": document.querySelector("#pirepsky").value,
-              "pireptmp": document.querySelector("#pireptmp").value,
-              "pirepwnd": document.querySelector("#pirepwnd").value,
-              "pireprmk": document.querySelector("#pireprmk").value
-            };
-            var datafile = require('./data/data.json');
-            datafile.PIREP.push(PirepSubmission);
-            var finalPirep = JSON.stringify(datafile);
-            fs.writeFile('./src/data/data.json', finalPirep, (err, result) => {
-              if (err) {
-                console.log("***ERROR***", err);
-              }
-            });
-            ws.send(finalPirep);
-          }
-
-          SendActiveArea.onclick = () => {
-            if (!ws) {
-              console.log("There aint no damn websocket fool!");
-              return;
-            }
-            var AASubmission = {
-              "AirspaceID": document.querySelector("#airspaceid").value,
-              "AirspaceALT": document.querySelector("#airspacealt").value,
-              "AirspaceEND": document.querySelector("#airspaceend").value,
-              "AirspaceEXTRA": document.querySelector("#airspaceextra").value
-            };
-            var datafile = require('./data/data.json');
-            datafile.ActiveAreas.push(AASubmission);
-            var finalAA = JSON.stringify(datafile);
-            fs.writeFile('./src/data/data.json', finalAA, (err, result) => {
-              if (err) {
-                console.log("***ERROR***", err);
-              }
-            });
-            ws.send(finalAA);
-          }
+      function init() {
+        if (ws) {
+          ws.onerror = ws.onopen = ws.onclose == null;
+          ws.close();
         }
 
-        init();
-      })();
-    </script>
+        ws = new WebSocket('wss://iws.raajpatel.com:8080');
+
+        ws.onopen = () => {
+          console.log("WS Connection opened!");
+        }
+
+        ws.onmessage = ({ data }) => {
+          fs.writeFile("./src/data/data.json", data, (err, result) => {
+            console.log(data);
+            if (err) {
+              console.log("RAAAAAJ THERE WAS AN ERROR YOU DING ALING: ", err);
+            }
+          });
+        }
+
+        ws.onclose = () => {
+          ws = null;
+        }
+
+        SendPIREP.onclick = () => {
+          if (!ws) {
+            console.log("There aint no damn websocket fool!");
+            return;
+          }
+          var PirepSubmission = {
+            "pireploc": document.querySelector("#pireploc").value,
+            "pireptime": document.querySelector("#pireptime").value,
+            "pirepalt": document.querySelector("#pirepalt").value,
+            "pirepact": document.querySelector("#pirepact").value,
+            "pirepsky": document.querySelector("#pirepsky").value,
+            "pireptmp": document.querySelector("#pireptmp").value,
+            "pirepwnd": document.querySelector("#pirepwnd").value,
+            "pireprmk": document.querySelector("#pireprmk").value
+          };
+          var datafile = require('./data/data.json');
+          datafile.PIREP.push(PirepSubmission);
+          var finalPirep = JSON.stringify(datafile);
+          fs.writeFile('./src/data/data.json', finalPirep, (err, result) => {
+            if (err) {
+              console.log("***ERROR***", err);
+            }
+          });
+          ws.send(finalPirep);
+        }
+
+        SendActiveArea.onclick = () => {
+          if (!ws) {
+            console.log("There aint no damn websocket fool!");
+            return;
+          }
+          var AASubmission = {
+            "AirspaceID": document.querySelector("#airspaceid").value,
+            "AirspaceALT": document.querySelector("#airspacealt").value,
+            "AirspaceEND": document.querySelector("#airspaceend").value,
+            "AirspaceEXTRA": document.querySelector("#airspaceextra").value
+          };
+          var datafile = require('./data/data.json');
+          datafile.ActiveAreas.push(AASubmission);
+          var finalAA = JSON.stringify(datafile);
+          fs.writeFile('./src/data/data.json', finalAA, (err, result) => {
+            if (err) {
+              console.log("***ERROR***", err);
+            }
+          });
+          ws.send(finalAA);
+        }
+
+        SendATIS.onclick = () => {
+          if (!ws) {
+            console.log("Raaj there isnt a websocket u clown!");
+            return;
+          }
+          var ATISSubmit = {
+            "LandingRWYs": document.querySelector("#atisland").value,
+            "DepartingRWYs": document.querySelector("#atisdep").value,
+            "ExtraInfo": document.querySelector("#atisextrainfo").value
+          };
+          var datafile = require('./data/data.json');
+          datafile.ATIS.push(ATISSubmit);
+          var finalATIS = JSON.stringify(datafile);
+          fs.writeFile("./src/data/data.json", finalATIS, (err, result) => {
+            if (err) {
+              console.log("***ERROR***", err);
+            }
+          });
+          ws.send(finalATIS);
+        }
+      }
+
+      SendCDR.onclick = () => {
+        var CDRQuery = new XMLHttpRequest();
+        CDRQuery.open("GET", "https://denartcc.org/api/cdr/"+document.querySelector("#cdrentry"));
+        CDRQuery.send();
+        CDRQuery.onload = function() {
+            if(CDRQuery.status != 200){
+                console.log("DENARTCC CDR Website is Down");
+            } else {
+                var QueryResponse = CDRQuery.response;
+                QueryResponse = JSON.parse(QueryResponse);
+                document.getElementById("CDROrig").innerHTML = QueryResponse.Orig;
+                document.getElementById("CDRDest").innerHTML = QueryResponse.Dest;
+                document.getElementById("CDRDepFix").innerHTML = QueryResponse.DepFix;
+                document.getElementById("CDRRoute").innerHTML = QueryResponse.Route;
+                document.getElementById("CDRDCNTR").innerHTML = QueryResponse.DCNTR;
+                document.getElementById("CDRACNTR").innerHTML = QueryResponse.ACNTR;
+                document.getElementById("CDRTCNTR").innerHTML = QueryResponse.TCNTR;
+                document.getElementById("CDRCoordReq").innerHTML = QueryResponse.CoordReq;
+                document.getElementById("CDRPlay").innerHTML = QueryResponse.Play;
+                document.getElementById("CDRNavEqp").innerHTML = QueryResponse.NavEqp;
+            }
+        }
+      }
+
+      init();
+    })();
+  </script>
 </body>
 <script src="./scripts.js"></script>
 <script src="./forms.js"></script>
@@ -1710,3 +1826,8 @@
 </script>
 
 </html>
+
+<!-- 
+  Google forms query
+  https://docs.google.com/spreadsheets/d/1pE3J7g5_hW4wllbP1EJ-MuwqZIhGpve5j5I_HMeTatU/gviz/tq?tq=select%20E%20where%20A%20contains%20%27ABQS6%27%0A&gid=39177069
+ -->
