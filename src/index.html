@@ -93,7 +93,7 @@
         <div class="row" style="text-align: center;">
           <hr style="background-color: rgb(79,77,77); width: 90%; height: 2px;">
           <div class="col-xl-12" style="text-align: center;">
-            <h2 style="color: honeydew;">Flight Strips</h1>
+            <h2 style="color: honeydew;">Flight Strips</h2>
               <div class="row">
                 <div class="col-xl-6" style="text-align: center;">
                   <table class="table table-borderless p-0 mb-1 text-white"
@@ -153,8 +153,7 @@
                           style="vertical-align: top; text-align: left; font-size: 1rem; border-left: 1px solid rgb(79,77,77)">
                           <span style="color: red;">...SMMUR1 DAAYE RSK FLG DUTEY MAIER BRUSR1 KPHX</span>
                         </td>
-                        <td class="px-0 py-1" width="20px"
-                          style="text-align: center; vertical-align: middle; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)">
+                        <td class="px-0 py-1" width="20px" style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
                           <span class="flightstrip">17L</span>
                           <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
                           <span class="flightstrip">0126</span>
@@ -162,12 +161,12 @@
                           <span class="flightstrip">0132</span>
                         </td>
                         <td class="px-0 py-1" width="20px"
-                          style="text-align: center; vertical-align: middle; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)">
+                          style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
                           <span class="flightstrip">RLSD</span>
                           <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
-                          <span class="flightstrip" style="margin-top: 5px;">0140</span>
+                          <span class="flightstrip">0140</span>
                           <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
-                          <span class="flightstrip"> </span>
+                          <span class="flightstrip">BLAH</span>
                         </td>
                       </tr>
                     </tbody>
@@ -339,7 +338,6 @@
       </form>
     </div>
   </div>
-  </div>
 
   <!-- RW Modal -->
   <div class="modal" id="rwmodal" role="dialog" aria-labelledby="rwmodallabel" aria-hidden="true">
@@ -393,7 +391,6 @@
         </div>
       </form>
     </div>
-  </div>
   </div>
 
   <!-- ATIS MODAL -->
@@ -629,969 +626,921 @@
           <div class="row justify-content-center align-items-center">
             <p class="h3">DEPARTURE GATES</p>
           </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">N | YAMMI</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="yammigate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">N | YAMMI</p>
                 </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="yammigate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="yammispeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="yammimit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">N | RIKKK</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="rikkkgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">N | RIKKK</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="rikkkgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="rikkkspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="rikkkmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">N | BRYCC</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="bryccgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">N | BRYCC</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="bryccgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="bryccspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="bryccmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">N | YOKES</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="yokesgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">N | YOKES</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="yokesgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="yokesspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="yokesmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">E | EEONS</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="eeonsgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">E | EEONS</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="eeonsgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="eeonsspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="eeonsmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">E | EMMYS</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="emmysgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">E | EMMYS</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="emmysgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="emmysspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="emmysmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">E | EXTAN</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="extangate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">E | EXTAN</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="extangate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="extanspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="extanmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">E | EPKEE</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="epkeegate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">E | EPKEE</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="epkeegate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="epkeespeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="epkeemit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">S | STAKR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="stakrgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">S | STAKR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="stakrgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="stakrspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="stakrmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">S | SHOJO</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="shojogate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">S | SHOJO</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="shojogate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="shojospeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="shojomit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">S | SCAGS</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="scagsgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">S | SCAGS</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="scagsgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="scagsspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="scagsmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">S | SOLAR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="solargate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">S | SOLAR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="solargate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="solarspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="solarmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">W | BAYLR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="baylrgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">W | BAYLR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="baylrgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="baylrspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="baylrmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">W | CONNR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="connrgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">W | CONNR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="connrgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="connrspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="connrmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">W | COORZ</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="coorzgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">W | COORZ</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="coorzgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="coorzspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="coorzmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">W | ZIMMR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="zimmrgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">W | ZIMMR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="zimmrgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="zimmrspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="zimmrmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
+                </div>
               </div>
             </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
+          </form>
           <div class="row justify-content-center align-items-center">
             <p class="h3">ARRIVAL GATES</p>
           </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">NW | LONGZ</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="longzgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">NW | LONGZ</p>
                 </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="longzgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="longzspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="longzimit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">NW | FLATI</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="flatigate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">NW | FLATI</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="flatigate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="flatispeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="flatimit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">NE | AALLE</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="aallegate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">NE | AALLE</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="aallegate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="aallespeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="aallemit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">NE | LAWGR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="lawgrgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">NE | LAWGR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="lawgrgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="lawgrspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="lawgrmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">SE | CLASH</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="clashgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">SE | CLASH</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="clashgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="clashspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="clashmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">SE | NIIXX</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="niixxgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">SE | NIIXX</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="niixxgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="niixxspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="niixxmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">SW | TBARR</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="tbarrgate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">SW | TBARR</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="tbarrgate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="tbarrspeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="tbarrmit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <p class="h5 text-center">SW | SSKII</p>
-              </div>
-            </div>
-            <div class="col-2 my-auto">
-              <div class="tmuvcform">
-                <div class="form-group">
-                  <select class="form-control" id="sskiigate">
-                    <option>OPEN</option>
-                    <option>CLOSED</option>
-                  </select>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+          </form>
+          <form>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <p class="h5 text-center">SW | SSKII</p>
+                </div>
+              </div>
+              <div class="col-2 my-auto">
+                <div class="tmuvcform">
+                  <div class="form-group">
+                    <select class="form-control" id="sskiigate">
+                      <option>OPEN</option>
+                      <option>CLOSED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="sskiispeed" placeholder="Speed">
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="col-2 align-self-center">
-              <div class="tmuvcform">
-                <form>
+              <div class="col-2 align-self-center">
+                <div class="tmuvcform">
                   <div class="form-group">
                     <input type="text" class="form-control" id="sskiimit" placeholder="MIT">
                   </div>
-                </form>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="vertcenter">
+                  <button type="submit" class="btn btn-dark btn-md btn-block">UPDATE</button>
+                </div>
               </div>
             </div>
-            <div class="col-2">
-              <div class="vertcenter">
-                <button type="button" class="btn btn-dark btn-md btn-block">UPDATE</button>
-              </div>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

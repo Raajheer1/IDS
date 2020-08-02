@@ -10,6 +10,12 @@
 
 .flightstrip {
     font-size: 1.1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    vertical-align: sub;
 }
 
 .CodedDepRoutes {
