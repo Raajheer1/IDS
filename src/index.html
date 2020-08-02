@@ -39,28 +39,36 @@
           style="background-color: rgb(47, 47, 47); border: 1px solid rgb(79, 77, 77); margin-top: 15px;">
           <tbody>
             <tr>
-              <td class="px-3 py-1" width="100px" style="text-align: center; vertical-align: middle">
+              <td width="60px" style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem">
                 <span class="metarlike" style="font-size: 1.2rem">KDEN</span>
-                <div class="metarlike badge badge-dark mt-2 apch" style="width: 100%; border-radius: 0px" id="KDEN">
-                  <span id="DENVMC"></span></div>
-              </td>
-              <td width="60px" style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle">
-                <h1 class="m-0 atis" id="KDEN" style="font-size: 2rem; font-weight: bold"><span id="DENLET"
+                <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET"
                     style="color: white;"></span></h1>
               </td>
-              <td width="175px" style="vertical-align: middle">
+              <td width="200px" style="vertical-align: middle; padding: .75rem;">
                 <table class="mb-0 metarlike" style="width: 100%">
                   <tbody>
                     <tr>
-                      <td class="p-0" style="width: 30px">D:</td>
+                      <td class="p-0" style="width: 30px">DEP:</td>
                       <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span
                           style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="dep" id="RWDR1"></span>
                       </td>
                     </tr>
                     <tr>
-                      <td class="p-0" style="width: 30px">A:</td>
+                      <td class="p-0" style="width: 30px">ARR:</td>
                       <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span
                           style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="arr" id="RWLR1"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p-0" style="width: 30px">WTHR: </td>
+                      <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span
+                          style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="arr" id="DENVMC"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p-0" style="width: 30px">APP: </td>
+                      <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span
+                          style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="arr" id="DENAPP"></span>
                       </td>
                     </tr>
                   </tbody>
@@ -108,9 +116,9 @@
                       <td class="px-0 py-1" width="60px"
                         style="text-align: center; vertical-align: middle; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)">
                         <span class="flightstrip">1200</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
                         <span class="flightstrip">P0156</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
                         <span class="flightstrip">FL260</span>
                       </td>
                       <td width="125px" style="vertical-align: middle">
@@ -121,6 +129,24 @@
                       <td class="px-0 py-0"
                         style="vertical-align: top; text-align: left; font-size: 1rem; border-left: 1px solid rgb(79,77,77)">
                         <span>...SMMUR1 DAAYE GUP EAGUL6 PHX</span>
+                      </td>
+                      <td class="px-0 py-1" width="50px"
+                        style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)"
+                        valign="middle">
+                        <span class="flightstrip">17L</span>
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
+                        <span class="flightstrip">0126</span>
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
+                        <span class="flightstrip">0132</span>
+                      </td>
+                      <td class="px-0 py-1" width="50px"
+                        style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)"
+                        valign="middle">
+                        <span class="flightstrip">RLSD</span>
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
+                        <span class="flightstrip">0140</span>
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
+                        <span class="flightstrip">BLAH</span>
                       </td>
                     </tr>
                   </tbody>
@@ -137,11 +163,11 @@
                         <span class="flightstrip">...</span>
                       </td>
                       <td class="px-0 py-1" width="60px"
-                        style="text-align: center; vertical-align: middle; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)">
+                        style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
                         <span class="flightstrip">1200</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
                         <span class="flightstrip">P0156</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
                         <span class="flightstrip">FL260</span>
                       </td>
                       <td width="125px" style="vertical-align: middle">
@@ -153,22 +179,22 @@
                         style="vertical-align: top; text-align: left; font-size: 1rem; border-left: 1px solid rgb(79,77,77)">
                         <span style="color: red;">...SMMUR1 DAAYE RSK FLG DUTEY MAIER BRUSR1 KPHX</span>
                       </td>
-                      <td class="px-0 py-1" width="20px"
+                      <td class="px-0 py-1" width="50px"
                         style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)"
                         valign="middle">
                         <span class="flightstrip">17L</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
                         <span class="flightstrip">0126</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
                         <span class="flightstrip">0132</span>
                       </td>
-                      <td class="px-0 py-1" width="20px"
+                      <td class="px-0 py-1" width="50px"
                         style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)"
                         valign="middle">
                         <span class="flightstrip">RLSD</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
                         <span class="flightstrip">0140</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
+                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
                         <span class="flightstrip">BLAH</span>
                       </td>
                     </tr>
