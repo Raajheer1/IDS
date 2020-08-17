@@ -77,3 +77,8 @@ function pullData(){
 };
 
 pullData();
+
+
+function flightStripMaker(){
+    
+}
