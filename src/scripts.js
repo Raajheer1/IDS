@@ -57,7 +57,6 @@ function pullData(){
             document.getElementById("DENLET").innerHTML = DenData["atis_letter"];
         }
     }
-    setTimeout(pullData, 15000);
 
 
     //Reading JSON File
@@ -68,12 +67,29 @@ function pullData(){
 
     //PIREP
     var PIREP = datafile.PIREP;
+    PIREPHTMLString = "";
+    PIREP.forEach((item) => {
+        PIREPHTMLString += `Loc: ${item["pireploc"]} | Time: ${item["pireptime"]} | Alt: ${item["pirepalt"]} | Acft: ${item["pirepact"]} | Sky: ${item["pirepsky"]} | Temp: ${item["pireptmp"]} | Wind: ${item["pirepwnd"]} | Rmk: ${item["pireprmk"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+    });
+    document.getElementById("PIREP_container").innerHTML = PIREPHTMLString;
 
     //TMU
     var TMU = datafile.TMU;
+    TMUHTMLString = "";
+    TMU.forEach((item) => {
+        TMUHTMLString += `${item["TMUGate"]} | ${item["TMUStat"]} | ${item["TMUMIT"]} | ${item["TMUSPD"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+    });
+    document.getElementById("TMU_container").innerHTML = TMUHTMLString;
 
     //ActiveAreas
     var ActiveAreas = datafile.ActiveAreas;
+    AAHTMLString = "";
+    ActiveAreas.forEach((item) => {
+        AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+    });
+    document.getElementById("AAI_container").innerHTML = AAHTMLString;
+
+    setTimeout(pullData, 5000);
 };
 
 pullData();
