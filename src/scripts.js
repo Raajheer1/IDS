@@ -96,5 +96,14 @@ pullData();
 
 
 function flightStripMaker(){
-    
+    var vatsimDataReq = new XMLHttpRequest();
+    vatsimDataReq.open("GET", "https://api.aviationapi.com/v1/vatsim/pilots?apt=KDEN")
+    vatsimDataReq.send();
+    vatsimDataReq.onload = () => {
+        if(vatsimDataReq.status != 200){
+            console.log("error pulling Departure Data");
+        } else {
+            return JSON.parse(vatsimDataReq.response);
+        }
+    }
 }
