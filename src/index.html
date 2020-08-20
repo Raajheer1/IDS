@@ -364,7 +364,7 @@
                     <input class="form-control" placeholder="Location" name="pireploc" id="pireploc" type="text">
                   </div>
                   <div class="col-3">
-                    <input class="form-control" placeholder="Time" name="pireptime" id="pireptime" type="text">
+                    <input class="form-control" placeholder="Time(z)" name="pireptime" id="pireptime" type="text">
                   </div>
                   <div class="col-3">
                     <input class="form-control" placeholder="Altitude" name="pirepalt" id="pirepalt" type="text">
@@ -469,8 +469,8 @@
                   <label style="color:#55595c; padding-left: 5%;">Example: 'FL180-FL240'</label>
                 </div>
                 <div class="col-4">
-                  <input class="form-control" placeholder="Active Until (0100)" name="airspaceend" id="airspaceend" type="text">
-                  <label style="color:#55595c; padding-left: 5%;">Do not put a 'Z'</label>
+                  <input class="form-control" placeholder="Active Until (0100z)" name="airspaceend" id="airspaceend" type="text">
+                  <label style="color:#55595c; padding-left: 5%;"></label>
                 </div>
               </div>
               <div class="row mt-3">
@@ -1458,7 +1458,7 @@
                     <label>Ex: PHXS3</label>
                   </div>
                   <div class="col-6" style="align-items: center;">
-                    <input type="submit" id="editcdr_update" class="btn btn-outline-primary" name="do_cdr" value="Fetch Route">
+                    <input type="button" id="editcdr_update" class="btn btn-outline-primary" name="do_cdr" value="Fetch Route">
                   </div>
                 </div>
                 <div class="row mt-3" style="align-items: center;">
@@ -1625,14 +1625,16 @@
 
       SendCDR.onclick = () => {
         var CDRQuery = new XMLHttpRequest();
-        CDRQuery.open("GET", "https://denartcc.org/api/cdr/" + document.querySelector("#cdrentry"));
+        CDRQuery.open("GET", "https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
         CDRQuery.send();
         CDRQuery.onload = function () {
           if (CDRQuery.status != 200) {
             console.log("DENARTCC CDR Website is Down");
           } else {
             var QueryResponse = CDRQuery.response;
-            QueryResponse = JSON.parse(QueryResponse);
+            console.log( "https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
+            console.log(QueryResponse);
+            QueryResponse = JSON.parse(QueryResponse)[0];
             document.getElementById("CDROrig").innerHTML = QueryResponse.Orig;
             document.getElementById("CDRDest").innerHTML = QueryResponse.Dest;
             document.getElementById("CDRDepFix").innerHTML = QueryResponse.DepFix;
