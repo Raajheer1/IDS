@@ -15,14 +15,14 @@ const createWindow = () => {
     height:1080,
     frame: false,
     titleBarStyle: "hidden",
-    icon:__dirname+"/img/icon.ico",
+    icon:__dirname+"/img/icon.png",
     webPreferences: {
       nodeIntegration: true
     }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'login.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
