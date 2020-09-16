@@ -496,7 +496,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <input type="submit" id="editAA_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
+          <input type="button" id="editAA_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
           <input type="submit" id="editAA_update" class="btn btn-outline-primary" name="do_activearea" value="Submit Active Area">
         </div>
       </div>
@@ -1541,8 +1541,8 @@
         }
 
         ws.onmessage = ({ data }) => {
-          fs.writeFile("./src/data/data.json", data, (err, result) => {
-            console.log(data);
+
+          fs.writeFile("./src/data/data.json", data, (err) => {
             if (err) {
               console.log("RAAAAAJ THERE WAS AN ERROR YOU DING ALING: ", err);
             }
@@ -1571,12 +1571,8 @@
           var datafile = require('./data/data.json');
           datafile.PIREP.push(PirepSubmission);
           var finalPirep = JSON.stringify(datafile);
-          fs.writeFile('./src/data/data.json', finalPirep, (err, result) => {
-            if (err) {
-              console.log("***ERROR***", err);
-            }
-          });
           ws.send(finalPirep);
+          delete require.cache[require.resolve('./data/data.json')]
         }
 
         SendActiveArea.onclick = () => {
@@ -1593,12 +1589,8 @@
           var datafile = require('./data/data.json');
           datafile.ActiveAreas.push(AASubmission);
           var finalAA = JSON.stringify(datafile);
-          fs.writeFile('./src/data/data.json', finalAA, (err, result) => {
-            if (err) {
-              console.log("***ERROR***", err);
-            }
-          });
           ws.send(finalAA);
+          delete require.cache[require.resolve('./data/data.json')]
         }
 
         SendATIS.onclick = () => {
@@ -1614,12 +1606,8 @@
           var datafile = require('./data/data.json');
           datafile.ATIS.push(ATISSubmit);
           var finalATIS = JSON.stringify(datafile);
-          fs.writeFile("./src/data/data.json", finalATIS, (err, result) => {
-            if (err) {
-              console.log("***ERROR***", err);
-            }
-          });
           ws.send(finalATIS);
+          delete require.cache[require.resolve('./data/data.json')]
         }
       }
 
@@ -1632,7 +1620,7 @@
             console.log("DENARTCC CDR Website is Down");
           } else {
             var QueryResponse = CDRQuery.response;
-            console.log( "https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
+            console.log("https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
             console.log(QueryResponse);
             QueryResponse = JSON.parse(QueryResponse)[0];
             document.getElementById("CDROrig").innerHTML = QueryResponse.Orig;

@@ -1,6 +1,5 @@
 const electron = require('electron');
 const { ipcRenderer } = electron;
-var fs = require('fs');
 
 const IDSForm = document.getElementById("IDSForm");
 IDSForm.addEventListener('submit', (e) => {

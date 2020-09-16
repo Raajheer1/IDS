@@ -1,16 +1,19 @@
-function pullData(){
+const fs = require("fs");
+
+
+function pullData() {
     //Metar + Wind & Altimeter
     var request = new XMLHttpRequest();
     request.open("GET", "https://metar.vatsim.net/KDEN");
     request.send();
-    request.onload = function() {
-        if(request.status != 200){
+    request.onload = function () {
+        if (request.status != 200) {
             console.log("error pulling VATSIM Data");
         } else {
             document.getElementById("KDENMETAR").innerHTML = request.response;
             document.getElementById("KDENWINDDIR").innerHTML = request.response.substring(12, 16);
-            document.getElementById("KDENWINDSPD").innerHTML = request.response.substring(16, request.response.indexOf("KT")+2);
-            document.getElementById("KDENALT").innerHTML = request.response.substring(request.response.indexOf(" A")+1, request.response.indexOf(" A")+6);
+            document.getElementById("KDENWINDSPD").innerHTML = request.response.substring(16, request.response.indexOf("KT") + 2);
+            document.getElementById("KDENALT").innerHTML = request.response.substring(request.response.indexOf(" A") + 1, request.response.indexOf(" A") + 6);
         }
     }
 
@@ -18,8 +21,8 @@ function pullData(){
     var request1 = new XMLHttpRequest();
     request1.open("GET", "https://aadc.denartcc.org/AAR.php");
     request1.send();
-    request1.onload = function() {
-        if(request1.status != 200){
+    request1.onload = function () {
+        if (request1.status != 200) {
             console.log("error pulling AAR Data");
         } else {
             document.getElementById("ActiveAAR").innerHTML = request1.response;
@@ -30,8 +33,8 @@ function pullData(){
     var DENAirportConfig = new XMLHttpRequest();
     DENAirportConfig.open("GET", "https://runwayweather.com/api/airport_config/");
     DENAirportConfig.send();
-    DENAirportConfig.onload = function() {
-        if(DENAirportConfig.status != 200){
+    DENAirportConfig.onload = function () {
+        if (DENAirportConfig.status != 200) {
             console.log("error pulling Real World AAR Data");
         } else {
             var DenData = JSON.parse(DENAirportConfig.response)[0]
@@ -49,8 +52,8 @@ function pullData(){
     var DENAtis = new XMLHttpRequest();
     DENAtis.open("GET", "https://denartcc.org/atis/KDEN");
     DENAtis.send();
-    DENAtis.onload = function() {
-        if(DENAtis.status != 200){
+    DENAtis.onload = function () {
+        if (DENAtis.status != 200) {
             console.log("error pulling ATIS Data");
         } else {
             var DenData = JSON.parse(DENAtis.response)[0]
@@ -60,8 +63,9 @@ function pullData(){
 
 
     //Reading JSON File
+    delete require.cache[require.resolve('./data/data.json')]
     var datafile = require('./data/data.json');
-    
+    console.log(datafile);
     //ATIS
     var ATIS = datafile.ATIS;
 
@@ -95,12 +99,12 @@ function pullData(){
 pullData();
 
 
-function flightStripMaker(){
+function flightStripMaker() {
     var vatsimDataReq = new XMLHttpRequest();
     vatsimDataReq.open("GET", "https://api.aviationapi.com/v1/vatsim/pilots?apt=KDEN")
     vatsimDataReq.send();
     vatsimDataReq.onload = () => {
-        if(vatsimDataReq.status != 200){
+        if (vatsimDataReq.status != 200) {
             console.log("error pulling Departure Data");
         } else {
             return JSON.parse(vatsimDataReq.response);

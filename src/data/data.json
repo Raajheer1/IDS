@@ -1,6 +1,1 @@
-{
-    "ATIS": [],
-    "PIREP": [],
-    "TMU": [],
-    "ActiveAreas": []
-}
+{"ATIS":[],"PIREP":[{"pireploc":"afds","pireptime":"0142z","pirepalt":"afd","pirepact":"adfs","pirepsky":"adfs","pireptmp":"adf","pirepwnd":"afds","pireprmk":"adfs"},{"pireploc":"fdsa","pireptime":"0151z","pirepalt":"fdas","pirepact":"afds","pirepsky":"dafs","pireptmp":"afds","pirepwnd":"adfs","pireprmk":"adfs"}],"TMU":[],"ActiveAreas":[]}
