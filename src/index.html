@@ -1541,7 +1541,7 @@
         }
 
         ws.onmessage = ({ data }) => {
-
+          console.log(data)
           fs.writeFile("./src/data/data.json", data, (err) => {
             if (err) {
               console.log("RAAAAAJ THERE WAS AN ERROR YOU DING ALING: ", err);

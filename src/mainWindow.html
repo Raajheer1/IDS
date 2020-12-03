@@ -35,6 +35,10 @@
       <h1 class="cursor"></h1>
     </div>
   </div>
+  <div class="container" id="TrainingSession" style="height: 20%; display: flex; align-items: center; justify-content: center;">
+  </div>
+  <div class="container" id="Documents" style="height: 10%; display: flex; align-items: center; justify-content: center;">
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script>window.jQuery = window.$ = module.exports</script>
@@ -54,6 +58,32 @@
     const { ipcRenderer } = require('electron');
     var UserData = ipcRenderer.sendSync('synchronous-message', '');
     document.getElementById("name").innerHTML = UserData[1] + " " + UserData[2];
+    sessions = UserData[11]
+    sessions.forEach(element => {
+      document.getElementById("TrainingSession").innerHTML += `
+      <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Training Sessions</h4>
+        <p class="mb-0">You have an upcoming Training Session with `+element['mentor']['first_name']+ ` ` +  element['mentor']['last_name'] + `. 
+          Your time slot is ` +element['slot']+`.</p>
+      </div><br>
+      `
+    });
+    sessions = UserData[12]
+    if(sessions != []){
+      stringstuff = `
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <h4 class="alert-heading">Document Updates</h4>
+          <p class="mb-0">Read/Download the following documents prior to your next controlling session: <br>` 
+      sessions.forEach(element => {
+        stringstuff += element[0] + "<br> "
+      });
+      stringstuff += `</p></div><br>`
+      document.getElementById("Documents").innerHTML = stringstuff
+    }
+    
+
   </script>
   <script>
     var i = 0,
