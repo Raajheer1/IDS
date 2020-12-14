@@ -11,7 +11,7 @@
 <body style="background: url('img/Denver.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="margin-top: 15px;">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="https://denartcc.org"><img src="img/logo.png" style="max-height: 80px;"></a>
+      <a class="navbar-brand js-scroll-trigger"><img src="img/logo.png" style="max-height: 80px;"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -20,7 +20,7 @@
           <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html" style="color: black;">IDS4</a></li>
           <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><del>ER-IDS</del></a></li>
           <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="documents.html" style="color: black;">DOCUMENTS</a></li>
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><u><span id="name"></span></u></a></li>
+          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><u><span id="name"></span> <span id="rating"></span></u></a></li>
         </ul>
       </div>
     </div>
@@ -57,7 +57,8 @@
   <script>
     const { ipcRenderer } = require('electron');
     var UserData = ipcRenderer.sendSync('synchronous-message', '');
-    document.getElementById("name").innerHTML = UserData[1] + " " + UserData[2];
+    document.getElementById("name").innerHTML = UserData[3] + " -";
+    document.getElementById("rating").innerHTML = UserData[4];
     sessions = UserData[11]
     sessions.forEach(element => {
       document.getElementById("TrainingSession").innerHTML += `
