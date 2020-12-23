@@ -190,22 +190,22 @@
     </div>
   </div>
 
-  <!-- IDS Modal -->
+  <!-- AADC Modal -->
   <div class="modal" id="aadcmodal" role="dialog" aria-labelledby="aadcmodallabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <form id="IDSForm">
-        <div class="modal-content text-white">
-          <div class="modal-header">
-            <h5 class="modal-title" id="aadcmodallabel">Update AADC</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span class="text-black" aria-hidden="true">×</span>
-            </button>
-          </div>
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aadcmodallabel">Update AADC</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-black" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form id="IDSForm">
           <div class="modal-body">
             <div class="form-group row">
               <div class="col-3">
                 <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - AAR</h5>
-                <div class="p-2 mt-3 d-flex metarlike" style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;" id="editatis_code"
+                <div class="p-2 mt-3 d-flex metarlike" style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
                   oncontextmenu="return false;"><span id="ActiveAAR"></span></div>
                 <input name="code" type="hidden" value="">
               </div>
@@ -237,11 +237,11 @@
             </div>
           </div>
           <div class="modal-footer">
-            <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true" value="Cancel AADC">
-            <input type="submit" id="editids_update" class="btn btn-outline-primary" name="do_aadc" value="Update AADC">
+            <input type="button" id="editaadc_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true" value="Cancel AADC">
+            <input type="submit" id="editaadc_update" class="btn btn-outline-primary closemodalaadc" name="do_aadc" value="Update AADC">
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -413,7 +413,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <input type="submit" id="editprp_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
+            <input type="button" id="editprp_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
             <input type="submit" id="editprp_update" class="btn btn-outline-primary" name="do_pirep" value="Input PIREP">
           </div>
         </form>
@@ -497,7 +497,7 @@
         </div>
         <div class="modal-footer">
           <input type="button" id="editAA_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
-          <input type="submit" id="editAA_update" class="btn btn-outline-primary" name="do_activearea" value="Submit Active Area">
+          <input type="submit" id="editAA_update" class="btn btn-outline-primary closemodalaa" name="do_activearea" value="Submit Active Area">
         </div>
       </div>
     </div>
@@ -1505,7 +1505,7 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <script>window.jQuery = window.$ = module.exports</script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -1639,6 +1639,20 @@
 
       init();
     })();
+
+    // Close Active Area Modal on Submit
+    $(function () {
+      $(".closemodalaa").on('click', function() {
+        $('#activeareamodal').modal('hide');
+      }); 
+    });
+
+    // Close IDS/AADC Modal on Submit
+    $(function () {
+      $(".closemodalaadc").on('click', function() {
+        $('#aadcmodal').modal('hide');
+      });
+    });
   </script>
 </body>
 <script src="./scripts.js"></script>
