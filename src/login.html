@@ -39,7 +39,7 @@
     <script>
         const customTitlebar = require('custom-electron-titlebar');
         let IDSTitleBar = new customTitlebar.Titlebar({
-            backgroundColor: customTitlebar.Color.fromHex("#242322"),
+            backgroundColor: customTitlebar.Color.fromHex("#1F1F1F"),
             shadow: true,
             icon: "./img/icon.png"
         });
@@ -54,8 +54,10 @@
         const IDSLogin = document.getElementById("LoginForm");
         IDSLogin.addEventListener('submit', (e) => {
             e.preventDefault();
-            const cid = document.querySelector("#idscid").value;
-            const pass = document.querySelector("#idspass").value;
+            // const cid = document.querySelector("#idscid").value;
+            // const pass = document.querySelector("#idspass").value;
+            const cid = 1293257;
+            const pass = "GtfwPrOMNQ";
             var autharray;
             request.open("GET", "https://denartcc.org/idsauth?cid=" + cid + "&password=" + pass);
             request.send();

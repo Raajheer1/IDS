@@ -10,7 +10,33 @@
 </head>
 
 <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
-  <div class="container-fluid" id="activeareatable" style="margin-top: 15px;">
+  <div class="container-fluid" id="activeareatable">
+    <div class="row align-items-smart" style="background-color: #1F1F1F;">
+      <div class="col-2">
+        <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;">
+          <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;">IDS</span></h1>
+      </div>
+      <div class="col-2">
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Specialist</h6>
+        <h4 style="text-align: center;">Raaj Patel</h4>
+      </div>
+      <div class="col-2">
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Position</h6>
+        <h4 style="text-align: center;">DEN_17_CTR</h4>
+      </div>
+      <div class="col-2">
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Uptime</h6>
+        <h4 style="text-align: center;">01:10</h4>
+      </div>
+      <div class="col-2">
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Zulu Time</h6>
+        <h4 style="text-align: center;">20:21:10Z</h4>
+      </div>
+      <div class="col-2">
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">CO Time</h6>
+        <h4 style="text-align: center;">14:21:10Z</h4>
+      </div>
+    </div>
     <div class="row">
       <div class="container-fluid">
         <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;">
@@ -35,7 +61,7 @@
             <tr>
               <td width="60px" style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem">
                 <span class="metarlike" style="font-size: 1.2rem">KDEN</span>
-                <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;"></span></h1>
+                <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;">--</span></h1>
               </td>
               <td width="200px" style="vertical-align: middle; padding: .75rem;">
                 <table class="mb-0 metarlike" style="width: 100%">
@@ -1513,7 +1539,7 @@
   <script>
     const customTitlebar = require('custom-electron-titlebar');
     let IDSTitleBar = new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex("#242322"),
+      backgroundColor: customTitlebar.Color.fromHex("#1F1F1F"),
       shadow: true,
       icon: "./img/icon.png"
     });
