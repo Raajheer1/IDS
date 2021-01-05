@@ -12,6 +12,9 @@
     <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
         <div class="container-fluid" id="loginscreen" style="margin-top: 15px;">
             <div class="row justify-content-center" style="text-align: center;">
+                <img src="img/logo.png">
+            </div>
+            <div class="row justify-content-center" style="text-align: center;">
                 <form id="LoginForm">
                     <div class="form-group">
                         <label for="exampleInputEmail1" style="color: azure;">VATSIM CID</label>
@@ -61,7 +64,7 @@
                 } else {
                     autharray = JSON.parse(request.response);
                     if (autharray.length == 0) {
-                        document.getElementById("loginwrong").innerHTML = "Wrong username or password, please make sure you are NOT entering your VATSIM Password.";
+                        document.getElementById("loginwrong").innerHTML = `Wrong username or password, please make sure you are NOT entering your VATSIM Password.<br> You can get your password <a onclick="electron.shell.openExternal('https://denartcc.org/accounts');" href="" style="color: white;">here</a>.`;
                     }else{
                         ipcRenderer.send("USER:add", autharray);
                     }
