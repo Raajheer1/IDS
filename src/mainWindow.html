@@ -4,37 +4,39 @@
 <head>
   <meta charset="utf-8">
   <title>Denver IDS</title>
-  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
   <link rel="stylesheet" href="./customstyle.css">
 </head>
 
 <body style="background: url('img/Denver.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="margin-top: 15px;">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger"><img src="img/logo.png" style="max-height: 100px;"></a>
+      <a class="navbar-brand js-scroll-trigger"><img src="img/logo.png" style="max-height: 115px;"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><del>PREDUTY</del></a></li>
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html" style="color: black;">IDS4</a></li>
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><del>ER-IDS</del></a></li>
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="documents.html" style="color: black;">DOCUMENTS</a></li>
-          <li style="font-size: 20px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><u><span id="name"></span> <span id="rating"></span></u></a></li>
+          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><del>PREDUTY</del></a></li>
+          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html" style="color: black;">IDS4</a></li>
+          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><del>ER-IDS</del></a></li>
+          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="documents.html" style="color: black;">DOCUMENTS</a></li>
+          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><u><span id="name"></span> <span id="rating"></span></u></a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container" style="height: 50%; display: flex; align-items: flex-end; justify-content: center;">
-    <div class="row">
+  <div class="container" style="padding-top: calc(100vh / 3.75);">
+    <div class="row" style="justify-content: center;">
       <h1 style="font-size: 75px; text-align: center;">Denver Information <br>Display System</h1>
     </div>
-  </div>
-  <div class="container" style="height: 0%; display: flex; align-items: center; justify-content: center;">
-    <div class="output" id="output">
-      <h1 class="cursor"></h1>
+    <div class="row" style="justify-content: center;">
+      <div class="output" id="output">
+        <h1 style="font-weight: 100;"><span class="cursor"></span></h1>
+      </div>
     </div>
   </div>
+
   <div class="container" id="TrainingSession" style="height: 20%; display: flex; align-items: center; justify-content: center;">
   </div>
   <div class="container" id="Documents" style="height: 10%; display: flex; align-items: center; justify-content: center;">
