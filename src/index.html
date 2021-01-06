@@ -1607,7 +1607,22 @@
     rating = UserData[4]
     if(UserData[4] == "S1" || UserData[4] == "S2" || UserData[4] == "S3"){
       document.getElementById("role").innerHTML = "Developmental"
+    }else if(UserData[4] == "OBS"){
+      document.getElementById("role").innerHTML = "Avgeek"
+    }else if(UserData[4] == "C3"){
+      document.getElementById("role").innerHTML = "Senior Specialist"
+    }else if(UserData[4] == "I1"){
+      document.getElementById("role").innerHTML = "TopGun Pilot"
+    }else if(UserData[4] == "I3"){
+      document.getElementById("role").innerHTML = "TopGun Instructor"
+    }else if(UserData[4] == "SUP"){
+      document.getElementById("role").innerHTML = "Supervisor"
+    }else if(UserData[4] == "ADM"){
+      document.getElementById("role").innerHTML = "Administrator"
+    }else{
+      document.getElementById("role").innerHTML = "Specialist"
     }
+
     var vatsimDataReq = new XMLHttpRequest();
     vatsimDataReq.open("GET", "https://data.vatsim.net/v3/vatsim-data.json")
     vatsimDataReq.send();
