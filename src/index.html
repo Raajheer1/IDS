@@ -14,33 +14,40 @@
     <div class="row align-items-smart" style="background-color: #1F1F1F;">
       <div class="col-2">
         <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;">
-          <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;">IDS</span></h1>
+          <span style="font-weight: 999;">ZDV</span><span style="font-weight: 100;">IDS</span></h1>
       </div>
       <div class="col-2">
         <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Specialist</h6>
-        <h4 style="text-align: center;">Raaj Patel</h4>
+        <h4 style="text-align: center;"><div id="specialist"></div></h4>
       </div>
       <div class="col-2">
         <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Position</h6>
-        <h4 style="text-align: center;">DEN_17_CTR</h4>
+        <h4 style="text-align: center;"><div id="position">--</div></h4>
       </div>
       <div class="col-2">
-        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Uptime</h6>
-        <h4 style="text-align: center;">01:10</h4>
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Log on Time</h6>
+        <h4 style="text-align: center;"><div id="uptime">--</div></h4>
       </div>
       <div class="col-2">
         <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Zulu Time</h6>
-        <h4 style="text-align: center;">20:21:10Z</h4>
+        <h4 style="text-align: center;"><div id="Zulu-Clock"></div></h4>
       </div>
-      <div class="col-2">
-        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">CO Time</h6>
-        <h4 style="text-align: center;">14:21:10Z</h4>
+      <div class="col-1">
+        <h6 style="font-size: .75rem; text-align: center; color: grey;vertical-align: middle; margin-top: 0px; margin-bottom: 0px;">EST Time</h6>
+        <h6 style="text-align: center;margin-bottom: 0px;"><div id="EST-Clock"></div></h6>
+        <h6 style="font-size: .75rem; text-align: center; color: grey;vertical-align: middle; margin-top: 0px; margin-bottom: 0px;">CST Time</h6>
+        <h6 style="text-align: center;margin-bottom: 0px;"><div id="CST-Clock"></div></h6>
+      </div>
+      <div class="col-1">
+        <h6 style="font-size: .75rem; text-align: center; color: grey;vertical-align: middle; margin-top: 0px; margin-bottom: 0px;">MST Time</h6>
+        <h6 style="text-align: center;margin-bottom: 0px;"><div id="MST-Clock"></div></h6>
+        <h6 style="font-size: .75rem; text-align: center; color: grey;vertical-align: middle; margin-top: 0px; margin-bottom: 0px;">PST Time</h6>
+        <h6 style="text-align: center;margin-bottom: 0px;"><div id="PST-Clock"></div></h6>
       </div>
     </div>
     <div class="row">
       <div class="container-fluid">
-        <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;">
-          <span style="font-weight: 999;">ZDV</span><span style="font-weight: 200;">IDS</span></h1>
+
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">ATIS</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">PIREP</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#tmumodal">TMU</button>
@@ -1545,6 +1552,64 @@
     });
 
     IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
+  </script>
+  <script>
+    // SHIT FOR THE TOP
+    function updateTime(x) {
+      if(x<0){
+        x+=24
+      }
+      if (x<10) {
+        return "0" + x;
+      }else{
+        return x
+      }
+    }
+    function currentTime() {
+      var date = new Date();
+      hour = updateTime(date.getUTCHours());
+      UTCHour = date.getUTCHours()
+      EST = UTCHour-5;
+      CST = UTCHour-6;
+      MST = UTCHour-7;
+      PST = UTCHour-8;
+      ESTHour = updateTime(EST);
+      CSTHour = updateTime(CST);
+      MSTHour = updateTime(MST);
+      PSTHour = updateTime(PST);
+      min = updateTime(date.getUTCMinutes());
+      sec = updateTime(date.getUTCSeconds());
+      document.getElementById("Zulu-Clock").innerText = hour + ":" + min + ":" + sec+"Z";
+      document.getElementById("EST-Clock").innerText = ESTHour + ":" + min + ":" + sec+"L";
+      document.getElementById("CST-Clock").innerText = CSTHour + ":" + min + ":" + sec+"L";
+      document.getElementById("MST-Clock").innerText = MSTHour + ":" + min + ":" + sec+"L";
+      document.getElementById("PST-Clock").innerText = PSTHour + ":" + min + ":" + sec+"L";
+      var t = setTimeout(currentTime, 1000);
+    }
+    currentTime();
+    const { ipcRenderer } = require('electron');
+    var UserData = ipcRenderer.sendSync('specialist', '');
+    document.getElementById("specialist").innerHTML = UserData[1] + " " + UserData[2];
+
+    var vatsimDataReq = new XMLHttpRequest();
+    vatsimDataReq.open("GET", "https://data.vatsim.net/v3/vatsim-data.json")
+    vatsimDataReq.send();
+    vatsimDataReq.onload = () => {
+        if (vatsimDataReq.status != 200) {
+            console.log("error pulling VATSIM Data");
+        } else {
+            controllers = JSON.parse(vatsimDataReq.response).controllers;
+            controllers.forEach(item => {
+              if(item.cid == UserData[0]){
+                document.getElementById("position").innerHTML = item.callsign;
+                logon = item.logon_time;
+                logon = logon.substring(logon.indexOf("T")+1, logon.indexOf("."));
+                document.getElementById("uptime").innerHTML = logon;
+
+              }
+            })
+        }
+    }
   </script>
   <script>
     (function () {

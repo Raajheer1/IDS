@@ -83,7 +83,9 @@
         stringstuff += element[0] + "<br> "
       });
       stringstuff += `</p></div><br>`
-      document.getElementById("Documents").innerHTML = stringstuff
+      if(sessions.length != 0){
+        document.getElementById("Documents").innerHTML = stringstuff
+      }
     }
     
 

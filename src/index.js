@@ -75,6 +75,9 @@ ipcMain.on("USER:add", (e, UserArray) => {
 });
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg);
+  event.returnValue = UserData;
+});
+
+ipcMain.on('specialist', (event, arg) => {
   event.returnValue = UserData;
 });
