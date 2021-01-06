@@ -14,19 +14,21 @@
     <div class="row align-items-smart" style="background-color: #1F1F1F;">
       <div class="col-2">
         <h1 style="text-align: left; color: aliceblue; display:inline; vertical-align: middle; margin-right: 50px;">
-          <span style="font-weight: 999;">ZDV</span><span style="font-weight: 100;">IDS</span></h1>
+          <span style="font-weight: 999; color: #F97E41">ZDV</span><span style="font-weight: 100;">IDS</span>
+        </h1>
+        <hr style="margin-top: 0;margin-bottom: 0;background-color: #F97E41;color: #F97E41;">
       </div>
       <div class="col-2">
-        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Specialist</h6>
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;"><div id="role">Specialist</div></h6>
         <h4 style="text-align: center;"><div id="specialist"></div></h4>
       </div>
       <div class="col-2">
         <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Position</h6>
-        <h4 style="text-align: center;"><div id="position">--</div></h4>
+        <h4 style="text-align: center;"><div id="position"><span style="color: #F97E41;">--</span></div></h4>
       </div>
       <div class="col-2">
-        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Log on Time</h6>
-        <h4 style="text-align: center;"><div id="uptime">--</div></h4>
+        <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Uptime</h6>
+        <h4 style="text-align: center;"><div id="uptime"><span style="color: #F97E41;">--</span></div></h4>
       </div>
       <div class="col-2">
         <h6 style="text-align: center; color: grey;vertical-align: middle; margin-top: 7px; margin-bottom: 0px;">Zulu Time</h6>
@@ -68,7 +70,7 @@
             <tr>
               <td width="60px" style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem">
                 <span class="metarlike" style="font-size: 1.2rem">KDEN</span>
-                <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;">--</span></h1>
+                <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;"><span style="color: #F97E41;">--</span></span></h1>
               </td>
               <td width="200px" style="vertical-align: middle; padding: .75rem;">
                 <table class="mb-0 metarlike" style="width: 100%">
@@ -202,6 +204,12 @@
             </div>
           </div>
         </div> -->
+      </div>
+
+      <div class="col-lg-9">
+        <div class="jumbotron">
+          
+        </div>
       </div>
 
       <!--Tables on Right side of Application-->
@@ -1557,7 +1565,9 @@
     // SHIT FOR THE TOP
     function updateTime(x) {
       if(x<0){
-        x+=24
+        return 24+x;
+      }else{
+        return x
       }
       if (x<10) {
         return "0" + x;
@@ -1573,6 +1583,10 @@
       CST = UTCHour-6;
       MST = UTCHour-7;
       PST = UTCHour-8;
+      // EST = timeFix(EST);
+      // CST = timeFix(CST);
+      // MST = timeFix(MST);
+      // PST = timeFix(PST);
       ESTHour = updateTime(EST);
       CSTHour = updateTime(CST);
       MSTHour = updateTime(MST);
@@ -1590,7 +1604,10 @@
     const { ipcRenderer } = require('electron');
     var UserData = ipcRenderer.sendSync('specialist', '');
     document.getElementById("specialist").innerHTML = UserData[1] + " " + UserData[2];
-
+    rating = UserData[4]
+    if(UserData[4] == "S1" || UserData[4] == "S2" || UserData[4] == "S3"){
+      document.getElementById("role").innerHTML = "Developmental"
+    }
     var vatsimDataReq = new XMLHttpRequest();
     vatsimDataReq.open("GET", "https://data.vatsim.net/v3/vatsim-data.json")
     vatsimDataReq.send();
@@ -1604,7 +1621,28 @@
                 document.getElementById("position").innerHTML = item.callsign;
                 logon = item.logon_time;
                 logon = logon.substring(logon.indexOf("T")+1, logon.indexOf("."));
-                document.getElementById("uptime").innerHTML = logon;
+                console.log(logon)
+                logonHour = logon.substring(0,2);
+                logonMinute = logon.substring(3,5);
+                logonSecond = logon.substring(6, 8);
+                function logTime(){
+                  var date = new Date();
+                  hour = date.getUTCHours();
+                  min = date.getUTCMinutes();
+                  sec = date.getUTCSeconds();
+                  hour = hour - logonHour;
+                  min = min - logonMinute;
+                  sec = sec - logonSecond;
+                  hour = updateTime(hour);
+                  if(hour < 0){
+                    hour = hour + 24;
+                  }
+                  min = updateTime(min);
+                  sec = updateTime(sec);
+                  document.getElementById("uptime").innerText = hour + ":" + min + ":" + sec;
+                  var t = setTimeout(logTime, 1000);
+                }
+                logTime();
 
               }
             })

@@ -15,7 +15,7 @@ const createWindow = () => {
     height:1080,
     frame: false,
     titleBarStyle: "hidden",
-    icon:__dirname+"/img/icon.png",
+    icon:__dirname+"/img/BigIcon.png",
     webPreferences: {
       nodeIntegration: true
     }
