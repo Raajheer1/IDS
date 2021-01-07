@@ -47,180 +47,70 @@
         <h6 style="text-align: center;margin-bottom: 0px;"><div id="PST-Clock"></div></h6>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-2">
       <div class="container-fluid">
-
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">ATIS</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">PIREP</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#tmumodal">TMU</button>
-        <button type="button" class="btn btn-outline-secondary">COMMS</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">CHARTS</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">ACTIVE AREA</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">AADC</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cdrmodal">CDRs</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">RW
-          Config</button>
-        <a href="mainWindow.html"><button type="button" class="btn btn-outline-secondary">Back</button></a>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">ATIS</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">PIREP</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#tmumodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">TMU</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">COMMS</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">CHARTS</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">ACTIVE AREA</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">AADC</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cdrmodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">CDR</span></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">RW Config</span></span>
+        </button>
+        <a href="mainWindow.html"><button type="button" class="btn btn-outline-secondary">
+          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">Back</span></span>
+        </button></a>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-9">
-        <table class="table table-borderless p-0 mb-1 text-white" style="background-color: rgb(47, 47, 47); border: 1px solid rgb(79, 77, 77); margin-top: 15px;">
-          <tbody>
-            <tr>
-              <td width="60px" style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem">
-                <span class="metarlike" style="font-size: 1.2rem">KDEN</span>
-                <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;"><span style="color: #F97E41;">--</span></span></h1>
-              </td>
-              <td width="200px" style="vertical-align: middle; padding: .75rem;">
-                <table class="mb-0 metarlike" style="width: 100%">
-                  <tbody>
-                    <tr>
-                      <td class="p-0" style="width: 30px">DEP:</td>
-                      <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="dep" id="RWDR1"></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="p-0" style="width: 30px">ARR:</td>
-                      <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="arr" id="RWLR1"></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="p-0" style="width: 30px">WTHR: </td>
-                      <td style="position: relative; height: 1rem; overflow: hidden" class="p-0 pl-3"><span style="position: absolute; top: 0rem; left: 0px; opacity: 1;" class="arr" id="DENVMC"></span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-              <td style="vertical-align: middle; font-size: 1rem">
-                <div class="pl-3" style="border-left: 1px solid rgb(79,77,77)">
-                  <table style="width: 100%">
-                    <tbody>
-                      <tr>
-                        <td style="position: relative; height: 1.2rem; overflow: hidden;" class="p-0 important"><span class="prettywx metarlike" id="KDEN"
-                            style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span id="KDENWINDDIR"></span> @ <span id="KDENWINDSPD"></span> <span id="KDENALT"></span></span></td>
-                      </tr>
-                      <tr>
-                        <td style="position: relative; height: 1.2rem; overflow: hidden;" class="p-0"><span class="metar" id="KDEN" style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span
-                              id="KDENMETAR"></span></span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- <div class="row" style="text-align: center;">
-          <hr style="background-color: rgb(79,77,77); width: 90%; height: 2px;">
-          <div class="col-xl-12" style="text-align: center;">
-            <h2 style="color: honeydew;">Flight Strips</h2>
-            <div class="row">
-              <div class="col-xl-6" style="text-align: center;">
-                <table class="table table-borderless p-0 mb-1 text-white" style="background-color: rgb(47, 47, 47); border: 1px solid rgb(79, 77, 77); margin-top: 15px;">
-                  <tbody>
-                    <tr>
-                      <td class="px-2 py-1" width="100px" style="text-align: center; vertical-align: middle">
-                        <span class="flightstrip">AAL123</span>
-                        <span class="flightstrip">T/B737/L</span>
-                        <span class="flightstrip">...</span>
-                      </td>
-                      <td class="px-0 py-1" width="60px" style="text-align: center; vertical-align: middle; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)">
-                        <span class="flightstrip">1200</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
-                        <span class="flightstrip">P0156</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
-                        <span class="flightstrip">FL260</span>
-                      </td>
-                      <td width="125px" style="vertical-align: middle">
-                        <span class="flightstrip">DEN</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
-                        <span class="flightstrip">...</span>
-                      </td>
-                      <td class="px-0 py-0" style="vertical-align: top; text-align: left; font-size: 1rem; border-left: 1px solid rgb(79,77,77)">
-                        <span>...SMMUR1 DAAYE GUP EAGUL6 PHX</span>
-                      </td>
-                      <td class="px-0 py-1" width="50px" style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
-                        <span class="flightstrip">17L</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
-                        <span class="flightstrip">0126</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
-                        <span class="flightstrip">0132</span>
-                      </td>
-                      <td class="px-0 py-1" width="50px" style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
-                        <span class="flightstrip">RLSD</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
-                        <span class="flightstrip">0140</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
-                        <span class="flightstrip">BLAH</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-xl-6" style="text-align: center;">
-                <table class="table table-borderless p-0 mb-1 text-white" style="background-color: rgb(47, 47, 47); border: 1px solid rgb(79, 77, 77); margin-top: 15px;">
-                  <tbody>
-                    <tr>
-                      <td class="px-2 py-1" width="100px" style="text-align: center; vertical-align: middle">
-                        <span class="flightstrip">AAL123</span>
-                        <span class="flightstrip">T/B737/L</span>
-                        <span class="flightstrip">...</span>
-                      </td>
-                      <td class="px-0 py-1" width="60px" style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
-                        <span class="flightstrip">1200</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
-                        <span class="flightstrip">P0156</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
-                        <span class="flightstrip">FL260</span>
-                      </td>
-                      <td width="125px" style="vertical-align: middle">
-                        <span class="flightstrip">DEN</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 0 0 0 0;">
-                        <span class="flightstrip">PHXS3</span>
-                      </td>
-                      <td class="px-0 py-0" style="vertical-align: top; text-align: left; font-size: 1rem; border-left: 1px solid rgb(79,77,77)">
-                        <span style="color: red;">...SMMUR1 DAAYE RSK FLG DUTEY MAIER BRUSR1 KPHX</span>
-                      </td>
-                      <td class="px-0 py-1" width="50px" style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
-                        <span class="flightstrip">17L</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
-                        <span class="flightstrip">0126</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
-                        <span class="flightstrip">0132</span>
-                      </td>
-                      <td class="px-0 py-1" width="50px" style="text-align: center; border-left: 1px solid rgb(79,77,77); border-right: 1px solid rgb(79,77,77)" valign="middle">
-                        <span class="flightstrip">RLSD</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 3px 0 2px 0;">
-                        <span class="flightstrip">0140</span>
-                        <hr style="background-color: rgb(79,77,77); width: 100%; height: 1px; margin: 2px 0 3px 0;">
-                        <span class="flightstrip">BLAH</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
-
+    <div class="row mt-2">
       <div class="col-lg-7">
         <div class="jumbotron p-0">
           <div class="row m-0">
-            <div class="col-1 p-1">
-              <div style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem; min-width: 75px;">
-                <span class="metarlike" style="font-size: 1.2rem">KDEN</span>
+            <div class="col-3 col-xl-2 col-lg-2 p-1">
+              <div style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem;">
+                <span class="metarlike" style="font-size: 1.2rem;color: #F97E41;">KDEN</span>
                 <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;"><span style="color: #F97E41;">--</span></span></h1>
               </div>
             </div>
-            <div class="col-2 pt-2 p-1">
-              <h5 class="p-0" style="width: 30px; color: #F97E41;">Wind:</h5>
-              <h5 class="p-0" style="width: 30px; color: #F97E41;">Altimeter:</h5>
+            <div class="col-3 ml-2 pt-2 p-1">
+              <div class="d-flex flex-wrap">
+                <h5 class="p-0 mr-1 mb-1" style="color: #F97E41;">Wind: </h5>
+                <p class="mb-0" style="color:white;"><span id="KDENWINDDIR"></span> @ <span id="KDENWINDSPD"></span></p>
+              </div>
+              <div class="d-flex flex-wrap">
+                <h5 class="p-0 mr-1 mb-1" style="color: #F97E41;">Baro:</h5>
+                <p class="mb-0" style="color: white;"><span id="KDENALT"></span></p>
+              </div>
+              <div class="d-flex flex-wrap">
+                <h5 class="p-0 mr-1 mb-1" style="color: #F97E41;">Dep:</h5>
+                <p class="mb-0" style="color: white"><span id="RWDR1"></span></p>
+              </div>
+              <div class="d-flex flex-wrap">
+                <h5 class="p-0 mr-1 mb-1" style="color: #F97E41;">Arr:</h5>
+                <p class="mb-0" style="color: white"><span id="RWLR1"></span></p>
+              </div>
             </div>
-            <div class="col-9">
-
+            <div class="col-5">
+              <span class="metar mt-2" id="KDEN" style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span id="KDENMETAR"></span></span></td>
             </div>
           </div>
         </div>
@@ -228,7 +118,7 @@
 
       <!--Tables on Right side of Application-->
       <div class="col-lg-5">
-        <div class="p-3 mb-3" style="flex-basis: 33.3333333%; flex-grow: 0; background-color: rgba(0,0,0,0.35); border: 1px solid rgb(79,77,77); min-height: 100px; text-align: center;">
+        <!-- <div class="p-3 mb-3" style="flex-basis: 33.3333333%; flex-grow: 0; background-color: rgba(0,0,0,0.35); border: 1px solid rgb(79,77,77); min-height: 100px; text-align: center;">
           <h5 style="color: white;">TMU Restrictions</h5>
           <div class="stretch" style="text-transform: uppercase" id="TMU_container">
           </div>
@@ -241,7 +131,7 @@
           <h5 style="color: white;">Active Area Info</h5>
           <div class="stretch" style="text-transform: uppercase" id="AAI_container">
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -302,9 +192,8 @@
   </div>
 
   <!-- RW Modal -->
-  <div class="modal" id="rwmodal" role="dialog" aria-labelledby="rwmodallabel" aria-hidden="true">
+  <div class="modal pt-5" id="rwmodal" role="dialog" aria-labelledby="rwmodallabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <form id="IDSForm">
         <div class="modal-content text-white">
           <div class="modal-header">
             <h5 class="modal-title" id="rwmodallabel">Real World Airport Config</h5>
@@ -314,15 +203,15 @@
           </div>
           <div class="modal-body">
             <div class="form-group row">
-              <div class="col-3">
+              <div class="col-3 d-flex flex-column justify-content-center align-items-center">
                 <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN AAR</h5>
-                <div class="p-2 mt-3 d-flex metarlike" style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #5f5f5f;"
+                <div class="p-2 mt-3 d-flex justify-content-center" style="font-size: 4rem;background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #F97E41;"
                   id="editatis_code" oncontextmenu="return false;"><span id="RWAAR"></span></div>
                 <input name="code" type="hidden" value="">
               </div>
-              <div class="col-3">
+              <div class="col-3 d-flex flex-column justify-content-center align-items-center">
                 <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN ADR</h5>
-                <div class="p-2 mt-3 d-flex metarlike" style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #5f5f5f;"
+                <div class="p-2 mt-3 d-flex justify-content-center" style="font-size: 4rem; background-color: #2f2f2f; height: 120px; width: 120px; border: 1px solid #F97E41;"
                   id="editatis_code" oncontextmenu="return false;"><span id="RWADR"></span></div>
                 <input name="code" type="hidden" value="">
               </div>
@@ -330,17 +219,17 @@
                 <div class="row">
                   <div class="col">
                     <h5 style="color: black; vertical-align: middle; text-align: center;">Landing Runways:</h6>
-                      <h5 style="color: black; vertical-align: middle; text-align: center;"><span id="RWLR"></span></h6>
+                      <h5 style="color: white; vertical-align: middle; text-align: center;"><span id="RWLR"></span></h6>
                   </div>
                 </div>
-                <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
+                <hr style="height:2px;border-width:0;color:gray;background-color:#F97E41;">
                 <div class="row">
                   <div class="col">
                     <h5 style="color: black; vertical-align: middle; text-align: center;">Departing Runways:</h6>
-                      <h5 style="color: black; vertical-align: middle; text-align: center;"><span id="RWDR"></span></h6>
+                      <h5 style="color: white; vertical-align: middle; text-align: center;"><span id="RWDR"></span></h6>
                   </div>
                 </div>
-                <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
+                <hr style="height:2px;border-width:0;color:gray;background-color:#F97E41;">
               </div>
             </div>
           </div>
@@ -348,7 +237,6 @@
             <input type="button" id="editids_remove" class="btn btn-danger pull-left" name="do_removeaadc" data-dismiss="modal" aria-hidden="true" value="Close">
           </div>
         </div>
-      </form>
     </div>
   </div>
 
@@ -1580,8 +1468,6 @@
     function updateTime(x) {
       if(x<0){
         return 24+x;
-      }else{
-        return x
       }
       if (x<10) {
         return "0" + x;
@@ -1597,10 +1483,6 @@
       CST = UTCHour-6;
       MST = UTCHour-7;
       PST = UTCHour-8;
-      // EST = timeFix(EST);
-      // CST = timeFix(CST);
-      // MST = timeFix(MST);
-      // PST = timeFix(PST);
       ESTHour = updateTime(EST);
       CSTHour = updateTime(CST);
       MSTHour = updateTime(MST);
@@ -1663,9 +1545,6 @@
                   min = min - logonMinute;
                   sec = sec - logonSecond;
                   hour = updateTime(hour);
-                  if(hour < 0){
-                    hour = hour + 24;
-                  }
                   min = updateTime(min);
                   sec = updateTime(sec);
                   document.getElementById("uptime").innerText = hour + ":" + min + ":" + sec;
