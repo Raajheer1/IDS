@@ -60,3 +60,44 @@ p.cursor::after {
     height: 13px;
     width: 6px;
 }
+
+input[type="text"], textarea {
+    background-color: #1F1F1F;
+    color: #F97E41;
+    border: 1px solid black;
+}
+
+input[type="text"]:focus, textarea {
+    background-color: #1F1F1F;
+    color: #F97E41;
+    border: 1px solid #F97E41;
+}
+
+select {
+    background-color: #1F1F1F!important;
+    color: #F97E41!important;
+    border: 1px solid black!important;
+}
+
+select:focus {
+    background-color: #1F1F1F!important;
+    color: #F97E41!important;
+    border: 1px solid#F97E41!important;
+}
+
+textarea {
+    background-color: #1F1F1F!important;
+    color: #F97E41!important;
+    border: 1px solid black!important;
+}
+
+textarea:focus {
+    background-color: #1F1F1F!important;
+    color: #F97E41!important;
+    border: 1px solid #F97E41!important;
+}
+
+
+.TextOr {
+    color: #F97E41;
+}

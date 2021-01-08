@@ -86,7 +86,7 @@
         <div class="jumbotron p-0">
           <div class="row m-0">
             <div class="col-3 col-xl-2 col-lg-2 p-1">
-              <div style="background-color: rgba(0,0,0,0.35); text-align: center; vertical-align: middle; padding: .75rem;">
+              <div style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .75rem;">
                 <span class="metarlike" style="font-size: 1.2rem;color: #F97E41;">KDEN</span>
                 <h1 class="m-0 atis" id="KDEN" style="font-size: 3rem; font-weight: bold"><span id="DENLET" style="color: white;"><span style="color: #F97E41;">--</span></span></h1>
               </div>
@@ -303,53 +303,112 @@
           <div class="modal-body">
             <div class="form-group row">
               <div class="col-12">
-                <div class="row">
+                <div class="row mb-2">
                   <div class="col-3">
-                    <input class="form-control" placeholder="Location" name="pireploc" id="pireploc" type="text">
+                    <select class="form-control" id="ReportType">
+                      <option>UA</option>
+                      <option>UUA</option>
+                    </select>
                   </div>
-                  <div class="col-3">
-                    <input class="form-control" placeholder="Time(z)" name="pireptime" id="pireptime" type="text">
-                  </div>
-                  <div class="col-3">
-                    <input class="form-control" placeholder="Altitude" name="pirepalt" id="pirepalt" type="text">
-                  </div>
-                  <div class="col-3">
-                    <input class="form-control" placeholder="Aircraft" name="pirepact" id="pirepact" type="text">
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="row">
-                      <div class="col-12">
-                        <input class="form-control" placeholder="Sky Conditions" name="pirepsky" id="pirepsky" type="text">
+                  <div class="col-6">
+                      <div class="input-group">
+                        <input class="form-control" type="text" name="pireploc" id="pireploc" placeholder="Location">
+                        <div class="input-group-append">
+                          <span class="input-group-text TextOr">/OV</span>
+                        </div>
                       </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="input-group">
+                      <input class="form-control" type="text" name="pireptime" id="pireptime" placeholder="Time">
+                      <div class="input-group-append">
+                        <span class="input-group-text TextOr">/TM</span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-3">
+                  <div class="input-group">
+                    <input class="form-control" type="text" name="pirepalt" id="pirepalt" placeholder="Altitude">
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/FL</span>
                     </div>
                   </div>
                 </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="row">
-                      <div class="col-4">
-                        <input class="form-control" placeholder="Temp" name="pireptmp" id="pireptmp" type="text">
-                      </div>
-                      <div class="col-8">
-                        <input class="form-control" placeholder="Wind" name="pirepwnd" id="pirepwnd" type="text">
-                      </div>
+                <div class="col-3">
+                  <div class="input-group">
+                    <input class="form-control" type="text" name="pireptp" id="pireptp" placeholder="Type Aircraft">
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/TP</span>
                     </div>
                   </div>
                 </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="row">
-                      <div class="col-12">
-                        <input class="form-control" placeholder="Remarks" name="pireprmk" id="pireprmk" type="text">
+                <div class="col-6">
+                    <div class="input-group">
+                      <input class="form-control" type="text" name="pirepwx" id="pirepwx" placeholder="Weather">
+                      <div class="input-group-append">
+                        <span class="input-group-text TextOr">/WX</span>
                       </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-12">
+                  <div class="input-group">
+                    <textarea class="form-control" rows="2" name="pirepsk" id="pirepsk" placeholder="Sky Cover"></textarea>
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/SK</span>
                     </div>
                   </div>
                 </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="row">
+              </div>
+              <div class="row mb-2">
+                <div class="col-3">
+                  <div class="input-group">
+                    <input class="form-control" type="text" name="pirepta" id="pirepta" placeholder="Temperature">
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/TA</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-group">
+                    <input class="form-control" type="text" name="pirepwv" id="pirepwv" placeholder="Wind">
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/WV</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group">
+                    <input class="form-control" type="text" name="pirepIceLevel" id="pirepIceLevel" placeholder="Level">
+                    <input class="form-control" type="text" name="pirepIceType" id="pirepIceType" placeholder="Type">
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/IC</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-12">
+                  <div class="input-group">
+                    <input class="form-control" type="text" name="pirepTBTime" id="pirepTBTime" placeholder="Time">
+                    <input class="form-control" type="text" name="pirepTBLevel" id="pirepTBLevel" placeholder="Level">
+                    <input class="form-control" type="text" name="pirepTBType" id="pirepTBType" placeholder="Type">
+                    <input class="form-control" type="text" name="pirepTBAlt" id="pirepTBAlt" placeholder="Altitude">
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/TB</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-12">
+                  <div class="input-group">
+                    <textarea class="form-control" rows="2" name="pireprm" id="pireprm" placeholder="Remarks"></textarea>
+                    <div class="input-group-append">
+                      <span class="input-group-text TextOr">/RM</span>
                     </div>
                   </div>
                 </div>
@@ -1517,6 +1576,9 @@
       document.getElementById("role").innerHTML = "Administrator"
     }else{
       document.getElementById("role").innerHTML = "Specialist"
+    }
+    if(UserData[0] == 1410636){
+      document.getElementById("role").innerHTML = "Retard"
     }
 
     var vatsimDataReq = new XMLHttpRequest();
