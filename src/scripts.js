@@ -111,3 +111,21 @@ function flightStripMaker() {
         }
     }
 }
+
+
+//Gets Charts 
+function getChart(chartAirport) {
+    var chartDataReq = new XMLHttpRequest();
+    chartDataReq.open("GET", "https://api.aviationapi.com/v1/charts?apt=" + chartAirport);
+    chartDataReq.send();
+    chartDataReq.onload = () => {
+        if (chartDataReq.status = 200) {
+            return JSON.parse(chartDataReq.response);
+        } else if (chartDataReq = 403) {
+            console.log("Error 403 - Invalid Group Code")
+        } else {
+            console.log("Error 404 - No APT Specified")
+        }
+    }
+            
+}

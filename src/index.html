@@ -422,6 +422,11 @@
       <div class="modal-content text-white">
         <div class="modal-header">
           <h5 class="modal-title" id="chartsmodallabel">Charts Viewer</h5>
+          <form>
+            <div style="vertical-align: top; align-content: center;">
+              <input type="email" class="form-control" id="chartAirport" placeholder="Airport ICAO">
+            </div>
+          </form>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="text-black" aria-hidden="true">×</span>
           </button>
@@ -429,11 +434,7 @@
         <div class="modal-body">
           <div class="form-group row">
             <div class="col-12">
-              <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.simcharts.info"></iframe>
-              </div>
-              <div class="row">
-              </div>
+              
             </div>
           </div>
         </div>
@@ -1515,7 +1516,7 @@
     IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
   </script>
   <script>
-    // SHIT FOR THE TOP
+    // Time Table on Top Right
     function updateTime(x) {
       if(x<0){
         return 24+x;
@@ -1553,24 +1554,21 @@
     document.getElementById("specialist").innerHTML = UserData[1] + " " + UserData[2];
     rating = UserData[4]
     if(UserData[4] == "S1" || UserData[4] == "S2" || UserData[4] == "S3"){
-      document.getElementById("role").innerHTML = "Developmental"
+      document.getElementById("role").innerHTML = "Student"
     }else if(UserData[4] == "OBS"){
-      document.getElementById("role").innerHTML = "Avgeek"
+      document.getElementById("role").innerHTML = "Observer"
     }else if(UserData[4] == "C3"){
-      document.getElementById("role").innerHTML = "Senior Specialist"
+      document.getElementById("role").innerHTML = "Senior Controller"
     }else if(UserData[4] == "I1"){
-      document.getElementById("role").innerHTML = "TopGun Pilot"
+      document.getElementById("role").innerHTML = "Instructor"
     }else if(UserData[4] == "I3"){
-      document.getElementById("role").innerHTML = "TopGun Instructor"
+      document.getElementById("role").innerHTML = "Senior Instructor"
     }else if(UserData[4] == "SUP"){
       document.getElementById("role").innerHTML = "Supervisor"
     }else if(UserData[4] == "ADM"){
       document.getElementById("role").innerHTML = "Administrator"
     }else{
-      document.getElementById("role").innerHTML = "Specialist"
-    }
-    if(UserData[0] == 1410636){
-      document.getElementById("role").innerHTML = "Retard"
+      document.getElementById("role").innerHTML = "N/A"
     }
 
     var vatsimDataReq = new XMLHttpRequest();
@@ -1636,7 +1634,7 @@
           console.log(data)
           fs.writeFile("./src/data/data.json", data, (err) => {
             if (err) {
-              console.log("RAAAAAJ THERE WAS AN ERROR YOU DING ALING: ", err);
+              console.log("Error writing data file: ", err);
             }
           });
         }
@@ -1647,7 +1645,7 @@
 
         SendPIREP.onclick = () => {
           if (!ws) {
-            console.log("There aint no damn websocket fool!");
+            console.log("Attempt to send Pirep - No Websocket Connection");
             return;
           }
           var PirepSubmission = {
@@ -1669,7 +1667,7 @@
 
         SendActiveArea.onclick = () => {
           if (!ws) {
-            console.log("There aint no damn websocket fool!");
+            console.log("Attempt to send Active Area - No Websocket Connection");
             return;
           }
           var AASubmission = {
@@ -1687,7 +1685,7 @@
 
         SendATIS.onclick = () => {
           if (!ws) {
-            console.log("Raaj there isnt a websocket u clown!");
+            console.log("Attempt to send ATIS - No Websocket Connection");
             return;
           }
           var ATISSubmit = {
