@@ -17,7 +17,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "asar": true
+        "asar": true,
+        "icon": "./src/img/icon.icns"
       },
       "makers": [
         {
