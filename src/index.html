@@ -1714,14 +1714,22 @@
             return;
           }
           var PirepSubmission = {
-            "pireploc": document.querySelector("#pireploc").value,
-            "pireptime": document.querySelector("#pireptime").value,
-            "pirepalt": document.querySelector("#pirepalt").value,
-            "pirepact": document.querySelector("#pirepact").value,
-            "pirepsky": document.querySelector("#pirepsky").value,
-            "pireptmp": document.querySelector("#pireptmp").value,
-            "pirepwnd": document.querySelector("#pirepwnd").value,
-            "pireprmk": document.querySelector("#pireprmk").value
+            "UA": document.querySelector("#ReportType").value,
+            "OV": document.querySelector("#OV").value,
+            "TM": document.querySelector("#TM").value,
+            "FL": document.querySelector("#FL").value,
+            "TP": document.querySelector("#TP").value,
+            "WX": document.querySelector("#WX").value,
+            "SK": document.querySelector("#SK").value,
+            "TA": document.querySelector("#TA").value,
+            "WV": document.querySelector("#WV").value,
+            "ICLevel": document.querySelector("#ICLevel").value,
+            "ICType": document.querySelector("#ICType").value,
+            "TBTime": document.querySelector("#TBTime").value,
+            "TBLevel": document.querySelector("#TBLevel").value,
+            "TBType": document.querySelector("#TBType").value,
+            "TBAlt": document.querySelector("#TBAlt").value,
+            "RM": document.querySelector("#RM").value,
           };
           var datafile = require('./data/data.json');
           datafile.PIREP.push(PirepSubmission);
