@@ -44,7 +44,6 @@ function pullData() {
             document.getElementById("RWDR").innerHTML = DenData["depRwy"];
             document.getElementById("RWLR1").innerHTML = DenData["arrRwy"];
             document.getElementById("RWDR1").innerHTML = DenData["depRwy"];
-            document.getElementById("DENVMC").innerHTML = DenData["weather"];
         }
     }
 
@@ -63,43 +62,45 @@ function pullData() {
 
 
     //Reading JSON File
-    delete require.cache[require.resolve('./data/data.json')]
-    var datafile = require('./data/data.json');
-    console.log(datafile);
-    //ATIS
-    var ATIS = datafile.ATIS;
+    fs.readFile('./src/data/data.json', function (err, data) {
+        if (err) throw err;
+        datafile = JSON.parse(data);
+    
+        //ATIS
+        var ATIS = datafile.ATIS;
 
-    //PIREP
-    var PIREP = datafile.PIREP;
-    PIREPHTMLString = "";
-    PIREP.forEach((item) => {
-        PIREPHTMLString += `
-        <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
-            <div class="col-12 d-flex d-inline flex-wrap">
-                  <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+        //PIREP
+        var PIREP = datafile.PIREP;
+        PIREPHTMLString = "";
+        PIREP.forEach((item) => {
+            PIREPHTMLString += `
+            <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
+                <div class="col-12 d-flex d-inline flex-wrap">
+                    <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
-    document.getElementById("PIREPEntry").innerHTML = PIREPHTMLString;
+            `;
+        });
+        document.getElementById("PIREPEntry").innerHTML = PIREPHTMLString;
 
-    //TMU
-    var TMU = datafile.TMU;
-    TMUHTMLString = "";
-    TMU.forEach((item) => {
-        TMUHTMLString += `${item["TMUGate"]} | ${item["TMUStat"]} | ${item["TMUMIT"]} | ${item["TMUSPD"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
-    });
-    document.getElementById("TMU_container").innerHTML = TMUHTMLString;
+        //TMU
+        var TMU = datafile.TMU;
+        TMUHTMLString = "";
+        TMU.forEach((item) => {
+            TMUHTMLString += `${item["TMUGate"]} | ${item["TMUStat"]} | ${item["TMUMIT"]} | ${item["TMUSPD"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+        });
+        document.getElementById("TMU_container").innerHTML = TMUHTMLString;
 
-    //ActiveAreas
-    var ActiveAreas = datafile.ActiveAreas;
-    AAHTMLString = "";
-    ActiveAreas.forEach((item) => {
-        AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
-    });
-    document.getElementById("AAI_container").innerHTML = AAHTMLString;
+        //ActiveAreas
+        var ActiveAreas = datafile.ActiveAreas;
+        AAHTMLString = "";
+        ActiveAreas.forEach((item) => {
+            AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+        });
+        document.getElementById("AAI_container").innerHTML = AAHTMLString;
 
-    setTimeout(pullData, 5000);
+        var randomthingy = setTimeout(pullData, 1000);
+    });
 };
 
 pullData();
