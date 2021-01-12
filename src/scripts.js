@@ -73,9 +73,15 @@ function pullData() {
     var PIREP = datafile.PIREP;
     PIREPHTMLString = "";
     PIREP.forEach((item) => {
-        PIREPHTMLString += `Loc: ${item["pireploc"]} | Time: ${item["pireptime"]} | Alt: ${item["pirepalt"]} | Acft: ${item["pirepact"]} | Sky: ${item["pirepsky"]} | Temp: ${item["pireptmp"]} | Wind: ${item["pirepwnd"]} | Rmk: ${item["pireprmk"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+        PIREPHTMLString += `
+        <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
+            <div class="col-12 d-flex d-inline flex-wrap">
+                  <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+            </div>
+        </div>
+        `;
     });
-    document.getElementById("PIREP_container").innerHTML = PIREPHTMLString;
+    document.getElementById("PIREPEntry").innerHTML = PIREPHTMLString;
 
     //TMU
     var TMU = datafile.TMU;
