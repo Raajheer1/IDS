@@ -157,7 +157,7 @@
             <div class="form-group row">
               <div class="col-3">
                 <h5 style="padding-top: 13px; padding-bottom: 13px; text-align: center;">KDEN - AAR</h5>
-                <div class="p-2 mt-3 d-flex metarlike" style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #5f5f5f;"
+                <div class="p-2 mt-3 d-flex metarlike" style="font-size: 4rem; align-items: center; justify-content: center; background-color: #2f2f2f; height: 120px; border: 1px solid #F97E41;"
                   oncontextmenu="return false;"><span id="ActiveAAR"></span></div>
                 <input name="code" type="hidden" value="">
               </div>
@@ -1466,10 +1466,10 @@
                 <div class="row">
                   <div class="col-6" style="align-items: center;">
                     <input class="form-control" placeholder="Coded Departure Route" name="cdrentry" id="cdrentry" type="text">
-                    <label>Ex: PHXS3</label>
+                    <label>Ex: DENPHXS3</label>
                   </div>
                   <div class="col-6" style="align-items: center;">
-                    <input type="button" id="editcdr_update" class="btn btn-outline-primary" name="do_cdr" value="Fetch Route">
+                    <input type="button" id="editcdr_update" class="btn btn-outline-success" name="do_cdr" value="Fetch Route">
                   </div>
                 </div>
                 <div class="row mt-3" style="align-items: center;">
@@ -1648,12 +1648,41 @@
         }
 
         ws.onmessage = ({ data }) => {
-          console.log(data)
-          fs.writeFile("./src/data/data.json", data, (err) => {
-            if (err) {
-              console.log("Error writing data file: ", err);
-            }
-          });
+          datafile = JSON.parse(data);
+        console.log(datafile)
+    
+        //ATIS
+        var ATIS = datafile.ATIS;
+
+        //PIREP
+        var PIREP = datafile.PIREP;
+        PIREPHTMLString = "";
+        PIREP.forEach((item) => {
+            PIREPHTMLString += `
+            <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
+                <div class="col-12 d-flex d-inline flex-wrap">
+                    <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+                </div>
+            </div>
+            `;
+        });
+        document.getElementById("PIREPEntry").innerHTML = PIREPHTMLString;
+
+        //TMU
+        var TMU = datafile.TMU;
+        TMUHTMLString = "";
+        TMU.forEach((item) => {
+            TMUHTMLString += `${item["TMUGate"]} | ${item["TMUStat"]} | ${item["TMUMIT"]} | ${item["TMUSPD"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+        });
+        // document.getElementById("TMU_container").innerHTML = TMUHTMLString;
+
+        //ActiveAreas
+        var ActiveAreas = datafile.ActiveAreas;
+        AAHTMLString = "";
+        ActiveAreas.forEach((item) => {
+            AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+        });
+        // document.getElementById("AAI_container").innerHTML = AAHTMLString;
         }
 
         ws.onclose = () => {
@@ -1683,11 +1712,11 @@
             "TBAlt": document.querySelector("#TBAlt").value,
             "RM": document.querySelector("#RM").value,
           };
-          var datafile = require('./data/data.json');
-          datafile.PIREP.push(PirepSubmission);
-          var finalPirep = JSON.stringify(datafile);
-          ws.send(finalPirep);
-          delete require.cache[require.resolve('./data/data.json')]
+          // var datafile = require('./data/data.json');
+          // datafile.PIREP.push(PirepSubmission);
+          var FinalPIREP = JSON.stringify(PirepSubmission);
+          ws.send(FinalPIREP);
+          // delete require.cache[require.resolve('./data/data.json')]
         }
 
         SendActiveArea.onclick = () => {
