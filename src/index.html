@@ -51,34 +51,34 @@
     <div class="row mt-2">
       <div class="container-fluid">
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#atismodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">ATIS</span></span>
+          <span class="orange-under"><span style="color: grey;">ATIS</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#pirepmodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">PIREP</span></span>
+          <span class="orange-under"><span style="color: grey;">PIREP</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#tmumodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">TMU</span></span>
+          <span class="orange-under"><span style="color: grey;">TMU</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">COMMS</span></span>
+          <span class="orange-under"><span style="color: grey;">COMMS</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">CHARTS</span></span>
+          <span class="orange-under"><span style="color: grey;">CHARTS</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#activeareamodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">ACTIVE AREA</span></span>
+          <span class="orange-under"><span style="color: grey;">ACTIVE AREA</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">AADC</span></span>
+          <span class="orange-under"><span style="color: grey;">AADC</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cdrmodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">CDR</span></span>
+          <span class="orange-under"><span style="color: grey;">CDR</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#rwmodal">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">RW Config</span></span>
+          <span class="orange-under"><span style="color: grey;">RW Config</span></span>
         </button>
         <a href="mainWindow.html"><button type="button" class="btn btn-outline-secondary">
-          <span style="color: #F97E41; text-decoration:underline;"><span style="color: grey;">Back</span></span>
+          <span class="orange-under"><span style="color: grey;">Back</span></span>
         </button></a>
       </div>
     </div>
@@ -434,22 +434,59 @@
       <div class="modal-content text-white">
         <div class="modal-header">
           <h5 class="modal-title" id="chartsmodallabel">Charts Viewer</h5>
-          <form>
-            <div style="vertical-align: top; align-content: center;">
-              <input type="text" class="form-control" id="chartAirport" placeholder="Airport ICAO">
-            </div>
-          </form>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-black" aria-hidden="true">×</span>
+            <span class="TextOr" aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">
-          <div class="form-group row">
-            <div class="col-12">
-              
+        <form id="CDRForm" onsubmit="return false;">
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-6" style="align-items: center;">
+                    <input class="form-control" placeholder="ICAO" name="ICAO" id="ChartICAO" type="text">
+                    <label>Ex: KDEN</label>
+                  </div>
+                  <div class="col-6" style="align-items: center;">
+                    <input type="button" id="ChartICAO_Submit" class="btn btn-outline-success" name="ChartICAO_Submit" value="Fetch Charts">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <ul class="nav nav-tabs mb-2">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#general">General</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#sids">SIDs</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#stars">STARs</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#iaps">IAPs</a>
+                      </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                      <div class="tab-pane fade active show" id="general">
+                        
+                      </div>
+                      <div class="tab-pane fade" id="sids">
+                        <p></p>
+                      </div>
+                      <div class="tab-pane fade" id="stars">
+                        <p></p>
+                      </div>
+                      <div class="tab-pane fade" id="iaps">
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -1559,6 +1596,8 @@
   <script>window.jQuery = window.$ = module.exports</script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+  <!-- Titlebar -->
   <script>
     const customTitlebar = require('custom-electron-titlebar');
     let IDSTitleBar = new customTitlebar.Titlebar({
@@ -1569,6 +1608,7 @@
 
     IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
   </script>
+  <!-- TIME ON THE TOP -->
   <script>
     // Time Table on Top Right
     function updateTime(x) {
@@ -1665,6 +1705,7 @@
         }
     }
   </script>
+  <!-- FORMs/WS -->
   <script>
     (function () {
       var SendPIREP = document.querySelector("#editprp_update");
@@ -1834,6 +1875,92 @@
       });
     });
   </script>
+  <!-- Chart Modal -->
+  <script>
+    var SendChart = document.querySelector("#ChartICAO_Submit");
+
+    SendChart.onclick = () => {
+      ICAO = document.querySelector("#ChartICAO").value
+      ICAO = ICAO.toUpperCase();
+      document.getElementById("general").innerHTML = `<div id=${ICAO}general></div>`
+      document.getElementById("sids").innerHTML = `<div id=${ICAO}sids></div>`
+      document.getElementById("stars").innerHTML = `<div id=${ICAO}stars></div>`
+      document.getElementById("iaps").innerHTML = `<div id=${ICAO}iaps></div>`
+      var request = new XMLHttpRequest();
+      // General
+      request.open("GET", `https://api.aviationapi.com/v1/charts?apt=${ICAO}&group=3`);
+      request.send();
+      request.onload = function () {
+        if (request.status != 200) {
+            console.log("Error pulling Charts.");
+        } else {
+          ChartArray = JSON.parse(request.response);
+          ChartArray = ChartArray[ICAO];
+          ChartArray.forEach(item => {
+            document.getElementById(`${ICAO}general`).innerHTML += `
+              <button type="button" class="btn btn-outline-secondary mb-1">
+                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
+              </button><br>`
+          });
+        }
+      }
+      // SIDs
+      var requestsid = new XMLHttpRequest();
+      requestsid.open("GET", `https://api.aviationapi.com/v1/charts?apt=${ICAO}&group=4`);
+      requestsid.send();
+      requestsid.onload = function () {
+        if (requestsid.status != 200) {
+            console.log("Error pulling Charts.");
+        } else {
+          ChartArray = JSON.parse(requestsid.response);
+          ChartArray = ChartArray[ICAO];
+          ChartArray.forEach(item => {
+            document.getElementById(`${ICAO}sids`).innerHTML += `
+              <button type="button" class="btn btn-outline-secondary mb-1">
+                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
+              </button><br>`
+          });
+        }
+      }
+      // STARs
+      var requeststar = new XMLHttpRequest();
+      requeststar.open("GET", `https://api.aviationapi.com/v1/charts?apt=${ICAO}&group=5`);
+      requeststar.send();
+      requeststar.onload = function () {
+        if (requeststar.status != 200) {
+            console.log("Error pulling Charts.");
+        } else {
+          ChartArray = JSON.parse(requeststar.response);
+          ChartArray = ChartArray[ICAO];
+          ChartArray.forEach(item => {
+            document.getElementById(`${ICAO}stars`).innerHTML += `
+              <button type="button" class="btn btn-outline-secondary mb-1">
+                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
+              </button><br>`
+          });
+        }
+      }
+      // IAPs
+      var requestiap = new XMLHttpRequest();
+      requestiap.open("GET", `https://api.aviationapi.com/v1/charts?apt=${ICAO}&group=6`);
+      requestiap.send();
+      requestiap.onload = function () {
+        if (requestiap.status != 200) {
+            console.log("Error pulling Charts.");
+        } else {
+          ChartArray = JSON.parse(requestiap.response);
+          ChartArray = ChartArray[ICAO];
+          ChartArray.forEach(item => {
+            document.getElementById(`${ICAO}iaps`).innerHTML += `
+              <button type="button" class="btn btn-outline-secondary mb-1">
+                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
+              </button><br>`
+          });
+        }
+      }
+    }
+  </script>
+
 </body>
 <script src="./scripts.js"></script>
 <script src="./forms.js"></script>
