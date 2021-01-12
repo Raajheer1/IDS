@@ -101,3 +101,7 @@ textarea:focus {
 .TextOr {
     color: #F97E41;
 }
+
+.OrBorder {
+    border: 2px solid #F97E41;
+}
