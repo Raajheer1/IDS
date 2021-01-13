@@ -42,8 +42,6 @@ function pullData() {
             document.getElementById("RWADR").innerHTML = DenData["depRate"];
             document.getElementById("RWLR").innerHTML = DenData["arrRwy"];
             document.getElementById("RWDR").innerHTML = DenData["depRwy"];
-            document.getElementById("RWLR1").innerHTML = DenData["arrRwy"];
-            document.getElementById("RWDR1").innerHTML = DenData["depRwy"];
         }
     }
 

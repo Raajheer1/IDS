@@ -85,6 +85,7 @@
       </div>
     </div>
     <div class="row mt-3">
+      <!-- Tables on Left side of Application -->
       <div class="col-lg-7">
         <div class="jumbotron p-0">
           <div class="row m-0 pt-2 pl-2 pb-1" style="border-bottom: 1px solid #F97E41">
@@ -2555,8 +2556,12 @@
           datafile = JSON.parse(data);
           console.log(datafile)
       
-          //ATIS
-          var ATIS = datafile.ATIS;
+          //RWYs
+          var RWYs = datafile.RWYS;
+          // RWYs.forEach(item => {
+            document.getElementById("RWLR1").innerHTML = RWYs["LandingRWYs"];
+            document.getElementById("RWDR1").innerHTML = RWYs["DepartingRWYs"];
+          // });
 
           //PIREP
           var PIREP = datafile.PIREP;
@@ -3071,13 +3076,12 @@
             console.log("Attempt to send ATIS - No Websocket Connection");
             return;
           }
-          var ATISSubmit = {
-            "LandingRWYs": document.querySelector("#atisland").value,
-            "DepartingRWYs": document.querySelector("#atisdep").value,
-            "ExtraInfo": document.querySelector("#atisextrainfo").value
+          var RWYSubmit = {
+            "LandingRWYs": document.querySelector("#rwyland").value,
+            "DepartingRWYs": document.querySelector("#rwydep").value,
           };
-          var finalATIS = JSON.stringify(datafile);
-          ws.send(finalATIS);
+          var finalRWY = JSON.stringify(RWYSubmit);
+          ws.send(finalRWY);
         }
 
 
