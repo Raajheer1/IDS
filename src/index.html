@@ -121,9 +121,9 @@
       </div>
 
       <!--Tables on Right side of Application-->
-
-      <!-- PIREPs -->
       <div class="col-lg-5">
+
+        <!-- PIREPs -->
         <div class="jumbotron p-0 mb-3">
           <div class="row m-0 pt-2 pl-2 pb-1 pr-2" style="border-bottom: 1px solid #F97E41">
             <div class="col-11 p-0">
@@ -2543,6 +2543,15 @@
       let ws;
 
       function init() {
+        function DeleteWS(Type, Index){
+          var WSData = {
+            "Delete": true,
+            "Type": Type,
+            "Index": Index
+          }
+          ws.send(WSData);
+        }
+
         if (ws) {
           ws.onerror = ws.onopen = ws.onclose == null;
           ws.close();
@@ -2564,11 +2573,16 @@
           //PIREP
           var PIREP = datafile.PIREP;
           PIREPHTMLString = "";
-          PIREP.forEach((item) => {
+          PIREP.forEach((item, index) => {
               PIREPHTMLString += `
               <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
                   <div class="col-12 d-flex d-inline flex-wrap">
-                      <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+                    <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+                    <span class="float-right" style="margin-left:auto;">
+                      <button type="button" class="close pb-1" onclick="DeleteWS('PIREP', ${index})">
+                        <i class="bi bi-x-circle TextOr"></i>
+                      </button>
+                    </span>
                   </div>
               </div>
               `;
@@ -2578,7 +2592,7 @@
           //TMU
           var TMU = datafile.TMU;
           TMUHTMLString = "";
-          TMU.forEach((item) => {
+          TMU.forEach((item, index) => {
               TMUHTMLString += `
                 <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
                   <div class="col-12 d-flex d-inline flex-wrap">
@@ -2594,6 +2608,11 @@
                       <p class="orange-under pr-1 m-0">MIT:</p> ${item["MIT"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
                       <p class="orange-under pr-1 m-0">SPD:</p> ${item["SPD"]} 
                     </p>
+                    <span class="float-right" style="margin-left:auto;">
+                      <button type="button" class="close pb-1" onclick="DeleteWS('TMU', ${index})">
+                        <i class="bi bi-x-circle TextOr"></i>
+                      </button>
+                    </span>
                   </div>
                 </div>
               `;
@@ -2603,7 +2622,7 @@
           //ActiveAreas
           var ActiveAreas = datafile.ActiveAreas;
           AAHTMLString = "";
-          ActiveAreas.forEach((item) => {
+          ActiveAreas.forEach((item, index) => {
               AAHTMLString += `
                 <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
                   <div class="col-12 d-flex d-inline flex-wrap">
@@ -2613,6 +2632,11 @@
                       <p class="orange-under pr-1 m-0">TIME:</p> ${item["AirspaceEND"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
                       <p class="orange-under pr-1 m-0">Extra:</p> ${item["AirspaceEXTRA"]} 
                     </p>
+                    <span class="float-right" style="margin-left:auto;">
+                      <button type="button" class="close pb-1" onclick="DeleteWS('ActiveArea', ${index})">
+                        <i class="bi bi-x-circle TextOr"></i>
+                      </button>
+                    </span>
                   </div>
                 </div>
               `;
