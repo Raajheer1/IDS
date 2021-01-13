@@ -442,10 +442,9 @@
           <div class="modal-body">
             <div class="form-group row">
               <div class="col-12">
-                <div class="row">
+                <div class="row mb-3">
                   <div class="col-6" style="align-items: center;">
                     <input class="form-control" placeholder="ICAO" name="ICAO" id="ChartICAO" type="text">
-                    <label>Ex: KDEN</label>
                   </div>
                   <div class="col-6" style="align-items: center;">
                     <input type="button" id="ChartICAO_Submit" class="btn btn-outline-success" name="ChartICAO_Submit" value="Fetch Charts">
@@ -468,19 +467,18 @@
                       </li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
-                      <div class="tab-pane fade active show" id="general">
-                        
+                      <div class="tab-pane fade active show" style="height: 700px; overflow-y: scroll" id="general">
                       </div>
-                      <div class="tab-pane fade" id="sids">
-                        <p></p>
+                      <div class="tab-pane fade" style="height: 700px; overflow-y: scroll" id="sids">
                       </div>
-                      <div class="tab-pane fade" id="stars">
-                        <p></p>
+                      <div class="tab-pane fade" style="height: 700px; overflow-y: scroll" id="stars">
                       </div>
-                      <div class="tab-pane fade" id="iaps">
-                        <p></p>
+                      <div class="tab-pane fade" style="height: 700px; overflow-y: scroll" id="iaps">
                       </div>
                     </div>
+                  </div>
+                  <div class="col-6">
+                    <iframe id="ChartFrame" src="https:\/\/charts.aviationapi.com\/AIRAC_201231\/09077AD.PDF" width="100%" height="750px"></iframe>
                   </div>
                 </div>
               </div>
@@ -1877,6 +1875,25 @@
   </script>
   <!-- Chart Modal -->
   <script>
+    function ChangeChart(ICAO, Chart){
+      var requestFunc = new XMLHttpRequest();
+      // General
+      requestFunc.open("GET", `https://api.aviationapi.com/v1/charts?apt=${ICAO}`);
+      requestFunc.send();
+      requestFunc.onload = function () {
+        if (requestFunc.status != 200) {
+            console.log("Error pulling Charts.");
+        } else {
+          ChartArray = JSON.parse(requestFunc.response);
+          ChartArray = ChartArray[ICAO];
+          ChartArray.forEach(item => {
+            if(item["pdf_name"] == Chart){
+              document.getElementById("ChartFrame").src = item["pdf_path"];
+            }
+          });
+        }
+      }
+    }
     var SendChart = document.querySelector("#ChartICAO_Submit");
 
     SendChart.onclick = () => {
@@ -1898,8 +1915,8 @@
           ChartArray = ChartArray[ICAO];
           ChartArray.forEach(item => {
             document.getElementById(`${ICAO}general`).innerHTML += `
-              <button type="button" class="btn btn-outline-secondary mb-1">
-                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
+              <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeChart('${ICAO}', '${item["pdf_name"]}')">
+                <span class="orange-under"><span style="color: white;">${item["chart_name"]}</span></span>
               </button><br>`
           });
         }
@@ -1914,11 +1931,18 @@
         } else {
           ChartArray = JSON.parse(requestsid.response);
           ChartArray = ChartArray[ICAO];
-          ChartArray.forEach(item => {
+          ChartArray.forEach((item, index) => {
             document.getElementById(`${ICAO}sids`).innerHTML += `
-              <button type="button" class="btn btn-outline-secondary mb-1">
-                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
-              </button><br>`
+              <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeChart('${ICAO}', '${item["pdf_name"]}')">
+                <span class="orange-under"><span style="color: white;">${item["chart_name"]}</span></span>
+              </button>`
+              if(index == 0){
+                document.getElementById(`${ICAO}sids`).innerHTML += `<br>`;
+              }else{
+                if(item["chart_name"].includes(ChartArray[index-1]["chart_name"])){
+                  document.getElementById(`${ICAO}sids`).innerHTML += `<br>`;
+                }
+              }
           });
         }
       }
@@ -1932,11 +1956,18 @@
         } else {
           ChartArray = JSON.parse(requeststar.response);
           ChartArray = ChartArray[ICAO];
-          ChartArray.forEach(item => {
+          ChartArray.forEach((item, index) => {
             document.getElementById(`${ICAO}stars`).innerHTML += `
-              <button type="button" class="btn btn-outline-secondary mb-1">
-                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
-              </button><br>`
+              <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeChart('${ICAO}', '${item["pdf_name"]}')">
+                <span class="orange-under"><span style="color: white;">${item["chart_name"]}</span></span>
+              </button>`
+              if(index == 0){
+                document.getElementById(`${ICAO}stars`).innerHTML += `<br>`;
+              }else{
+                if(item["chart_name"].includes(ChartArray[index-1]["chart_name"].substring(0, 5))){
+                  document.getElementById(`${ICAO}stars`).innerHTML += `<br>`;
+                }
+              }
           });
         }
       }
@@ -1952,8 +1983,8 @@
           ChartArray = ChartArray[ICAO];
           ChartArray.forEach(item => {
             document.getElementById(`${ICAO}iaps`).innerHTML += `
-              <button type="button" class="btn btn-outline-secondary mb-1">
-                <span class="orange-under"><span style="color: grey;">${item["chart_name"]}</span></span>
+              <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeChart('${ICAO}', '${item["pdf_name"]}')">
+                <span class="orange-under"><span style="color: white;">${item["chart_name"]}</span></span>
               </button><br>`
           });
         }
