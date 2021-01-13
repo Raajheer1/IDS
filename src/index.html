@@ -59,7 +59,7 @@
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#tmumodal">
           <span class="orange-under"><span style="color: grey;">TMU</span></span>
         </button>
-        <button type="button" class="btn btn-outline-secondary">
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#commmodal">
           <span class="orange-under"><span style="color: grey;">COMMS</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">
@@ -139,6 +139,23 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+
+  <!-- COMMs Modal -->
+  <div class="modal pt-5" id="commmodal" role="dialog" aria-labelledby="commmodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="rwmodallabel">Communications</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span class="TextOr" aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+        </div>
     </div>
   </div>
 
@@ -1873,7 +1890,7 @@
       });
     });
   </script>
-  <!-- Chart Modal -->
+  <!-- Charts -->
   <script>
     function ChangeChart(ICAO, Chart){
       var requestFunc = new XMLHttpRequest();
