@@ -183,35 +183,738 @@
 
   <!-- COMMs Modal -->
   <div class="modal pt-5" id="commmodal" role="dialog" aria-labelledby="commmodallabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content text-white">
-          <div class="modal-header">
-            <h5 class="modal-title" id="rwmodallabel">Communications</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span class="TextOr" aria-hidden="true">×</span>
-            </button>
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rwmodallabel">Communications</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="TextOr" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--Tables on Left Side of Modal-->
+          <div class="col-6 float-left">
+            <h5 style="text-align: center;">Denver Center (ZDV)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">DEN_17_CTR (P)</th>
+                  <td>127.650</td>
+                  <td>17</td>
+                  <td>Hill City High</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_22_CTR</th>
+                  <td>135.600</td>
+                  <td>22</td>
+                  <td>Casper Low</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_25_CTR</th>
+                  <td>133.520</td>
+                  <td>25</td>
+                  <td>Blue Mesa High</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_14_CTR</th>
+                  <td>128.320</td>
+                  <td>14</td>
+                  <td>Hayden High</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_33_CTR</th>
+                  <td>134.570</td>
+                  <td>33</td>
+                  <td>Cheyenne High</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_19_CTR</th>
+                  <td>132.700</td>
+                  <td>19</td>
+                  <td>North Platte Low</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_29_CTR</th>
+                  <td>132.220</td>
+                  <td>29</td>
+                  <td>Pueblo High</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_11_CTR</th>
+                  <td>120.470</td>
+                  <td>11</td>
+                  <td>Junction Low</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_27_CTR</th>
+                  <td>134.120</td>
+                  <td>27</td>
+                  <td>La Junta Low</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_31_CTR</th>
+                  <td>127.950</td>
+                  <td>31</td>
+                  <td>Rapid City Low</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Denver ATCT (DEN)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">DEN_E_TWR (P)</th>
+                  <td>132.350</td>
+                  <td>1ET</td>
+                  <td>Denver Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_N_TWR</th>
+                  <td>135.300</td>
+                  <td>1NT</td>
+                  <td>Denver Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_S_TWR</th>
+                  <td>133.300</td>
+                  <td>1ST</td>
+                  <td>Denver Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_W_TWR</th>
+                  <td>128.750</td>
+                  <td>1WT</td>
+                  <td>Denver Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_E_GND (P)</th>
+                  <td>121.850</td>
+                  <td>1EG</td>
+                  <td>Denver Ground</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_W_GND</th>
+                  <td>127.500</td>
+                  <td>1WG</td>
+                  <td>Denver Ground</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_BN_GND</th>
+                  <td>130.950</td>
+                  <td>1BN</td>
+                  <td>Denver Ramp</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_BS_GND</th>
+                  <td>130.600</td>
+                  <td>1BS</td>
+                  <td>Denver Ramp</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_DEL</th>
+                  <td>118.750</td>
+                  <td>1C</td>
+                  <td>Denver Delivery</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Centennial ATCT (APA)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">APA_TWR</th>
+                  <td>118.900</td>
+                  <td>A</td>
+                  <td>Centennial Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">APA_GND</th>
+                  <td>121.800</td>
+                  <td>B</td>
+                  <td>Centennial Ground</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">APA_DEL</th>
+                  <td>128.600</td>
+                  <td>C</td>
+                  <td>Centennial Delivery</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Rocky Mountin Metro ATCT (BJC)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">BJC_TWR</th>
+                  <td>118.600</td>
+                  <td>A</td>
+                  <td>Metro Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">BJC_GND</th>
+                  <td>121.700</td>
+                  <td>B</td>
+                  <td>Metro Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Northern Colorado ATCT (FNL)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">FNL_TWR</th>
+                  <td>118.400</td>
+                  <td>T</td>
+                  <td>Noco Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">FNL_GND</th>
+                  <td>121.650</td>
+                  <td>B</td>
+                  <td>Noco Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Cheyenne RAPCON (CYS)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">CYS_APP</th>
+                  <td>124.550</td>
+                  <td>A</td>
+                  <td>Cheyenne Approach</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">CYS_TWR</th>
+                  <td>118.700</td>
+                  <td>B</td>
+                  <td>Cheyenne Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">CYS_GND</th>
+                  <td>121.900</td>
+                  <td>C</td>
+                  <td>Cheyenne Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Gurnsey ATCT (GUR)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">GUR_TWR</th>
+                  <td>126.200</td>
+                  <td>T</td>
+                  <td>Gurnsery Tower</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Casper TRACON (CPR)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">CPR_APP</th>
+                  <td>120.650</td>
+                  <td>P</td>
+                  <td>Casper Approach</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">CPR_TWR</th>
+                  <td>118.300</td>
+                  <td>B</td>
+                  <td>Casper Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">CPR_GND</th>
+                  <td>121.900</td>
+                  <td>A</td>
+                  <td>Casper Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Four Corners ATCT (FMN)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">FMN_TWR</th>
+                  <td>118.900</td>
+                  <td>A</td>
+                  <td>Farmington Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">FMN_GND</th>
+                  <td>121.700</td>
+                  <td>B</td>
+                  <td>Farmington Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Ellsworth RAPCON (RCA)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">RCA_APP</th>
+                  <td>119.500</td>
+                  <td>A</td>
+                  <td>Ellsworth Approach</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">RCA_TWR</th>
+                  <td>126.050</td>
+                  <td>A</td>
+                  <td>Ellsworth Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">RCA_GND</th>
+                  <td>121.800</td>
+                  <td>B</td>
+                  <td>Ellsworth Ground</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="modal-body">
-            <div class="col-6">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Callsign</th>
-                    <th scope="col">Frequency</th>
-                    <th scope="col">ID</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="table-active">
-                    <th scope="row">DEN_17_CTR</th>
-                    <td>127.650</td>
-                    <td>17</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <!--Tables on Right side of Modal-->
+          <div class="col-6 float-right">
+            <h5 style="text-align: center;">Denver TRACON (D01)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">DEN_I_APP</th>
+                  <td>120.350</td>
+                  <td>I</td>
+                  <td>Quicksand</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_H_APP</th>
+                  <td>119.300</td>
+                  <td>H</td>
+                  <td>Honcho</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_G_APP</th>
+                  <td>124.950</td>
+                  <td>G</td>
+                  <td>Tecate</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_X_APP</th>
+                  <td>126.550</td>
+                  <td>X</td>
+                  <td>Rush</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_W_APP</th>
+                  <td>123.850</td>
+                  <td>W</td>
+                  <td>DEN Primary Final</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_E_APP</th>
+                  <td>120.800</td>
+                  <td>E</td>
+                  <td>DEN Secondary Final</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_O_APP</th>
+                  <td>125.750</td>
+                  <td>O</td>
+                  <td>DEN Center Final</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_T_APP</th>
+                  <td>133.620</td>
+                  <td>T</td>
+                  <td>DEN Tertiary Final</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_J_APP</th>
+                  <td>125.120</td>
+                  <td>J</td>
+                  <td>DEN West Satellite</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_D_APP</th>
+                  <td>134.850</td>
+                  <td>D</td>
+                  <td>DEN North Satellite</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_A_APP</th>
+                  <td>132.750</td>
+                  <td>A</td>
+                  <td>DEN South Satellite</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_L_DEP</th>
+                  <td>126.1</td>
+                  <td>L</td>
+                  <td>West</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_N_DEP</th>
+                  <td>127.050</td>
+                  <td>N</td>
+                  <td>North</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">DEN_R_DEP</th>
+                  <td>128.250</td>
+                  <td>R</td>
+                  <td>East</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">DEN_S_DEP</th>
+                  <td>128.450</td>
+                  <td>S</td>
+                  <td>South</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">GJT_APP</th>
+                  <td>119.700</td>
+                  <td>J</td>
+                  <td>Junction Radar</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">PUB_APP</th>
+                  <td>120.100</td>
+                  <td>P</td>
+                  <td>Pueblo Radar</td>
+                </tr>
+              </tbody>  
+            </table>
+            <h5 style="text-align: center;">Colorado Air and Space Port (CFO)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">CFO_TWR</th>
+                  <td>120.200</td>
+                  <td>T</td>
+                  <td>Front Range Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">CFO_GND</th>
+                  <td>124.700</td>
+                  <td>B</td>
+                  <td>Front Range Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Buckley AFB ATCT (BKF)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">BKF_TWR</th>
+                  <td>121.000</td>
+                  <td>A</td>
+                  <td>Buckley Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">BKF_GND</th>
+                  <td>121.600</td>
+                  <td>B</td>
+                  <td>Buckley Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Colorado Springs TRACON (COS)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">COS_APP (P)</th>
+                  <td>124.000</td>
+                  <td>S</td>
+                  <td>Springs DR</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">COS_VR_APP</th>
+                  <td>120.600</td>
+                  <td>D</td>
+                  <td>Springs VR</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">COS_W_TWR (P)</th>
+                  <td>119.900</td>
+                  <td>B</td>
+                  <td>Springs Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">COS_E_TWR</th>
+                  <td>133.150</td>
+                  <td>B</td>
+                  <td>Springs Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">COS_GND</th>
+                  <td>121.700</td>
+                  <td>C</td>
+                  <td>Springs Ground</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">COS_DEL</th>
+                  <td>134.450</td>
+                  <td>D</td>
+                  <td>Springs Delivery</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Pueblo TRACON (PUB)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">PUB_TWR</th>
+                  <td>119.100</td>
+                  <td>B</td>
+                  <td>Pueblo Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">PUB_GND</th>
+                  <td>121.900</td>
+                  <td>C</td>
+                  <td>Pueblo Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Aspen TRACAB (ASE)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">ASE_APP</th>
+                  <td>123.800</td>
+                  <td>R</td>
+                  <td>Aspen Approach</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">ASE_TWR</th>
+                  <td>118.850</td>
+                  <td>B</td>
+                  <td>Aspen Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">ASE_GND</th>
+                  <td>121.900</td>
+                  <td>C</td>
+                  <td>Aspen Ground</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">ASE_DEL</th>
+                  <td>123.750</td>
+                  <td>D</td>
+                  <td>Aspen Delivery</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Eagle County ATCT (EGE)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">EGE_TWR</th>
+                  <td>119.800</td>
+                  <td>A</td>
+                  <td>Eagle County Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">EGE_GND</th>
+                  <td>121.800</td>
+                  <td>B</td>
+                  <td>Eagle County Ground</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">EGE_DEL</th>
+                  <td>124.750</td>
+                  <td>C</td>
+                  <td>Eagle County Delivery</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Grand Juction TRACON (GJT)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-active">
+                  <th scope="row">GJT_TWR</th>
+                  <td>118.100</td>
+                  <td>B</td>
+                  <td>Grand Junction Tower</td>
+                </tr>
+                <tr class="table-default">
+                  <th scope="row">GJT_GND</th>
+                  <td>121.700</td>
+                  <td>C</td>
+                  <td>Grand Junction Ground</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="text-align: center;">Rapid City ATCT (RAP)</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Callsign</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Ident</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-default">
+                  <th scope="row">RAP_TWR</th>
+                  <td>125.850</td>
+                  <td>A</td>
+                  <td>Rapid City Tower</td>
+                </tr>
+                <tr class="table-active">
+                  <th scope="row">RAP_GND</th>
+                  <td>121.900</td>
+                  <td>B</td>
+                  <td>Rapid City Ground</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+      </div>
     </div>
   </div>
 
