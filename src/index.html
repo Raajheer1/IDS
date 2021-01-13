@@ -121,8 +121,10 @@
       </div>
 
       <!--Tables on Right side of Application-->
+
+      <!-- PIREPs -->
       <div class="col-lg-5">
-        <div class="jumbotron p-0">
+        <div class="jumbotron p-0 mb-3">
           <div class="row m-0 pt-2 pl-2 pb-1 pr-2" style="border-bottom: 1px solid #F97E41">
             <div class="col-11 p-0">
               <h5 style="margin-bottom: 0px;">PIREP</h5>
@@ -135,6 +137,42 @@
           </div>
           <div class="row m-0">
             <div id="PIREPEntry" class="col-12 p-1">
+            </div>
+          </div>
+        </div>
+
+        <!-- TMU Notices -->
+        <div class="jumbotron p-0 mb-3">
+          <div class="row m-0 pt-2 pl-2 pb-1 pr-2" style="border-bottom: 1px solid #F97E41">
+            <div class="col-11 p-0">
+              <h5 style="margin-bottom: 0px;">TMU Notices</h5>
+            </div>
+            <div class="col-1 p-0">
+              <button type="button" class="close pb-1" data-toggle="modal" data-target="#tmumodal">
+                <i class="bi bi-plus-square TextOr"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div id="TMUEntry" class="col-12 p-1">
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Areas -->
+        <div class="jumbotron p-0">
+          <div class="row m-0 pt-2 pl-2 pb-1 pr-2" style="border-bottom: 1px solid #F97E41">
+            <div class="col-11 p-0">
+              <h5 style="margin-bottom: 0px;">Active Areas</h5>
+            </div>
+            <div class="col-1 p-0">
+              <button type="button" class="close pb-1" data-toggle="modal" data-target="#activeareamodal">
+                <i class="bi bi-plus-square TextOr"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div id="AAEntry" class="col-12 p-1">
             </div>
           </div>
         </div>
@@ -154,6 +192,24 @@
             </button>
           </div>
           <div class="modal-body">
+            <div class="col-6">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Callsign</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-active">
+                    <th scope="row">DEN_17_CTR</th>
+                    <td>127.650</td>
+                    <td>17</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
     </div>
@@ -1744,40 +1800,40 @@
 
         ws.onmessage = ({ data }) => {
           datafile = JSON.parse(data);
-        console.log(datafile)
-    
-        //ATIS
-        var ATIS = datafile.ATIS;
+          console.log(datafile)
+      
+          //ATIS
+          var ATIS = datafile.ATIS;
 
-        //PIREP
-        var PIREP = datafile.PIREP;
-        PIREPHTMLString = "";
-        PIREP.forEach((item) => {
-            PIREPHTMLString += `
-            <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
-                <div class="col-12 d-flex d-inline flex-wrap">
-                    <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
-                </div>
-            </div>
-            `;
-        });
-        document.getElementById("PIREPEntry").innerHTML = PIREPHTMLString;
+          //PIREP
+          var PIREP = datafile.PIREP;
+          PIREPHTMLString = "";
+          PIREP.forEach((item) => {
+              PIREPHTMLString += `
+              <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
+                  <div class="col-12 d-flex d-inline flex-wrap">
+                      <p class="m-0">${item["UA"]}<p class="m-0 TextOr">/OV</p>${item["OV"]}<p class="m-0 TextOr">/TM</p>${item["TM"]}<p class="m-0 TextOr">/FL</p>${item["FL"]}<p class="m-0 TextOr">/TP</p>${item["TP"]}<p class="m-0 TextOr">/WX</p>${item["WX"]}<p class="m-0 TextOr">/SK</p>${item["SK"]}<p class="m-0 TextOr">/TA</p>${item["TA"]}<p class="m-0 TextOr">/WV</p>${item["WV"]}<p class="m-0 TextOr">/IC</p>${item["ICLevel"]} ${item["ICType"]}<p class="m-0 TextOr">/TB</p>${item["TBTime"]} ${item["TBLevel"]} ${item["TBType"]} ${item["TBAlt"]}<p class="m-0 TextOr">/RM</p>${item["RM"]}</p>
+                  </div>
+              </div>
+              `;
+          });
+          document.getElementById("PIREPEntry").innerHTML = PIREPHTMLString;
 
-        //TMU
-        var TMU = datafile.TMU;
-        TMUHTMLString = "";
-        TMU.forEach((item) => {
-            TMUHTMLString += `${item["TMUGate"]} | ${item["TMUStat"]} | ${item["TMUMIT"]} | ${item["TMUSPD"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
-        });
-        // document.getElementById("TMU_container").innerHTML = TMUHTMLString;
+          //TMU
+          var TMU = datafile.TMU;
+          TMUHTMLString = "";
+          TMU.forEach((item) => {
+              TMUHTMLString += `${item["TMUGate"]} | ${item["TMUStat"]} | ${item["TMUMIT"]} | ${item["TMUSPD"]}`;
+          });
+          document.getElementById("TMUEntry").innerHTML = TMUHTMLString;
 
-        //ActiveAreas
-        var ActiveAreas = datafile.ActiveAreas;
-        AAHTMLString = "";
-        ActiveAreas.forEach((item) => {
-            AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
-        });
-        // document.getElementById("AAI_container").innerHTML = AAHTMLString;
+          //ActiveAreas
+          var ActiveAreas = datafile.ActiveAreas;
+          AAHTMLString = "";
+          ActiveAreas.forEach((item) => {
+              AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+          });
+          document.getElementById("AAEntry").innerHTML = AAHTMLString;
         }
 
         ws.onclose = () => {
