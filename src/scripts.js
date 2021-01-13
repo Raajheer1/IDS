@@ -59,6 +59,20 @@ function pullData() {
             }
         }
     }
+
+    //Pulls VATUSA NTOS
+    var NTOSReq = nwe XMLHttpRequest();
+    NTOSReq.open("GET", "https://api.vatusa.net/v2/tmu/notices/ZDV?children=true");
+    NTOSReq.send();
+    NTOSReq.onload = () => {
+        if(NTOSReq.status != 200){
+            console.log("Error pulling VATUSA NTOS Data.");
+        } else {
+            var data = JSON.parse(NTOSReq.response);
+            
+        }
+    }
+
     var randomthingy = setTimeout(pullData, 5000);
 };
 
