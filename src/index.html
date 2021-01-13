@@ -493,7 +493,6 @@
             </div>
           </div>
           <div class="modal-footer">
-            <input type="button" id="editprp_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
             <input type="submit" id="editprp_update" class="btn btn-outline-primary" name="do_pirep" value="Input PIREP">
           </div>
         </form>
@@ -572,49 +571,50 @@
             <span class="text-black" aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">
-          <div class="form-group row">
-            <div class="col-12">
-              <div class="row">
-                <div class="col-4">
-                  <input class="form-control" placeholder="Airspace ID" name="airspaceid" id="airspaceid" type="text">
-                  <label style="color:#55595c; padding-left: 5%;">Example: 'R-203'</label>
+        <form id="AAForm">
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-4">
+                    <input class="form-control" placeholder="Airspace ID" name="airspaceid" id="airspaceid" type="text">
+                    <label style="color:#55595c; padding-left: 5%;">Example: 'R-203'</label>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" placeholder="Active Altitudes" name="airspacealt" id="airspacealt" type="text">
+                    <label style="color:#55595c; padding-left: 5%;">Example: 'FL180-FL240'</label>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" placeholder="Active Until (0100z)" name="airspaceend" id="airspaceend" type="text">
+                    <label style="color:#55595c; padding-left: 5%;"></label>
+                  </div>
                 </div>
-                <div class="col-4">
-                  <input class="form-control" placeholder="Active Altitudes" name="airspacealt" id="airspacealt" type="text">
-                  <label style="color:#55595c; padding-left: 5%;">Example: 'FL180-FL240'</label>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" placeholder="Active Until (0100z)" name="airspaceend" id="airspaceend" type="text">
-                  <label style="color:#55595c; padding-left: 5%;"></label>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-12">
-                  <div class="row">
-                    <div class="col-12">
-                      <input class="form-control" placeholder="Extra Information" name="airspaceextra" id="airspaceextra" type="text">
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-12">
+                        <input class="form-control" placeholder="Extra Information" name="airspaceextra" id="airspaceextra" type="text">
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-12">
+                <div class="row mt-3">
+                  <div class="col-12">
+                  </div>
                 </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-12">
-                  <div class="row">
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" id="editAA_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
-          <input type="submit" id="editAA_update" class="btn btn-outline-primary closemodalaa" name="do_activearea" value="Submit Active Area">
-        </div>
+          <div class="modal-footer">
+            <input type="submit" id="editAA_update" class="btn btn-outline-primary" name="do_activearea" value="Submit Active Area">
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -1878,11 +1878,8 @@
             "AirspaceEND": document.querySelector("#airspaceend").value,
             "AirspaceEXTRA": document.querySelector("#airspaceextra").value
           };
-          var datafile = require('./data/data.json');
-          datafile.ActiveAreas.push(AASubmission);
-          var finalAA = JSON.stringify(datafile);
+          var finalAA = JSON.stringify(AASubmission);
           ws.send(finalAA);
-          delete require.cache[require.resolve('./data/data.json')]
         }
 
         SendATIS.onclick = () => {
