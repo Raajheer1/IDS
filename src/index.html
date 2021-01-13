@@ -1,3 +1,4 @@
+<!-- https://discord.gg/m2udxvgG5a DISCORD LINK FOR BUG REPORTS -->
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +9,9 @@
   <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
   <link rel="stylesheet" href="./customstyle.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <script>
+    const electron = require('electron');
+  </script>
 </head>
 
 <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
@@ -163,7 +167,7 @@
         </div>
 
         <!-- Active Areas -->
-        <div class="jumbotron p-0">
+        <div class="jumbotron p-0 mb-3">
           <div class="row m-0 pt-2 pl-2 pb-1 pr-2" style="border-bottom: 1px solid #F97E41">
             <div class="col-11 p-0">
               <h5 style="margin-bottom: 0px;">Active Areas</h5>
@@ -176,6 +180,25 @@
           </div>
           <div class="row m-0">
             <div id="AAEntry" class="col-12 p-1">
+            </div>
+          </div>
+        </div>
+
+        <!-- N.T.O.S. -->
+        <div class="jumbotron p-0 mb-3">
+          <div class="row m-0 pt-2 pl-2 pb-1 pr-2" style="border-bottom: 1px solid #F97E41">
+            <div class="col-11 p-0">
+              <h5 style="margin-bottom: 0px;">N.T.O.S.</h5>
+            </div>
+            <div class="col-1 p-0">
+              
+              <a type="button" class="close pb-1" onclick="electron.shell.openExternal('https://www.vatusa.net/mgt/tmu#notices');" href="">
+                <i class="bi bi-plus-square TextOr"></i>
+              </a>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div id="NTOSEntry" class="col-12 p-1">
             </div>
           </div>
         </div>
@@ -3258,8 +3281,3 @@
 </script>
 
 </html>
-
-<!-- 
-  Google forms query
-  https://docs.google.com/spreadsheets/d/1pE3J7g5_hW4wllbP1EJ-MuwqZIhGpve5j5I_HMeTatU/gviz/tq?tq=select%20E%20where%20A%20contains%20%27ABQS6%27%0A&gid=39177069
- -->

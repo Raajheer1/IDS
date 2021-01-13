@@ -1,6 +1,3 @@
-const electron = require('electron');
-const { ipcRenderer } = electron;
-
 const IDSForm = document.getElementById("IDSForm");
 IDSForm.addEventListener('submit', (e) => {
   e.preventDefault();
