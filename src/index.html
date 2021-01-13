@@ -1831,7 +1831,18 @@
           var ActiveAreas = datafile.ActiveAreas;
           AAHTMLString = "";
           ActiveAreas.forEach((item) => {
-              AAHTMLString += `ID: ${item["AirspaceID"]} | ALT: ${item["AirspaceALT"]} | ID: ${item["AirspaceEND"]} | Extra: ${item["AirspaceEXTRA"]} <hr style="background-color: rgb(79,77,77); width: 25%; height: 0.031em; margin-top: 2px; margin-bottom: 2px;">`;
+              AAHTMLString += `
+                <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
+                  <div class="col-12 d-flex d-inline flex-wrap">
+                    <p class="m-0">
+                      ID: ${item["AirspaceID"]} <p class="m-0 TextOr">|</p> 
+                      ALT: ${item["AirspaceALT"]} <p class="m-0 TextOr">|</p> 
+                      ID: ${item["AirspaceEND"]} <p class="m-0 TextOr">|</p> 
+                      Extra: ${item["AirspaceEXTRA"]} 
+                    </p>
+                  </div>
+                </div>
+              `;
           });
           document.getElementById("AAEntry").innerHTML = AAHTMLString;
         }
@@ -1839,6 +1850,7 @@
         ws.onclose = () => {
           ws = null;
         }
+
 
         SendPIREP.onclick = () => {
           if (!ws) {
