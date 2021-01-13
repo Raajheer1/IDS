@@ -927,7 +927,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="aadcmodallabel">Update AADC</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-black" aria-hidden="true">×</span>
+            <span class="TextOr" aria-hidden="true">×</span>
           </button>
         </div>
         <form id="IDSForm">
@@ -1028,7 +1028,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="atismodallabel">Update Active Runways</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-black" aria-hidden="true">×</span>
+            <span class="TextOr" aria-hidden="true">×</span>
           </button>
         </div>
         <form id="ATISForm">
@@ -1037,33 +1037,17 @@
               <div class="col-9">
                 <div class="row">
                   <div class="col-6">
-                    <input class="form-control" placeholder="Landing" name="atisland" id="atisland" type="text">
+                    <input class="form-control" placeholder="Landing" name="rwyland" id="rwyland" type="text">
                   </div>
                   <div class="col-6">
-                    <input class="form-control" placeholder="Departing" name="atisdep" id="atisdep" type="text">
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="row">
-                      <div class="col-12">
-                        <input class="form-control" placeholder="Extra Information" name="atisextrainfo" id="atisextrainfo" type="text">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="row">
-                    </div>
+                    <input class="form-control" placeholder="Departing" name="rwydep" id="rwydep" type="text">
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <input type="submit" id="editats_remove" class="btn btn-danger pull-left" name="do_removeids" data-dismiss="modal" aria-hidden="true" value="Cancel">
-            <input type="submit" id="editats_update" class="btn btn-outline-primary" name="do_atis" value="Update ATIS Info">
+            <input type="submit" id="editrwy_update" class="btn btn-outline-primary" name="do_atis" value="Update Runways">
           </div>
         </form>
       </div>
@@ -1077,7 +1061,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="idsmodallabel">Input a PIREP</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-black" aria-hidden="true">×</span>
+            <span class="TextOr" aria-hidden="true">×</span>
           </button>
         </div>
         <form id="PIREPForm">
@@ -1273,7 +1257,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="activemodallabel">Active Airspaces</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-black" aria-hidden="true">×</span>
+            <span class="TextOr" aria-hidden="true">×</span>
           </button>
         </div>
         <form id="AAForm">
@@ -1331,7 +1315,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="tmulabel">Traffic Management Unit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-black" aria-hidden="true">×</span>
+            <span class="TextOr" aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
@@ -2511,7 +2495,7 @@
     (function () {
       var SendPIREP = document.querySelector("#editprp_update");
       var SendActiveArea = document.querySelector("#editAA_update");
-      var SendATIS = document.querySelector("#editats_update");
+      var SendRWY = document.querySelector("#editrwy_update");
       var SendCDR = document.querySelector("#editcdr_update");
 
       // TMU DEPARTURES
