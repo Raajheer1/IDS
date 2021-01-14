@@ -16,11 +16,11 @@
     "appId": "ZDV-IDS",
     "win": {
       "target": ["nsis"],
-      "icon": "src/img/icon.ico"
+      "icon": "src/img/icon.png"
     },
     "nsis": {
-      "installerIcon": "src/img/icon.ico",
-      "uninstallerIcon": "src/img/icon.ico",
+      "installerIcon": "src/img/Installer.ico",
+      "uninstallerIcon": "src/img/Uninstaller.ico",
       "uninstallDisplayName": "ZDV-IDS",
       "license": "src/license.txt",
       "oneClick": false,

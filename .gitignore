@@ -87,4 +87,6 @@ typings/
 
 # Electron-Forge
 out/
-src/data/data.json
+
+# Electron-Builder
+dist/
