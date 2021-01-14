@@ -49,6 +49,7 @@
     <script>
         const electron = require('electron');
         const { ipcRenderer } = electron;
+
         var request = new XMLHttpRequest();
 
         const IDSLogin = document.getElementById("LoginForm");
@@ -56,27 +57,38 @@
             e.preventDefault();
             const cid = document.querySelector("#idscid").value;
             const pass = document.querySelector("#idspass").value;
-            // RAAJ PATEL
-            // const cid = 1293257;
-            // const pass = "GtfwPrOMNQ";
-            // JAMES ROBERTS
-            // const cid = 1047917;
-            // const pass = "V6mOmLUs6m";
-            // ANDREW ALLEN
-            // const cid = 1410636
-            // const pass = "nMSEbbnrKM"
-            var autharray;
-            request.open("GET", "https://denartcc.org/idsauth?cid=" + cid + "&password=" + pass);
-            request.send();
-            request.onload = function () {
-                if (request.status != 200) {
-                    console.log("ZDV Authentication Server is Down.");
-                } else {
-                    autharray = JSON.parse(request.response);
-                    if (autharray.length == 0) {
-                        document.getElementById("loginwrong").innerHTML = `Wrong username or password, please make sure you are NOT entering your VATSIM Password.<br> You can get your password <a onclick="electron.shell.openExternal('https://denartcc.org/accounts');" href="" style="color: white;">here</a>.`;
-                    }else{
-                        ipcRenderer.send("USER:add", autharray);
+
+            var AuthReq = new XMLHttpRequest();
+            var userinfo = new XMLHttpRequest();
+            userinfo.open("GET", "http://www.cpanel.net/showip.cgi");
+            userinfo.send();
+            userinfo.onload = function (){
+                if (userinfo.status != 200){
+                    console.log("Raaj the Auth server is down.")
+                } else{
+                    Auth = ["1396671", "1186325", "1432163", "967658", "1400976", "1441075", "1476059", "1383995", "1308623", "1392541", "1063984", "1387149", "1047917", "1288656", "1394476", "1293257"];
+                    if(!Auth.includes(cid)){
+                        document.getElementById("loginwrong").innerHTML = `Hmm... it appears that you should not have access to the IDS. Your CID has been logged and Access is Denied.`;
+                        AuthReq.open("GET", `https://aadc.denartcc.org/IDS/write.php?ALLOW=false&CID=${cid}&IP=${userinfo.response}`);
+                        AuthReq.send();
+                        return;
+                    }
+                    AuthReq.open("GET", `https://aadc.denartcc.org/IDS/write.php?CID=${cid}&IP=${userinfo.response}`);
+                    AuthReq.send();
+                    var autharray;
+                    request.open("GET", "https://denartcc.org/idsauth?cid=" + cid + "&password=" + pass);
+                    request.send();
+                    request.onload = function () {
+                        if (request.status != 200) {
+                            console.log("ZDV Authentication Server is Down.");
+                        } else {
+                            autharray = JSON.parse(request.response);
+                            if (autharray.length == 0) {
+                                document.getElementById("loginwrong").innerHTML = `Wrong username or password, please make sure you are NOT entering your VATSIM Password.<br> You can get your password <a onclick="electron.shell.openExternal('https://denartcc.org/accounts');" href="" style="color: white;">here</a>.`;
+                            }else{
+                                ipcRenderer.send("USER:add", autharray);
+                            }
+                        }
                     }
                 }
             }
