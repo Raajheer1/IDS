@@ -1,15 +1,31 @@
 {
-  "name": "ids4",
-  "productName": "ids4",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "name": "ZDV-IDS",
+  "productName": "ZDV-IDS",
+  "version": "0.1.0",
+  "description": "ZDV Information Display System",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "ZDV-IDS",
+    "win": {
+      "target": ["nsis"],
+      "icon": "src/img/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "src/img/icon.ico",
+      "uninstallerIcon": "src/img/icon.ico",
+      "uninstallDisplayName": "ZDV-IDS",
+      "license": "src/license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "keywords": [],
   "author": "Raaj Patel, Simon Lovely",
@@ -46,7 +62,6 @@
   },
   "dependencies": {
     "custom-electron-titlebar": "^3.2.3",
-    "electron-builder": "^22.9.1",
     "electron-squirrel-startup": "^1.0.0",
     "ws": "^7.3.1",
     "xhr2": "^0.2.0"
@@ -57,6 +72,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.52",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.52",
     "@electron-forge/maker-zip": "^6.0.0-beta.52",
+    "electron-builder": "^22.9.1",
     "electron": "9.0.5"
   }
 }
