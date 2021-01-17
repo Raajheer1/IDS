@@ -94,6 +94,6 @@ autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow("Checking for Update...");
 })
 
-autoUpdater.on("update-available", (info) => ({
+autoUpdater.on("update-available", (info) => {
   sendStatusToWindow("Update available.");
 })
