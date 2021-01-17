@@ -1,7 +1,10 @@
 const { app, BrowserWindow, Menu, ipcMain} = require('electron');
+const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
 let mainWindow;
+
+autoUpdater.checkForUpdatesAndNotify();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
