@@ -1,0 +1,93 @@
+// Time Table on Top Right
+function updateTime(x) {
+    if(x<0){
+      return 24+x;
+    }
+    if (x<10) {
+      return "0" + x;
+    }else{
+      return x
+    }
+  }
+  function currentTime() {
+    var date = new Date();
+    hour = updateTime(date.getUTCHours());
+    UTCHour = date.getUTCHours()
+    EST = UTCHour-5;
+    CST = UTCHour-6;
+    MST = UTCHour-7;
+    PST = UTCHour-8;
+    ESTHour = updateTime(EST);
+    CSTHour = updateTime(CST);
+    MSTHour = updateTime(MST);
+    PSTHour = updateTime(PST);
+    min = updateTime(date.getUTCMinutes());
+    sec = updateTime(date.getUTCSeconds());
+    document.getElementById("Zulu-Clock").innerText = hour + ":" + min + ":" + sec+"Z";
+    document.getElementById("EST-Clock").innerText = ESTHour + ":" + min + ":" + sec+"L";
+    document.getElementById("CST-Clock").innerText = CSTHour + ":" + min + ":" + sec+"L";
+    document.getElementById("MST-Clock").innerText = MSTHour + ":" + min + ":" + sec+"L";
+    document.getElementById("PST-Clock").innerText = PSTHour + ":" + min + ":" + sec+"L";
+    var t = setTimeout(currentTime, 1000);
+  }
+  currentTime();
+  const { ipcRenderer } = require('electron');
+  var UserData = ipcRenderer.sendSync('specialist', '');
+  document.getElementById("specialist").innerHTML = UserData[1] + " " + UserData[2];
+  rating = UserData[4]
+  if(UserData[4] == "S1" || UserData[4] == "S2" || UserData[4] == "S3"){
+    document.getElementById("role").innerHTML = "Student"
+  }else if(UserData[4] == "OBS"){
+    document.getElementById("role").innerHTML = "Observer"
+  }else if(UserData[4] == "C1"){
+    document.getElementById("role").innerHTML = "Controller"
+  }else if(UserData[4] == "C3"){
+    document.getElementById("role").innerHTML = "Senior Controller"
+  }else if(UserData[4] == "I1"){
+    document.getElementById("role").innerHTML = "Instructor"
+  }else if(UserData[4] == "I3"){
+    document.getElementById("role").innerHTML = "Senior Instructor"
+  }else if(UserData[4] == "SUP"){
+    document.getElementById("role").innerHTML = "Supervisor"
+  }else if(UserData[4] == "ADM"){
+    document.getElementById("role").innerHTML = "Administrator"
+  }else{
+    document.getElementById("role").innerHTML = "N/A"
+  }
+
+  var vatsimDataReq = new XMLHttpRequest();
+  vatsimDataReq.open("GET", "https://data.vatsim.net/v3/vatsim-data.json")
+  vatsimDataReq.send();
+  vatsimDataReq.onload = () => {
+      if (vatsimDataReq.status != 200) {
+          console.log("error pulling VATSIM Data");
+      } else {
+          controllers = JSON.parse(vatsimDataReq.response).controllers;
+          controllers.forEach(item => {
+            if(item.cid == UserData[0]){
+              document.getElementById("position").innerHTML = item.callsign;
+              logon = item.logon_time;
+              logon = logon.substring(logon.indexOf("T")+1, logon.indexOf("."));
+              console.log(logon)
+              logonHour = logon.substring(0,2);
+              logonMinute = logon.substring(3,5);
+              logonSecond = logon.substring(6, 8);
+              function logTime(){
+                var date = new Date();
+                hour = date.getUTCHours();
+                min = date.getUTCMinutes();
+                sec = date.getUTCSeconds();
+                hour = hour - logonHour;
+                min = min - logonMinute;
+                sec = sec - logonSecond;
+                hour = updateTime(hour);
+                min = updateTime(min);
+                sec = updateTime(sec);
+                document.getElementById("uptime").innerText = hour + ":" + min + ":" + sec;
+                var t = setTimeout(logTime, 1000);
+              }
+              logTime();
+            }
+          })
+      }
+  }
