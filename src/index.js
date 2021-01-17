@@ -3,7 +3,6 @@ const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
 let mainWindow;
-autoUpdater.checkForUpdatesAndNotify();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -83,3 +82,18 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ipcMain.on('specialist', (event, arg) => {
   event.returnValue = UserData;
 });
+
+const sendStatusToWindow = (text) => {
+  log.info(text);
+  if(mainWindow) {
+    mainWindow.webContents.send('message', text);
+  }
+}
+
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow("Checking for Update...");
+})
+
+autoUpdater.on("update-available", (info) => ({
+  sendStatusToWindow("Update available.");
+})
