@@ -65,8 +65,8 @@
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#chartsmodal">
           <span class="orange-under"><span style="color: grey;">CHARTS</span></span>
         </button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#aadcmodal">
-          <span class="orange-under"><span style="color: grey;">AADC</span></span>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#documentsmodal">
+          <span class="orange-under"><span style="color: grey;">Documents</span></span>
         </button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cdrmodal">
           <span class="orange-under"><span style="color: grey;">CDR</span></span>
@@ -1265,6 +1265,53 @@
     </div>
   </div>
 
+  <!--DOCUMENTS MODAL-->
+  <div class="modal" id="documentsmodal" role="dialog" aria-labelledby="documentsmodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="chartsmodallabel">ZDV Document Viewer</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="TextOr" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <ul class="nav nav-tabs mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#SOP">SOP</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#LOA">LOA</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#Reference">Reference</a>
+                    </li>
+                  </ul>
+                  <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active show" style="height: 700px; overflow-y: scroll" id="SOP">
+                    </div>
+                    <div class="tab-pane fade" style="height: 700px; overflow-y: scroll" id="LOA">
+                    </div>
+                    <div class="tab-pane fade" style="height: 700px; overflow-y: scroll" id="Reference">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <iframe id="DocFrame" src="https:\/\/denartcc.org\/files\/vZDV General Policy.pdf" width="100%" height="750px"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!--ACTIVE AREA MODAL-->
   <div class="modal" id="activeareamodal" role="dialog" aria-labelledby="activemodallabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -2396,7 +2443,6 @@
   <script>window.jQuery = window.$ = module.exports</script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  
   <!-- Titlebar -->
   <script>
     const customTitlebar = require('custom-electron-titlebar');

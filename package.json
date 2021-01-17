@@ -1,7 +1,7 @@
 {
   "name": "ZDV-IDS",
   "productName": "ZDV-IDS",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "description": "ZDV Information Display System",
   "main": "src/index.js",
   "scripts": {
@@ -15,7 +15,9 @@
   "build": {
     "appId": "ZDV-IDS",
     "win": {
-      "target": ["nsis"],
+      "target": [
+        "nsis"
+      ],
       "icon": "src/img/icon.png"
     },
     "nsis": {
@@ -63,6 +65,7 @@
   "dependencies": {
     "custom-electron-titlebar": "^3.2.3",
     "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "^2.0.1",
     "ws": "^7.3.1",
     "xhr2": "^0.2.0"
   },
