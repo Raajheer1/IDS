@@ -3,7 +3,6 @@ const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
 let mainWindow;
-
 autoUpdater.checkForUpdatesAndNotify();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.

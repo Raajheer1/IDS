@@ -59,7 +59,6 @@ function init() {
 
     ws.onmessage = ({ data }) => {
     datafile = JSON.parse(data);
-    console.log(datafile)
 
     //RWYs
     var RWYs = datafile.RWYS;
