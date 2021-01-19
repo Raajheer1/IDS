@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu, ipcMain} = require('electron');
 const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
+const { send } = require('process');
 let mainWindow;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -92,8 +93,29 @@ const sendStatusToWindow = (text) => {
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow("Checking for Update...");
+  console.log("Checking for updates")
 })
 
 autoUpdater.on("update-available", (info) => {
   sendStatusToWindow("Update available.");
+})
+
+autoUpdater.on("update-not-available", (info) => {
+  var version = require('../package.json');
+  sendStatusToWindow(`Latest v-${version['version']}`);
+})
+
+autoUpdater.on("error", (err) => {
+  sendStatusToWindow(`AutoUpdater - ERROR: ${err.toString()}`);
+})
+
+autoUpdater.on("download-progress", progressObj => {
+  sendStatusToWindow(
+    `Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.percent}% (${progressObj.tranferred} + '/' + ${progressObj.total})`
+  );
+})
+
+autoUpdater.on("update-downloaded", (info) => {
+  sendStatusToWindow("Updating...");
+  autoUpdater.quitAndInstall();
 })
