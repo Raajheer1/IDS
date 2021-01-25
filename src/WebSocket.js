@@ -3,6 +3,7 @@ var SendPIREP = document.querySelector("#editprp_update");
 var SendActiveArea = document.querySelector("#editAA_update");
 var SendRWY = document.querySelector("#editrwy_update");
 var SendCDR = document.querySelector("#editcdr_update");
+var SendRCDR = document.querySelector("#rcdr_search");
 
 // TMU DEPARTURES
 var SendYAMMI = document.querySelector("#YAMMI_Update");
@@ -597,24 +598,38 @@ SendCDR.onclick = () => {
     CDRQuery.open("GET", "https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
     CDRQuery.send();
     CDRQuery.onload = function () {
-    if (CDRQuery.status != 200) {
-        console.log("DENARTCC CDR Website is Down");
-    } else {
-        var QueryResponse = CDRQuery.response;
-        console.log("https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
-        console.log(QueryResponse);
-        QueryResponse = JSON.parse(QueryResponse)[0];
-        document.getElementById("CDROrig").innerHTML = QueryResponse.Orig;
-        document.getElementById("CDRDest").innerHTML = QueryResponse.Dest;
-        document.getElementById("CDRDepFix").innerHTML = QueryResponse.DepFix;
-        document.getElementById("CDRRoute").innerHTML = QueryResponse.Route;
-        document.getElementById("CDRDCNTR").innerHTML = QueryResponse.DCNTR;
-        document.getElementById("CDRACNTR").innerHTML = QueryResponse.ACNTR;
-        document.getElementById("CDRTCNTR").innerHTML = QueryResponse.TCNTR;
-        document.getElementById("CDRCoordReq").innerHTML = QueryResponse.CoordReq;
-        document.getElementById("CDRPlay").innerHTML = QueryResponse.Play;
-        document.getElementById("CDRNavEqp").innerHTML = QueryResponse.NavEqp;
+        if (CDRQuery.status != 200) {
+            console.log("DENARTCC CDR Website is Down");
+        } else {
+            var QueryResponse = CDRQuery.response;
+            console.log("https://denartcc.org/api/cdrs/" + document.querySelector("#cdrentry").value);
+            console.log(QueryResponse);
+            QueryResponse = JSON.parse(QueryResponse)[0];
+            document.getElementById("CDROrig").innerHTML = QueryResponse.Orig;
+            document.getElementById("CDRDest").innerHTML = QueryResponse.Dest;
+            document.getElementById("CDRDepFix").innerHTML = QueryResponse.DepFix;
+            document.getElementById("CDRRoute").innerHTML = QueryResponse.Route;
+            document.getElementById("CDRDCNTR").innerHTML = QueryResponse.DCNTR;
+            document.getElementById("CDRACNTR").innerHTML = QueryResponse.ACNTR;
+            document.getElementById("CDRTCNTR").innerHTML = QueryResponse.TCNTR;
+            document.getElementById("CDRCoordReq").innerHTML = QueryResponse.CoordReq;
+            document.getElementById("CDRPlay").innerHTML = QueryResponse.Play;
+            document.getElementById("CDRNavEqp").innerHTML = QueryResponse.NavEqp;
+        }
     }
+}
+
+SendRCDR.onclick = () => {
+    var rCDRQuery = new XMLHttpRequest();
+    rCDRQuery.open("GET", "https://denartcc.org/api/rcdrs/" + document.querySelector("#rcdrentry").value);
+    rCDRQuery.send();
+    rCDRQuery.onload = function () {
+        if(rCDRQuery.status != 200){
+            console.log("DENARTCC Reverse CDR Website is Down!");
+        } else {
+            var QueryResponse = rCDRQuery.response;
+            
+        }
     }
 }
 
