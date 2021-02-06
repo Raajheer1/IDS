@@ -619,6 +619,33 @@ SendCDR.onclick = () => {
     }
 }
 
+function rCDRtoCDR(RCode){
+    var CDRQuery1 = new XMLHttpRequest();
+    CDRQuery1.open("GET", `https://denartcc.org/api/cdrs/${RCode}`);
+    CDRQuery1.send();
+    CDRQuery1.onload = function () {
+        if (CDRQuery1.status != 200) {
+            console.log("DENARTCC CDR Website is Down");
+        } else {
+            var QueryResponse = CDRQuery1.response;
+            console.log(QueryResponse);
+            QueryResponse = JSON.parse(QueryResponse)[0];
+            document.getElementById("CDROrig").innerHTML = QueryResponse.Orig;
+            document.getElementById("CDRDest").innerHTML = QueryResponse.Dest;
+            document.getElementById("CDRDepFix").innerHTML = QueryResponse.DepFix;
+            document.getElementById("CDRRoute").innerHTML = QueryResponse.Route;
+            document.getElementById("CDRDCNTR").innerHTML = QueryResponse.DCNTR;
+            document.getElementById("CDRACNTR").innerHTML = QueryResponse.ACNTR;
+            document.getElementById("CDRTCNTR").innerHTML = QueryResponse.TCNTR;
+            document.getElementById("CDRCoordReq").innerHTML = QueryResponse.CoordReq;
+            document.getElementById("CDRPlay").innerHTML = QueryResponse.Play;
+            document.getElementById("CDRNavEqp").innerHTML = QueryResponse.NavEqp;
+        }
+    }
+}
+
+window.rCDRtoCDR = rCDRtoCDR;
+
 SendRCDR.onclick = () => {
     var rCDRQuery = new XMLHttpRequest();
     rCDRQuery.open("GET", "https://denartcc.org/api/rcdrs/" + document.querySelector("#rcdrentry").value);
@@ -627,8 +654,15 @@ SendRCDR.onclick = () => {
         if(rCDRQuery.status != 200){
             console.log("DENARTCC Reverse CDR Website is Down!");
         } else {
-            var QueryResponse = rCDRQuery.response;
-            
+            var QueryResponse = JSON.parse(rCDRQuery.response);
+            console.log(QueryResponse)
+            document.getElementById(`rcdrout`).innerHTML = "";
+            QueryResponse.forEach((item) => {
+                document.getElementById(`rcdrout`).innerHTML += `
+                    <button type="button" class="btn btn-outline-secondary mb-1" onclick="rCDRtoCDR('${item["RCode"]}')">
+                        <span class="orange-under"><span style="color: white;">${item["RCode"]}</span></span>
+                    </button><br>`
+            })
         }
     }
 }

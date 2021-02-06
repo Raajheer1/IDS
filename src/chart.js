@@ -17,6 +17,11 @@ function ChangeChart(ICAO, Chart){
     }
   }
 }
+
+function ChangeDoc(DOC){
+  document.getElementById("DocFrame").src = `https://denartcc.org/${DOC}`;
+}
+
 var SendChart = document.querySelector("#ChartICAO_Submit");
 
 SendChart.onclick = () => {
@@ -113,3 +118,55 @@ SendChart.onclick = () => {
     }
   }
 }
+
+  // SOPs
+  var requestSOP = new XMLHttpRequest();
+  requestSOP.open("GET", `https://denartcc.org/api/docs/sop`);
+  requestSOP.send();
+  requestSOP.onload = function () {
+    if (requestSOP.status != 200) {
+        console.log("Error pulling Documents.");
+    } else {
+      SOPArray = JSON.parse(requestSOP.response);
+      SOPArray.forEach((item) => {
+        document.getElementById(`SOP`).innerHTML += `
+          <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeDoc('${item["url"]}')">
+            <span class="orange-under"><span style="color: white;">${item["name"]}</span></span>
+          </button><br>`
+      });
+    }
+  }
+  // LOAs
+  var requestLOA = new XMLHttpRequest();
+  requestLOA.open("GET", `https://denartcc.org/api/docs/loa`);
+  requestLOA.send();
+  requestLOA.onload = function () {
+    if (requestLOA.status != 200) {
+        console.log("Error pulling Documents.");
+    } else {
+      LOAArray = JSON.parse(requestLOA.response);
+      LOAArray.forEach((item) => {
+        document.getElementById(`LOA`).innerHTML += `
+          <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeDoc('${item["url"]}')">
+            <span class="orange-under"><span style="color: white;">${item["name"]}</span></span>
+          </button><br>`
+      });
+    }
+  }
+  // References
+  var requestRef = new XMLHttpRequest();
+  requestRef.open("GET", `https://denartcc.org/api/docs/reference`);
+  requestRef.send();
+  requestRef.onload = function () {
+    if (requestRef.status != 200) {
+        console.log("Error pulling Documents.");
+    } else {
+      RefArray = JSON.parse(requestRef.response);
+      RefArray.forEach((item) => {
+        document.getElementById(`Reference`).innerHTML += `
+          <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeDoc('${item["url"]}')">
+            <span class="orange-under"><span style="color: white;">${item["name"]}</span></span>
+          </button><br>`
+      });
+    }
+  }
