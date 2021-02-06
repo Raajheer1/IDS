@@ -75,6 +75,10 @@
         const electron = require('electron');
         const { ipcRenderer } = electron;
 
+        ipcRenderer.on('updater', (event, x) => {
+            console.log(x);
+        })
+
         const notification = document.getElementById('notification');
         const message = document.getElementById('message');
         const restartButton = document.getElementById('restart-button');

@@ -1,10 +1,9 @@
-const { app, BrowserWindow, Menu, ipcMain} = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, ipcRenderer} = require('electron');
 const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
 const { send } = require('process');
 let mainWindow;
-
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
@@ -29,6 +28,7 @@ const createWindow = () => {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
   mainWindow.once('ready-to-show', () => {
+    mainWindow.webContents.send('updater', 'STARTING');
     autoUpdater.checkForUpdatesAndNotify();
   });
 };
@@ -86,6 +86,25 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ipcMain.on('specialist', (event, arg) => {
   event.returnValue = UserData;
 });
+
+
+//DEBUG CODE!!!
+function sendStatusToWindow(x){
+  mainWindow.webContents.send('updater', x);
+}
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (info) => {
+  sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater. ' + err);
+})
+//STOP DEBUG CODE!!!
 
 autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');
