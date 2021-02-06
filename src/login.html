@@ -49,16 +49,16 @@
                 <span id="loginwrong" style="font-size: 20px; color: #F97E41;"></span>
             </div>
             <div id="notification" class="hidden">
-                <p id="message"></p>
-                <button id="close-button" onClick="closeNotification()">
+                <p id="message" style="color: white"></p>
+                <button class="btn btn-primary" id="close-button" onClick="closeNotification()">
                   Close
                 </button>
-                <button id="restart-button" onClick="restartApp()" class="hidden">
+                <button class="btn btn-success" id="restart-button" onClick="restartApp()" class="hidden">
                   Restart
                 </button>
               </div>
         </div>
-        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.2.0</span>
+        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.2.1</span>
     </body>
 
     <script>
@@ -93,6 +93,9 @@
             restartButton.classList.remove('hidden');
             notification.classList.remove('hidden');
         });
+        ipcRenderer.on('download-progress', (event, x) => {
+            message.innerText = x;
+        })
 
 
         function closeNotification() {
