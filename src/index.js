@@ -23,19 +23,44 @@ const createWindow = () => {
     }
   });
 
-  // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'login.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
   mainWindow.once('ready-to-show', () => {
+    log.info('App starting...');
     autoUpdater.checkForUpdatesAndNotify();
   });
+
+  // and load the index.html of the app.
+  mainWindow.loadFile(path.join(__dirname, 'login.html'));
 };
 
+
+//DEBUG CODE!!!
 autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
+autoUpdater.logger.transports.file.level = 'debug';
 log.info('App starting...');
+autoUpdater.checkForUpdates();
+const sendStatusToWindow = (text) => {
+  log.info(text);
+  if(mainWindow){
+    mainWindow.webContents.send('updater', text);
+  }
+}
+
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (info) => {
+  sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater. ' + err);
+})
+//STOP DEBUG CODE!!!
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -92,27 +117,7 @@ ipcMain.on('specialist', (event, arg) => {
 });
 
 
-//DEBUG CODE!!!
-const sendStatusToWindow = (text) => {
-  log.info(text);
-  if(mainWindow){
-    mainWindow.webContents.send('updater', text);
-  }
-}
 
-autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
-})
-autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('Update available.');
-})
-autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('Update not available.');
-})
-autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error in auto-updater. ' + err);
-})
-//STOP DEBUG CODE!!!
 
 autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');
