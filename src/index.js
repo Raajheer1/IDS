@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu, ipcMain, ipcRenderer} = require('electron');
+const log = require("electron-log")
 const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
