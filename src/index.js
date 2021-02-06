@@ -1,5 +1,4 @@
 const { app, BrowserWindow, Menu, ipcMain, ipcRenderer} = require('electron');
-const log = require("electron-log")
 const { autoUpdater } = require("electron-updater")
 var XMLHttpRequest = require('xhr2');
 const path = require('path');
@@ -26,23 +25,15 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
-  mainWindow.once('ready-to-show', () => {
-    log.info('App starting...');
-    autoUpdater.checkForUpdatesAndNotify();
-  });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'login.html'));
 };
 
 
-//DEBUG CODE!!!
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'debug';
-log.info('App starting...');
+
 autoUpdater.checkForUpdates();
 const sendStatusToWindow = (text) => {
-  log.info(text);
   if(mainWindow){
     mainWindow.webContents.send('updater', text);
   }
@@ -60,7 +51,6 @@ autoUpdater.on('update-not-available', (info) => {
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('Error in auto-updater. ' + err);
 })
-//STOP DEBUG CODE!!!
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

@@ -58,7 +58,7 @@
                 </button>
               </div>
         </div>
-        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.2.2</span>
+        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.2.3-beta</span>
     </body>
 
     <script>
@@ -121,13 +121,6 @@
                 if (userinfo.status != 200){
                     console.log("Raaj the Auth server is down.")
                 } else{
-                    Auth = ["1396671", "1186325", "1432163", "967658", "1400976", "1441075", "1476059", "1383995", "1308623", "1392541", "1063984", "1387149", "1047917", "1288656", "1394476", "1293257"];
-                    if(!Auth.includes(cid)){
-                        document.getElementById("loginwrong").innerHTML = `Hmm... it appears that you should not have access to the IDS. Your CID has been logged and Access is Denied.`;
-                        AuthReq.open("GET", `https://aadc.denartcc.org/IDS/write.php?ALLOW=false&CID=${cid}&IP=${userinfo.response}`);
-                        AuthReq.send();
-                        return;
-                    }
                     AuthReq.open("GET", `https://aadc.denartcc.org/IDS/write.php?CID=${cid}&IP=${userinfo.response}`);
                     AuthReq.send();
                     var autharray;
