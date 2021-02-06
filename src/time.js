@@ -1,8 +1,5 @@
 // Time Table on Top Right
 function updateTime(x) {
-    if(x<0){
-      return 24+x;
-    }
     if (x<10) {
       return "0" + x;
     }else{
@@ -80,12 +77,21 @@ function updateTime(x) {
                 currentMS = hour*3600000 + min*60000 + sec*1000;
                 LogonMS = logonHour*3600000 + logonMinute*60000 + logonSecond*1000;
                 MS = currentMS - LogonMS;
-                hour = round(MS/3600000);
+                hour = Math.round(MS/3600000);
                 MS = MS % 3600000;
-                min = round(MS/60000);
+                min = Math.round(MS/60000);
                 MS = MS % 60000;
-                sec = round(MS/1000);
-                document.getElementById("uptime").innerText = hour + ":" + min + ":" + sec;
+                sec = Math.round(MS/1000);
+                if(hour < 0){
+                  hour += 24;
+                }
+                if(min < 0){
+                  min += 60;
+                }
+                if(sec < 0){
+                  sec += 60;
+                }
+                document.getElementById("uptime").innerText = updateTime(hour) + ":" + updateTime(min) + ":" + updateTime(sec);
                 var t = setTimeout(logTime, 1000);
               }
               logTime();
