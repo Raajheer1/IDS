@@ -28,6 +28,9 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
+  mainWindow.once('ready-to-show', () => {
+    autoUpdater.checkForUpdatesAndNotify();
+  });
 };
 
 // This method will be called when Electron has finished
@@ -84,38 +87,13 @@ ipcMain.on('specialist', (event, arg) => {
   event.returnValue = UserData;
 });
 
-const sendStatusToWindow = (text) => {
-  log.info(text);
-  if(mainWindow) {
-    mainWindow.webContents.send('message', text);
-  }
-}
+autoUpdater.on('update-available', () => {
+  mainWindow.webContents.send('update_available');
+});
+autoUpdater.on('update-downloaded', () => {
+  mainWindow.webContents.send('update_downloaded');
+});
 
-autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow("Checking for Update...");
-  console.log("Checking for updates")
-})
-
-autoUpdater.on("update-available", (info) => {
-  sendStatusToWindow("Update available.");
-})
-
-autoUpdater.on("update-not-available", (info) => {
-  var version = require('../package.json');
-  sendStatusToWindow(`Latest v-${version['version']}`);
-})
-
-autoUpdater.on("error", (err) => {
-  sendStatusToWindow(`AutoUpdater - ERROR: ${err.toString()}`);
-})
-
-autoUpdater.on("download-progress", progressObj => {
-  sendStatusToWindow(
-    `Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.percent}% (${progressObj.tranferred} + '/' + ${progressObj.total})`
-  );
-})
-
-autoUpdater.on("update-downloaded", (info) => {
-  sendStatusToWindow("Updating...");
+ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();
-})
+});

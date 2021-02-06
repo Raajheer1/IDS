@@ -91,3 +91,5 @@ out/
 # Electron-Builder
 dist/
 dist - Shortcut.lnk
+
+electron-builder.yml
