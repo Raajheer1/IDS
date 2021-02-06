@@ -80,11 +80,11 @@ function updateTime(x) {
                 currentMS = hour*3600000 + min*60000 + sec*1000;
                 LogonMS = logonHour*3600000 + logonMinute*60000 + logonSecond*1000;
                 MS = currentMS - LogonMS;
-                hour = MS/3600000;
-                MS /= 3600000;
-                min = MS/60000;
-                MS /= 60000;
-                sec = MS/1000;
+                hour = round(MS/3600000);
+                MS = MS % 3600000;
+                min = round(MS/60000);
+                MS = MS % 60000;
+                sec = round(MS/1000);
                 document.getElementById("uptime").innerText = hour + ":" + min + ":" + sec;
                 var t = setTimeout(logTime, 1000);
               }
