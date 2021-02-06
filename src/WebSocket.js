@@ -32,18 +32,19 @@ var SendNIIXX = document.querySelector("#NIIXX_Update");
 var SendTBARR = document.querySelector("#TBARR_Update");
 var SendSSKII = document.querySelector("#SSKII_Update");
 
+var UserData = ipcRenderer.sendSync('synchronous-message', '');
 
 let ws;
 
 function init() {
     function DeleteWS(Type, Index){
-    var WSData = {
-        "Delete": true,
-        "Type": Type,
-        "Index": Index
-    }
-    WSData = JSON.stringify(WSData);
-    ws.send(WSData);
+        var WSData = {
+            "Delete": true,
+            "Type": Type,
+            "Index": Index
+        }
+        WSData = JSON.stringify(WSData);
+        ws.send(WSData);
     }
     window.DeleteWS = DeleteWS
 
@@ -169,6 +170,7 @@ function init() {
         "TBType": document.querySelector("#TBType").value,
         "TBAlt": document.querySelector("#TBAlt").value,
         "RM": document.querySelector("#RM").value,
+        "CID": UserData[0]
     };
     var FinalPIREP = JSON.stringify(PirepSubmission);
     ws.send(FinalPIREP);
@@ -184,7 +186,8 @@ function init() {
         "AirspaceID": document.querySelector("#airspaceid").value,
         "AirspaceALT": document.querySelector("#airspacealt").value,
         "AirspaceEND": document.querySelector("#airspaceend").value,
-        "AirspaceEXTRA": document.querySelector("#airspaceextra").value
+        "AirspaceEXTRA": document.querySelector("#airspaceextra").value,
+        "CID": UserData[0]
     };
     var finalAA = JSON.stringify(AASubmission);
     ws.send(finalAA);
@@ -201,7 +204,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -217,7 +221,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -233,7 +238,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -249,7 +255,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -265,7 +272,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -281,7 +289,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+"       CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -297,7 +306,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -313,7 +323,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -329,7 +340,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -345,7 +357,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -361,7 +374,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -377,7 +391,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -393,7 +408,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -409,7 +425,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -425,7 +442,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -441,7 +459,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -457,7 +476,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -473,7 +493,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -489,7 +510,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -505,7 +527,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -521,7 +544,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -537,7 +561,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -553,7 +578,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -569,7 +595,8 @@ function init() {
         "Gate": GATE,
         "Status": document.querySelector(`#${GATE}gate`).value,
         "MIT": document.querySelector(`#${GATE}mit`).value,
-        "SPD": document.querySelector(`#${GATE}speed`).value
+        "SPD": document.querySelector(`#${GATE}speed`).value,
+        "CID": UserData[0]
     };
     var finalTMU = JSON.stringify(TMUSubmission);
     ws.send(finalTMU);
@@ -581,9 +608,87 @@ function init() {
         console.log("Attempt to send ATIS - No Websocket Connection");
         return;
     }
+    lrwy = "";
+    drwy = "";
+    //Arriving
+    if(document.querySelector("#Arr16L").checked == true){
+        lrwy += "16L "
+    }
+    if(document.querySelector("#Arr16R").checked == true){
+        lrwy += "16R "
+    }
+    if(document.querySelector("#Arr17L").checked == true){
+        lrwy += "17L "
+    }
+    if(document.querySelector("#Arr17R").checked == true){
+        lrwy += "17R "
+    }
+    if(document.querySelector("#Arr35L").checked == true){
+        lrwy += "35L "
+    }
+    if(document.querySelector("#Arr35R").checked == true){
+        lrwy += "35R "
+    }
+    if(document.querySelector("#Arr34L").checked == true){
+        lrwy += "34L "
+    }
+    if(document.querySelector("#Arr34R").checked == true){
+        lrwy += "34R "
+    }
+    if(document.querySelector("#Arr08").checked == true){
+        lrwy += "08 "
+    }
+    if(document.querySelector("#Arr25").checked == true){
+        lrwy += "25 "
+    }
+    if(document.querySelector("#Arr26").checked == true){
+        lrwy += "26 "
+    }
+    if(document.querySelector("#Arr07").checked == true){
+        lrwy += "07 "
+    }
+
+    //Departing
+    if(document.querySelector("#Dep16L").checked == true){
+        drwy += "16L "
+    }
+    if(document.querySelector("#Dep16R").checked == true){
+        drwy += "16R "
+    }
+    if(document.querySelector("#Dep17L").checked == true){
+        drwy += "17L "
+    }
+    if(document.querySelector("#Dep17R").checked == true){
+        drwy += "17R "
+    }
+    if(document.querySelector("#Dep35L").checked == true){
+        drwy += "35L "
+    }
+    if(document.querySelector("#Dep35R").checked == true){
+        drwy += "35R "
+    }
+    if(document.querySelector("#Dep34L").checked == true){
+        drwy += "34L "
+    }
+    if(document.querySelector("#Dep34R").checked == true){
+        drwy += "34R "
+    }
+    if(document.querySelector("#Dep08").checked == true){
+        drwy += "08 "
+    }
+    if(document.querySelector("#Dep25").checked == true){
+        drwy += "25 "
+    }
+    if(document.querySelector("#Dep26").checked == true){
+        drwy += "26 "
+    }
+    if(document.querySelector("#Dep07").checked == true){
+        drwy += "07 "
+    }
     var RWYSubmit = {
-        "LandingRWYs": document.querySelector("#rwyland").value,
-        "DepartingRWYs": document.querySelector("#rwydep").value,
+        "LandingRWYs": lrwy,
+        "DepartingRWYs": drwy,
+        "CID": UserData[0]
     };
     var finalRWY = JSON.stringify(RWYSubmit);
     ws.send(finalRWY);
@@ -619,6 +724,7 @@ SendCDR.onclick = () => {
     }
 }
 
+// Fetch reverse CDR from ZDV
 function rCDRtoCDR(RCode){
     var CDRQuery1 = new XMLHttpRequest();
     CDRQuery1.open("GET", `https://denartcc.org/api/cdrs/${RCode}`);

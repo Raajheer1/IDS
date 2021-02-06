@@ -22,12 +22,12 @@ const createWindow = () => {
     }
   });
 
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'login.html'));
+  mainWindow.webContents.on("devtools-opened", () => { mainWindow.webContents.closeDevTools(); });
 };
 
 

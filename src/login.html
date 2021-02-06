@@ -58,23 +58,18 @@
                 </button>
               </div>
         </div>
-        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.2.3-beta</span>
+        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.2.4-beta</span>
     </body>
 
     <script>
         const customTitlebar = require('custom-electron-titlebar');
+        const { ipcRenderer } = require('electron');
         let IDSTitleBar = new customTitlebar.Titlebar({
             backgroundColor: customTitlebar.Color.fromHex("#1F1F1F"),
             shadow: true,
             icon: "./img/icon.png"
         });
-
         IDSTitleBar.updateTitle('Login - ZDVARTCC');
-    </script>
-    <script>
-        const electron = require('electron');
-        const { ipcRenderer } = electron;
-
         ipcRenderer.on('updater', (event, x) => {
             console.log("MESSAGE FROM THE UPDATER:", x);
         })
