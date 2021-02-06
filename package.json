@@ -75,7 +75,7 @@
     "custom-electron-titlebar": "^3.2.6",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.5",
-    "ws": "^7.4.2",
+    "ws": "^7.4.3",
     "xhr2": "^0.2.0"
   },
   "devDependencies": {
