@@ -1,11 +1,11 @@
 {
   "name": "ZDV-IDS",
   "productName": "ZDV-IDS",
-  "version": "0.1.3-alpha",
+  "version": "0.1.4-alpha",
   "description": "ZDV Information Display System",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Raajheer1/IDS"
+    "url": "https://github.com/Raajheer1/IDS.git"
   },
   "main": "src/index.js",
   "scripts": {
@@ -22,11 +22,6 @@
     "appId": "ZDV-IDS",
     "win": {
       "target": "nsis",
-      "publish": {
-        "provider": "github",
-        "owner": "Raajheer1",
-        "repo": "IDS"
-      },
       "icon": "src/img/icon.png"
     },
     "nsis": {
@@ -75,7 +70,7 @@
     "custom-electron-titlebar": "^3.2.6",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.5",
-    "ws": "^7.4.3",
+    "ws": "^7.4.2",
     "xhr2": "^0.2.0"
   },
   "devDependencies": {
