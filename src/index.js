@@ -28,10 +28,13 @@ const createWindow = () => {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
   mainWindow.once('ready-to-show', () => {
-    mainWindow.webContents.send('updater', 'STARTING');
     autoUpdater.checkForUpdatesAndNotify();
   });
 };
+
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -89,9 +92,13 @@ ipcMain.on('specialist', (event, arg) => {
 
 
 //DEBUG CODE!!!
-function sendStatusToWindow(x){
-  mainWindow.webContents.send('updater', x);
+const sendStatusToWindow = (text) => {
+  log.info(text);
+  if(mainWindow){
+    mainWindow.webContents.send('updater', text);
+  }
 }
+
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
