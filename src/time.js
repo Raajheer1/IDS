@@ -14,6 +14,18 @@ function updateTime(x) {
     CST = UTCHour-6;
     MST = UTCHour-7;
     PST = UTCHour-8;
+    if(EST < 0){
+      EST += 24;
+    }
+    if(CST < 0){
+      CST += 24;
+    }
+    if(MST < 0){
+      MST += 24;
+    }
+    if(PST < 0){
+      PST += 24;
+    }
     ESTHour = updateTime(EST);
     CSTHour = updateTime(CST);
     MSTHour = updateTime(MST);
