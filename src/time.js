@@ -77,11 +77,11 @@ function updateTime(x) {
                 currentMS = hour*3600000 + min*60000 + sec*1000;
                 LogonMS = logonHour*3600000 + logonMinute*60000 + logonSecond*1000;
                 MS = currentMS - LogonMS;
-                hour = Math.round(MS/3600000);
+                hour = Math.floor(MS/3600000);
                 MS = MS % 3600000;
-                min = Math.round(MS/60000);
+                min = Math.floor(MS/60000);
                 MS = MS % 60000;
-                sec = Math.round(MS/1000);
+                sec = Math.floor(MS/1000);
                 if(hour < 0){
                   hour += 24;
                 }
