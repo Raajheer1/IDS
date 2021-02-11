@@ -64,13 +64,13 @@ SendChart.onclick = () => {
           <button type="button" class="btn btn-outline-secondary mb-1" onclick="ChangeChart('${ICAO}', '${item["pdf_name"]}')">
             <span class="orange-under"><span style="color: white;">${item["chart_name"]}</span></span>
           </button>`
-          if(index == 0){
+        if(index == 0){
+          document.getElementById(`${ICAO}sids`).innerHTML += `<br>`;
+        }else{
+          if(item["chart_name"].includes(ChartArray[index-1]["chart_name"])){
             document.getElementById(`${ICAO}sids`).innerHTML += `<br>`;
-          }else{
-            if(item["chart_name"].includes(ChartArray[index-1]["chart_name"])){
-              document.getElementById(`${ICAO}sids`).innerHTML += `<br>`;
-            }
           }
+        }
       });
     }
   }

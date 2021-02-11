@@ -40,6 +40,7 @@ function updateTime(x) {
     var t = setTimeout(currentTime, 1000);
   }
   currentTime();
+const { position, getClientArea } = require('custom-electron-titlebar/lib/common/dom');
   const { ipcRenderer } = require('electron');
   var UserData = ipcRenderer.sendSync('specialist', '');
   document.getElementById("specialist").innerHTML = UserData[1] + " " + UserData[2];
@@ -63,51 +64,63 @@ function updateTime(x) {
   }else{
     document.getElementById("role").innerHTML = "N/A"
   }
+var t;
+var logonHour;
+var logonMinute;
+var logonSecond;
+function logTime(){
+  var date = new Date();
+  hour = date.getUTCHours();
+  min = date.getUTCMinutes();
+  sec = date.getUTCSeconds();
+  currentMS = hour*3600000 + min*60000 + sec*1000;
+  LogonMS = logonHour*3600000 + logonMinute*60000 + logonSecond*1000;
+  MS = currentMS - LogonMS;
+  hour = Math.floor(MS/3600000);
+  MS = MS % 3600000;
+  min = Math.floor(MS/60000);
+  MS = MS % 60000;
+  sec = Math.floor(MS/1000);
+  if(hour < 0){
+    hour += 24;
+  }
+  if(min < 0){
+    min += 60;
+  }
+  if(sec < 0){
+    sec += 60;
+  }
+  document.getElementById("uptime").innerText = updateTime(hour) + ":" + updateTime(min) + ":" + updateTime(sec);
+  t = setTimeout(logTime, 1000);
+}
 
+function positionData() {
+  document.getElementById("position").innerHTML = `<span style="color: #F97E41;">--</span>`;
+  clearTimeout(t);
+  document.getElementById("uptime").innerHTML = `<span style="color: #F97E41;">--</span>`;
   var vatsimDataReq = new XMLHttpRequest();
   vatsimDataReq.open("GET", "https://data.vatsim.net/v3/vatsim-data.json")
   vatsimDataReq.send();
   vatsimDataReq.onload = () => {
-      if (vatsimDataReq.status != 200) {
-          console.log("error pulling VATSIM Data");
-      } else {
-          controllers = JSON.parse(vatsimDataReq.response).controllers;
-          controllers.forEach(item => {
-            if(item.cid == UserData[0]){
-              document.getElementById("position").innerHTML = item.callsign;
-              logon = item.logon_time;
-              logon = logon.substring(logon.indexOf("T")+1, logon.indexOf("."));
-              console.log(logon)
-              logonHour = logon.substring(0,2);
-              logonMinute = logon.substring(3,5);
-              logonSecond = logon.substring(6, 8);
-              function logTime(){
-                var date = new Date();
-                hour = date.getUTCHours();
-                min = date.getUTCMinutes();
-                sec = date.getUTCSeconds();
-                currentMS = hour*3600000 + min*60000 + sec*1000;
-                LogonMS = logonHour*3600000 + logonMinute*60000 + logonSecond*1000;
-                MS = currentMS - LogonMS;
-                hour = Math.floor(MS/3600000);
-                MS = MS % 3600000;
-                min = Math.floor(MS/60000);
-                MS = MS % 60000;
-                sec = Math.floor(MS/1000);
-                if(hour < 0){
-                  hour += 24;
-                }
-                if(min < 0){
-                  min += 60;
-                }
-                if(sec < 0){
-                  sec += 60;
-                }
-                document.getElementById("uptime").innerText = updateTime(hour) + ":" + updateTime(min) + ":" + updateTime(sec);
-                var t = setTimeout(logTime, 1000);
-              }
-              logTime();
-            }
-          })
-      }
+    if (vatsimDataReq.status != 200) {
+        console.log("error pulling VATSIM Data");
+    } else {
+        controllers = JSON.parse(vatsimDataReq.response).controllers;
+        controllers.forEach(item => {
+          if(item.cid == UserData[0]){
+            document.getElementById("position").innerHTML = item.callsign;
+            logon = item.logon_time;
+            logon = logon.substring(logon.indexOf("T")+1, logon.indexOf("."));
+            console.log(logon)
+            logonHour = logon.substring(0,2);
+            logonMinute = logon.substring(3,5);
+            logonSecond = logon.substring(6, 8);
+            logTime(logonHour, logonMinute, logonSecond);
+          }
+        })
+    }
   }
+  var x = setTimeout(positionData, 300000);
+}
+
+positionData();
