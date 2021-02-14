@@ -2606,13 +2606,29 @@
   <!-- Titlebar -->
   <script src="./time.js"></script>
   <script>
+    const remote = require('electron').remote;
+    const Menu = remote.Menu;
+    const MenuItem = remote.MenuItem;
+    var menu = new Menu();
+    menu.append(new MenuItem({
+        label: 'ZDV',
+        submenu: [
+            {
+                label: 'Website',
+                click: () => require('electron').shell.openExternal("https://denartcc.org/")
+            },
+            {
+                type: 'separator'
+            }
+        ]
+    }));
     const customTitlebar = require('custom-electron-titlebar');
     let IDSTitleBar = new customTitlebar.Titlebar({
       backgroundColor: customTitlebar.Color.fromHex("#1F1F1F"),
       shadow: true,
       icon: "./img/icon.png"
     });
-
+    IDSTitleBar.updateMenu(menu);
     IDSTitleBar.updateTitle('IDS4 - ZDVARTCC');
   </script>
   <script src="./WebSocket.js"></script>

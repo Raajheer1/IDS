@@ -64,11 +64,28 @@
     <script>
         const customTitlebar = require('custom-electron-titlebar');
         const { ipcRenderer } = require('electron');
+        const remote = require('electron').remote;
+        const Menu = remote.Menu;
+        const MenuItem = remote.MenuItem;
+        var menu = new Menu();
+        menu.append(new MenuItem({
+            label: 'ZDV',
+            submenu: [
+                {
+                    label: 'Website',
+                    click: () => require('electron').shell.openExternal("https://denartcc.org/")
+                },
+                {
+                    type: 'separator'
+                }
+            ]
+        }));
         let IDSTitleBar = new customTitlebar.Titlebar({
             backgroundColor: customTitlebar.Color.fromHex("#1F1F1F"),
             shadow: true,
             icon: "./img/icon.png"
         });
+        IDSTitleBar.updateMenu(menu);
         IDSTitleBar.updateTitle('Login - ZDVARTCC');
         ipcRenderer.on('updater', (event, x) => {
             console.log("MESSAGE FROM THE UPDATER:", x);

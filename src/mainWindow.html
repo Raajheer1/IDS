@@ -47,12 +47,28 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script>
     const customTitlebar = require('custom-electron-titlebar');
+    const remote = require('electron').remote;
+    const Menu = remote.Menu;
+    const MenuItem = remote.MenuItem;
+    var menu = new Menu();
+    menu.append(new MenuItem({
+        label: 'ZDV',
+        submenu: [
+            {
+                label: 'Website',
+                click: () => require('electron').shell.openExternal("https://denartcc.org/")
+            },
+            {
+                type: 'separator'
+            }
+        ]
+    }));
     let IDSTitleBar = new customTitlebar.Titlebar({
       backgroundColor: customTitlebar.Color.fromHex("#1F1F1F"),
       shadow: true,
       icon: "./img/icon.png"
     });
-
+    IDSTitleBar.updateMenu(menu);
     IDSTitleBar.updateTitle('ZDVARTCC');
   </script>
   <script>
