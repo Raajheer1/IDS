@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
   <link rel="stylesheet" href="./customstyle.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
   <script>
     const electron = require('electron');
   </script>
@@ -190,6 +196,13 @@
           </div>
           <div class="row m-0">
             <div id="NTOSEntry" class="col-12 p-1">
+            </div>
+          </div>
+        </div>
+
+        <div class="jumbotron p-0 mb-3">
+          <div class="row m-0">
+            <div id="mapid" class="col-12 p-1">
             </div>
           </div>
         </div>
@@ -2628,7 +2641,143 @@
       </div>
     </div>
   </div>
-  
+  <style>
+    #mapid { height: 400px; }
+    @font-face {
+      font-family: "ERAM";
+      src: url('~@/assets/fonts/ERAM.ttf');
+      font-weight: 200;
+	  }
+  </style>
+
+  <script>
+    var mymap = L.map('mapid').setView([39.8616667, -104.6731667], 5);
+    L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}{r}.png").addTo(mymap);
+    //Area 2
+    var Area2 = L.polygon([
+      [39.53184, -105.19219],
+      [39.43959, -105.02081],
+      [39.45893, -103.64556],
+      [39.29223, -102.91289],
+      [39.03426, -102.24606],
+      [38.24317, -101.18531],
+      [39.46666, -98.800000],
+      [39.98333, -99.058330],
+      [40.88320, -99.047210],
+      [40.57759, -101.30571],
+      [40.19785, -103.48496],
+      [40.21651, -105.05290],
+      [39.53184, -105.19219]
+    ],
+    {
+      color: "#888888",
+      weight: 1,
+      fill: false
+    }
+    ).addTo(mymap);
+    //Area 3
+    var Area3 = L.polygon([
+      [36.62818, -106.34610],
+      [38.08372, -106.14794],
+      [38.15847, -105.93013],
+      [39.43959, -105.02081],
+      [39.45893, -103.64556],
+      [39.29223, -102.91289],
+      [39.03426, -102.24606],
+      [38.24317, -101.18531],
+      [37.49998, -102.54999],
+      [36.71660, -104.99997],
+      [36.71664, -106.08332],
+      [36.62818, -106.34610]
+    ],
+    {
+      color: "#888888",
+      weight: 1,
+      fill: false
+    }
+    ).addTo(mymap);
+    //Area 4
+    var Area4 = L.polygon([
+      [36.62818, -106.34610],
+      [38.08372, -106.14794],
+      [38.15847, -105.93013],
+      [39.43959, -105.02081],
+      [39.53184, -105.19219],
+      [39.49470, -105.55703],
+      [38.18855, -109.04322],
+      [38.19999, -109.98333],
+      [37.41250, -111.87916],
+      [36.42075, -111.50414],
+      [35.76665, -111.84164],
+      [35.69977, -110.23311],
+      [36.19954, -107.46687],
+      [36.62818, -106.34610]
+    ],
+    {
+      color: "#888888",
+      weight: 1,
+      fill: false
+    }
+    ).addTo(mymap);
+    //Area 5
+    var Area5 = L.polygon([
+      [40.21213, -104.67133],
+      [40.19785, -103.48496],
+      [40.57759, -101.30571],
+      [40.88320, -99.047210],
+      [41.99999, -99.016660],
+      [43.28887, -100.09997],
+      [43.70833, -101.40832],
+      [44.69995, -101.48328],
+      [45.11640, -104.24966],
+      [45.23733, -105.99979],
+      [44.31663, -106.26663],
+      [43.88328, -107.28323],
+      [42.41666, -107.04999],
+      [42.66507, -104.70821],
+      [41.19985, -104.56726],
+      [40.21213, -104.67133]
+    ],
+    {
+      color: "#888888",
+      weight: 1,
+      fill: false
+    }
+    ).addTo(mymap);
+    //Area 6
+    var Area6 = L.polygon([
+      [40.21213, -104.67133],
+      [41.19985, -104.56726],
+      [42.66507, -104.70821],
+      [42.41666, -107.04999],
+      [41.36650, -108.27441],
+      [40.84990, -109.09996],
+      [40.00000, -109.16666],
+      [39.58333, -110.29998],
+      [39.21663, -109.98330],
+      [38.19999, -109.98333],
+      [38.18855, -109.04322],
+      [39.49470, -105.55703],
+      [39.53184, -105.19219],
+      [40.21651, -105.05290],
+      [40.21213, -104.67133]
+    ],
+    {
+      color: "#888888",
+      weight: 1,
+      fill: false
+    }
+    ).addTo(mymap);
+
+    L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', 
+    {
+      layers: "nexrad-n0r-900913",
+      transparent: "true",
+      format: "image/png",
+      opacity: "0.25"
+    }).addTo(mymap);
+  </script>
+
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <script>window.jQuery = window.$ = module.exports</script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
