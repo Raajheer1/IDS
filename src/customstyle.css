@@ -1,143 +1,158 @@
 .tmuvcform {
-    font-size: .83em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-    vertical-align: middle;
+  font-size: 0.83em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  vertical-align: middle;
 }
 
 .flightstrip {
-    font-size: 1.1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-    vertical-align: sub;
+  font-size: 1.1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  vertical-align: sub;
 }
 
 .CodedDepRoutes {
-    font-size: 1.1em;
-    color: black;
+  font-size: 1.1em;
+  color: black;
 }
 
 .vertcenter {
-    font-size: .83em;
-    margin-top: 0.2em;
-    margin-bottom: 0.4em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-    vertical-align: middle;
+  font-size: 0.83em;
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  vertical-align: middle;
 }
 
 .output {
-    text-align: center;
-    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: white;
-
-  }
-
+  text-align: center;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  color: white;
+}
 
 .cursor::after {
-    content: '';
-    display: inline-block;
-    margin-left: 3px;
-    background-color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
+  content: "";
+  display: inline-block;
+  margin-left: 3px;
+  background-color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
 }
 
 h1.cursor::after {
-    height: 24px;
-    width: 13px;
+  height: 24px;
+  width: 13px;
 }
 
 p.cursor::after {
-    height: 13px;
-    width: 6px;
+  height: 13px;
+  width: 6px;
 }
 
-input[type="text"], textarea {
-    background-color: #1F1F1F;
-    color: #F97E41;
-    border: 1px solid black;
+input[type="text"],
+textarea {
+  background-color: #1f1f1f;
+  color: #f97e41;
+  border: 1px solid black;
 }
 
-input[type="text"]:focus, textarea {
-    background-color: #1F1F1F;
-    color: #F97E41;
-    border: 1px solid #F97E41;
+input[type="text"]:focus,
+textarea {
+  background-color: #1f1f1f;
+  color: #f97e41;
+  border: 1px solid #f97e41;
 }
 
 select {
-    background-color: #1F1F1F!important;
-    color: #F97E41!important;
-    border: 1px solid black!important;
+  background-color: #1f1f1f !important;
+  color: #f97e41 !important;
+  border: 1px solid black !important;
 }
 
 select:focus {
-    background-color: #1F1F1F!important;
-    color: #F97E41!important;
-    border: 1px solid#F97E41!important;
+  background-color: #1f1f1f !important;
+  color: #f97e41 !important;
+  border: 1px solid#F97E41 !important;
 }
 
 textarea {
-    background-color: #1F1F1F!important;
-    color: #F97E41!important;
-    border: 1px solid black!important;
+  background-color: #1f1f1f !important;
+  color: #f97e41 !important;
+  border: 1px solid black !important;
 }
 
 textarea:focus {
-    background-color: #1F1F1F!important;
-    color: #F97E41!important;
-    border: 1px solid #F97E41!important;
+  background-color: #1f1f1f !important;
+  color: #f97e41 !important;
+  border: 1px solid #f97e41 !important;
 }
 
-
 .TextOr {
-    color: #F97E41;
+  color: #f97e41;
 }
 
 .OrBorder {
-    border: 2px solid #F97E41;
+  border: 2px solid #f97e41;
 }
 
 .orange-under {
-    color: #F97E41;
-    text-decoration:underline;
+  color: #f97e41;
+  text-decoration: underline;
 }
 
-  input[type="checkbox"] {
-    visibility: hidden;
-  }
-  label {
-    cursor: pointer;
-  }
-  input[type="checkbox"] + label:before {
-    border: 1px solid #1F1F1F;
-    content: "\00a0";
-    display: inline-block;
-    font: 16px/1em sans-serif;
-    height: 16px;
-    margin: 0 .25em 0 0;
-    padding: 0;
-    vertical-align: top;
-    width: 16px;
-  }
-  input[type="checkbox"]:checked + label:before {
-    background: #1F1F1F;
-    color: #F97E41;
-    content: "\2713";
-    text-align: center;
-  }
-  input[type="checkbox"]:checked + label:after {
-    font-weight: bold;
-  }
-  
-  input[type="checkbox"]:focus + label::before {
-      outline: rgb(59, 153, 252) auto 5px;
-  }
+input[type="checkbox"] {
+  visibility: hidden;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  border: 1px solid #1f1f1f;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 0 0.25em 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+input[type="checkbox"]:checked + label:before {
+  background: #1f1f1f;
+  color: #f97e41;
+  content: "\2713";
+  text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+input[type="checkbox"]:focus + label::before {
+  outline: rgb(59, 153, 252) auto 5px;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: orange;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 20px;
+  border: 3px solid orange;
+}

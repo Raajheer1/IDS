@@ -2642,12 +2642,12 @@
     </div>
   </div>
   <style>
-    #mapid { height: 400px; }
+    #mapid { height: 350px; }
     @font-face {
       font-family: "ERAM";
       src: url('~@/assets/fonts/ERAM.ttf');
       font-weight: 200;
-	  }
+    }
   </style>
 
   <script>
@@ -2777,7 +2777,11 @@
       opacity: "0.25"
     }).addTo(mymap);
 
+    var markerGroup = L.layerGroup().addTo(mymap);
     function planes(){
+      markerGroup.eachLayer(function(layer) { markerGroup.removeLayer(layer); console.log(layer);});
+      // mymap.removeLayer(markerGroup);
+      // var markerGroup = L.layerGroup().addTo(mymap);
       var requestPlanes = new XMLHttpRequest();
       // Planes
       requestPlanes.open("GET", `https://data.vatsim.net/v3/vatsim-data.json`);
@@ -2796,7 +2800,7 @@
                 iconSize: [12, 12],
                 tooltipAnchor: [50, 20]
               })
-            }).addTo(mymap);
+            }).addTo(markerGroup);
 
             var PTCord = newCoord(item.latitude, item.longitude, item.groundspeed, item.heading);
             L.polyline([
@@ -2805,32 +2809,13 @@
             {
               color: "#C8C806",
               className: "p_track"
-            }).addTo(mymap);
+            }).addTo(markerGroup);
           });
         }
       }
+      setTimeout(planes, 15000);
     }
     planes()
-
-    //Adding Planes
-    // L.marker([39.8616667, -104.6731667], {
-    //   icon: L.icon({
-    //     iconUrl: "./img/diamond.png",
-    //     iconSize: [12, 12],
-    //     tooltipAnchor: [50, 20]
-    //   })
-    // }).addTo(mymap);
-
-    // var PTCord = newCoord(39.8616667, -104.6731667, 450, 180);
-    // L.polyline([
-    //   [[39.8616667, -104.6731667], PTCord]
-    // ],
-    // {
-    //   color: "#C8C806",
-    //   className: "p_track"
-    // }).addTo(mymap);
-
-
 
     function newCoord(long, lat, speed, heading) {
       const radian = heading * (Math.PI / 180);
