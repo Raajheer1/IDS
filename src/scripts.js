@@ -90,7 +90,7 @@ function pullData() {
         }
     }
 
-    var randomthingy = setTimeout(pullData, 5000);
+    var randomthingy = setTimeout(pullData, 60000);
 
     ipcRenderer.on('message', (event, text) => {
         document.getElementById("VersionID").innerHTML = text
