@@ -2776,6 +2776,71 @@
       format: "image/png",
       opacity: "0.25"
     }).addTo(mymap);
+
+    function planes(){
+      var requestPlanes = new XMLHttpRequest();
+      // Planes
+      requestPlanes.open("GET", `https://data.vatsim.net/v3/vatsim-data.json`);
+      requestPlanes.send();
+      requestPlanes.onload = function () {
+        if (requestPlanes.status != 200) {
+            console.log("Error pulling VATSIM Data.");
+        } else {
+          data = JSON.parse(requestPlanes.response);
+          data = data["pilots"];
+          data.forEach(item => {
+            //Adding Planes
+            L.marker([item.latitude, item.longitude], {
+              icon: L.icon({
+                iconUrl: "./img/diamond.png",
+                iconSize: [12, 12],
+                tooltipAnchor: [50, 20]
+              })
+            }).addTo(mymap);
+
+            var PTCord = newCoord(item.latitude, item.longitude, item.groundspeed, item.heading);
+            L.polyline([
+              [[item.latitude, item.longitude], PTCord]
+            ],
+            {
+              color: "#C8C806",
+              className: "p_track"
+            }).addTo(mymap);
+          });
+        }
+      }
+    }
+    planes()
+
+    //Adding Planes
+    // L.marker([39.8616667, -104.6731667], {
+    //   icon: L.icon({
+    //     iconUrl: "./img/diamond.png",
+    //     iconSize: [12, 12],
+    //     tooltipAnchor: [50, 20]
+    //   })
+    // }).addTo(mymap);
+
+    // var PTCord = newCoord(39.8616667, -104.6731667, 450, 180);
+    // L.polyline([
+    //   [[39.8616667, -104.6731667], PTCord]
+    // ],
+    // {
+    //   color: "#C8C806",
+    //   className: "p_track"
+    // }).addTo(mymap);
+
+
+
+    function newCoord(long, lat, speed, heading) {
+      const radian = heading * (Math.PI / 180);
+      const d = ((speed / 60) *4) * 1.15078; // speed to miles (PT length: 4 min by default)
+      const dy = Math.cos(radian) * d;
+      const dx = Math.sin(radian) * d;
+      const coordY = long + (dy / 69.096); // 69.096: one degree of longitude
+      const coordX = lat + (dx / 52.93);
+      return [coordY, coordX];
+    }
   </script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
