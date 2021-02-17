@@ -2779,7 +2779,7 @@
 
     var markerGroup = L.layerGroup().addTo(mymap);
     function planes(){
-      markerGroup.eachLayer(function(layer) { markerGroup.removeLayer(layer); console.log(layer);});
+      markerGroup.eachLayer(function(layer) { markerGroup.removeLayer(layer);});
       // mymap.removeLayer(markerGroup);
       // var markerGroup = L.layerGroup().addTo(mymap);
       var requestPlanes = new XMLHttpRequest();

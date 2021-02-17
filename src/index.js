@@ -18,7 +18,8 @@ const createWindow = () => {
     titleBarStyle: "hidden",
     icon:__dirname+"/img/icon.png",
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
   });
 
