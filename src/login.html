@@ -6,6 +6,7 @@
     <title>Denver IDS</title>
     <!-- <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="./customstyle.css">
     <style>
         #notification {
         position: fixed;
@@ -25,7 +26,7 @@
 
 <body>
 
-    <body style="background-color: #242322; padding: 15px 15px 15px 15px;">
+    <body style="background: url('img/Night.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 15px 15px 15px 15px;">
         <div class="container-fluid" id="loginscreen" style="margin-top: 15px;">
             <div class="row justify-content-center" style="text-align: center;">
                 <img src="img/logo.png">
@@ -33,11 +34,11 @@
             <div class="row justify-content-center" style="text-align: center;">
                 <form id="LoginForm">
                     <div class="form-group">
-                        <label for="exampleInputEmail1" style="color: azure;">VATSIM CID</label>
+                        <label for="exampleInputEmail1" class="TextOr">VATSIM CID</label>
                         <input type="text" class="form-control" id="idscid" aria-describedby="cidhelp">
                     </div>
                     <div class="form-group">
-                        <label for="idspass" style="color: azure;">ZDV-IDS Password</label>
+                        <label for="idspass" class="TextOr">ZDV-IDS Password</label>
                         <input type="password" class="form-control" id="idspass" aria-describedby="passhelp">
                         <small id="passhelp" class="form-text text-muted">Not your VATSIM Password!</small>
                     </div> 
@@ -58,7 +59,7 @@
                 </button>
               </div>
         </div>
-        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.5.4-beta</span>
+        <span style="position: absolute; bottom: 2px;right: 2px; color: grey" id="VersionID">0.5.5-beta</span>
     </body>
 
     <script>

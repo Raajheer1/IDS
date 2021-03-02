@@ -75,6 +75,20 @@ textarea {
   border: 1px solid #f97e41;
 }
 
+input[type="password"],
+textarea {
+  background-color: #1f1f1f;
+  color: #f97e41;
+  border: 1px solid black;
+}
+
+input[type="password"]:focus,
+textarea {
+  background-color: #1f1f1f;
+  color: #f97e41;
+  border: 1px solid #f97e41;
+}
+
 select {
   background-color: #1f1f1f !important;
   color: #f97e41 !important;

@@ -1,7 +1,7 @@
 {
   "name": "ZDV-IDS",
   "productName": "ZDV-IDS",
-  "version": "0.5.4-beta",
+  "version": "0.5.5-beta",
   "description": "ZDV Information Display System",
   "repository": {
     "type": "git",

@@ -88,7 +88,8 @@
     <div class="row mt-3">
       <!-- Tables on Left side of Application -->
       <div class="col-lg-7">
-        <div class="jumbotron p-0">
+        <!-- Weather Information -->
+        <div class="jumbotron p-0 mb-3">
           <div class="row m-0 pt-2 pl-2 pb-1" style="border-bottom: 1px solid #F97E41">
             <h5 style="margin-bottom: 0px;">Weather Information</h5>
           </div>
@@ -117,7 +118,7 @@
                 <p class="mb-0" style="color: white"><span id="RWLR1"></span></p>
               </div>
             </div>
-            <div class="col-5">
+            <div class="col-6 p-0">
               <span class="metar mt-2" id="KDEN" style="font-size: 1rem; position: absolute; top: 0rem; left: 0px; opacity: 1;"><span id="KDENMETAR"></span></span></td>
             </div>
           </div>
@@ -2780,8 +2781,6 @@
     var markerGroup = L.layerGroup().addTo(mymap);
     function planes(){
       markerGroup.eachLayer(function(layer) { markerGroup.removeLayer(layer);});
-      // mymap.removeLayer(markerGroup);
-      // var markerGroup = L.layerGroup().addTo(mymap);
       var requestPlanes = new XMLHttpRequest();
       // Planes
       requestPlanes.open("GET", `https://data.vatsim.net/v3/vatsim-data.json`);

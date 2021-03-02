@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="./customstyle.css">
 </head>
 
-<body style="background: url('img/Denver.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+<body style="background: url('img/Background.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="margin-top: 15px;">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger"><img src="img/logo.png" style="max-height: 115px;"></a>
@@ -20,19 +21,53 @@
           <!-- <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><span style='color: #F97E41;text-decoration:line-through'><span style='color:black'>PREDUTY</span></span></a></li> -->
           <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html" style="color: black;">IDS4</a></li>
           <!-- <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color: black;"><span style='color: #F97E41;text-decoration:line-through'><span style='color:black'>ER-IDS</span></span></a></li> -->
-          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" style="color: black;"><span style='color: #F97E41;text-decoration:underline'><span style='color:black'><span id="name"></span> <span id="rating"></span></span></span></a></li>
+          <li style="font-size: 25px;padding-right: 15px;" class="nav-item"><a class="nav-link js-scroll-trigger" style="color: black;" data-toggle="modal" data-target="#usermodal" href=""><span style='color: #F97E41;text-decoration:underline'><span style='color:black'><span id="name"></span> <span id="rating"></span></span></span></a></li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- Main Body -->
   <div class="container" style="padding-top: calc(100vh / 3.75);">
     <div class="row" style="justify-content: center;">
       <h1 style="font-size: 75px; text-align: center;">Denver Information <br>Display System</h1>
     </div>
     <div class="row" style="justify-content: center;">
       <div class="output" id="output">
-        <h1 style="font-weight: 100;"><span class="cursor"></span></h1>
+        <h1 style="font-weight: 100;"><span id="cursor"></span></h1>
       </div>
+    </div>
+  </div>
+
+  <!-- UserInfo Modal -->
+  <div class="modal pt-5" id="usermodal" role="dialog" aria-labelledby="usermodallabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content text-white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="usermodallabel">Profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span class="TextOr" aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                <h3><span id="namemodal"></span> (<span id="oimodal"></span>)</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                <h4 class="TextOr"><span id="CID"></span></h4>
+                <span>CID</span>
+              </div>
+              <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                <h4 class="TextOr"><span id="Rating"></span></h4>
+                <span>Rating</span>
+              </div>
+            </div>
+            <hr style="height: 2px; color: #f97e41; background-color: #f97e41;">
+          </div>
+        </div>
     </div>
   </div>
 
@@ -103,7 +138,11 @@
       }
     }
     
-
+    //userModal
+    document.getElementById("namemodal").innerHTML = UserData[1] + " " + UserData[2];
+    document.getElementById("oimodal").innerHTML = UserData[3];
+    document.getElementById("CID").innerHTML = UserData[0];
+    document.getElementById("Rating").innerHTML = UserData[4];
   </script>
   <script>
     var i = 0,
