@@ -69,8 +69,7 @@ function pullData() {
             console.log("Error pulling VATUSA NTOS Data.");
         } else {
             var data = JSON.parse(NTOSReq.response);
-            data = Object.values(data);
-            data.pop()
+            data = data.data
             NTOSHTMLString = "";
             data.forEach((item, index) => {
                 NTOSHTMLString += `
