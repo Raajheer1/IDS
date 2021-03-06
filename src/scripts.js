@@ -62,7 +62,7 @@ function pullData() {
 
     // Pulls VATUSA NTOS
     var NTOSReq = new XMLHttpRequest();
-    NTOSReq.open("GET", "https://api.vatusa.net/v2/tmu/notices/ZDV?children=true");
+    NTOSReq.open("GET", "https://api.vatusa.net/v2/tmu/notices/");
     NTOSReq.send();
     NTOSReq.onload = () => {
         if(NTOSReq.status != 200){
@@ -72,18 +72,20 @@ function pullData() {
             data = data.data
             NTOSHTMLString = "";
             data.forEach((item, index) => {
-                NTOSHTMLString += `
-                  <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
-                    <div class="col-12 d-flex d-inline flex-wrap">
-                      <p class="m-0">
-                        <p class="orange-under pr-1 m-0">Priority:</p> ${item["priority"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
-                        <p class="orange-under pr-1 m-0">Start:</p> ${item["start_date"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
-                        <p class="orange-under pr-1 m-0">End:</p> ${item["expire_date"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
-                        <p class="orange-under pr-1 m-0">Message:</p> ${item["message"]} 
-                      </p>
+                if(item["message"].includes("ZDV")){
+                    NTOSHTMLString += `
+                    <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
+                        <div class="col-12 d-flex d-inline flex-wrap">
+                        <p class="m-0">
+                            <p class="orange-under pr-1 m-0">Priority:</p> ${item["priority"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
+                            <p class="orange-under pr-1 m-0">Start:</p> ${item["start_date"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
+                            <p class="orange-under pr-1 m-0">End:</p> ${item["expire_date"]} <p class="m-0 TextOr pl-2 pr-2">|</p> 
+                            <p class="orange-under pr-1 m-0">Message:</p> ${item["message"]} 
+                        </p>
+                        </div>
                     </div>
-                  </div>
-                `;
+                    `;
+                }
             });
             document.getElementById("NTOSEntry").innerHTML = NTOSHTMLString;
         }
