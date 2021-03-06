@@ -72,7 +72,7 @@ function pullData() {
             data = data.data
             NTOSHTMLString = "";
             data.forEach((item, index) => {
-                if(item["message"].includes("ZDV")){
+                if(item["message"].includes("ZDV") || item["message"].includes("KDEN") || item["message"].includes("D01")){
                     NTOSHTMLString += `
                     <div class="mb-1" style="background-color:#1F1F1F; text-align: center; vertical-align: middle; padding: .5rem;">
                         <div class="col-12 d-flex d-inline flex-wrap">
