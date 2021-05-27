@@ -10,32 +10,32 @@ function updateTime(x) {
     var date = new Date();
     hour = updateTime(date.getUTCHours());
     UTCHour = date.getUTCHours()
-    EST = UTCHour-5;
-    CST = UTCHour-6;
-    MST = UTCHour-7;
-    PST = UTCHour-8;
+    EST = UTCHour-4;
+    CST = UTCHour-5;
+    MDT = UTCHour-6;
+    PST = UTCHour-7;
     if(EST < 0){
       EST += 24;
     }
     if(CST < 0){
       CST += 24;
     }
-    if(MST < 0){
-      MST += 24;
+    if(MDT < 0){
+      MDT += 24;
     }
     if(PST < 0){
       PST += 24;
     }
     ESTHour = updateTime(EST);
     CSTHour = updateTime(CST);
-    MSTHour = updateTime(MST);
+    MDTHour = updateTime(MDT);
     PSTHour = updateTime(PST);
     min = updateTime(date.getUTCMinutes());
     sec = updateTime(date.getUTCSeconds());
     document.getElementById("Zulu-Clock").innerText = hour + ":" + min + ":" + sec+"Z";
     document.getElementById("EST-Clock").innerText = ESTHour + ":" + min + ":" + sec+"L";
     document.getElementById("CST-Clock").innerText = CSTHour + ":" + min + ":" + sec+"L";
-    document.getElementById("MST-Clock").innerText = MSTHour + ":" + min + ":" + sec+"L";
+    document.getElementById("MDT-Clock").innerText = MDTHour + ":" + min + ":" + sec+"L";
     document.getElementById("PST-Clock").innerText = PSTHour + ":" + min + ":" + sec+"L";
     var t = setTimeout(currentTime, 1000);
   }
