@@ -56,12 +56,13 @@
                 </button>
               </div>
         </div>
-        <span style="position: absolute; bottom: 2px;right: 2px; color: white" id="VersionID">0.5.8-beta</span>
+        <span style="position: absolute; bottom: 2px;right: 2px; color: white" id="VersionID">0.6.0-beta</span>
     </body>
 
     <script>
         const customTitlebar = require('custom-electron-titlebar');
         const { ipcRenderer } = require('electron');
+        const fs = require("fs");
         const remote = require('electron').remote;
         const Menu = remote.Menu;
         const MenuItem = remote.MenuItem;
@@ -130,11 +131,34 @@
                     if (autharray.length == 0) {
                         document.getElementById("loginwrong").innerHTML = `Wrong username or password, please make sure you are NOT entering your VATSIM Password.<br> You can get your password <a onclick="electron.shell.openExternal('https://denartcc.org/accounts');" href="" style="color: white;">here</a>.`;
                     }else{
+                        let userinfo = {
+                            cid: cid,
+                            pass: pass
+                        }
+                        fs.writeFileSync(__dirname+"/user.json", JSON.stringify(userinfo));
                         ipcRenderer.send("USER:add", autharray);
                     }
                 }
             }
         });
+
+
+        let userdata = JSON.parse(fs.readFileSync(__dirname+"/user.json"));
+        if(userdata.cid != ""){
+            var userarray;
+            request.open("GET", "https://denartcc.org/idsauth?cid=" + userdata.cid + "&password=" + userdata.pass);
+            request.send();
+            request.onload = function () {
+                if (request.status != 200) {
+                    console.log("ZDV Authentication Server is Down.");
+                } else {
+                    userarray = JSON.parse(request.response);
+                    if (userarray.length != 0) {
+                        ipcRenderer.send("USER:add", userarray);
+                    }
+                }
+            }
+        }
     </script>
 
 </html>
