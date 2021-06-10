@@ -19,7 +19,7 @@ function ChangeChart(ICAO, Chart){
 }
 
 function ChangeDoc(DOC){
-  document.getElementById("DocFrame").src = `https://denartcc.org/${DOC}`;
+  document.getElementById("DocFrame").src = `https://denartcc.org${DOC}`;
 }
 
 var SendChart = document.querySelector("#ChartICAO_Submit");
