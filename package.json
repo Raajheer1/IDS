@@ -1,7 +1,7 @@
 {
   "name": "ZDV-IDS",
   "productName": "ZDV-IDS",
-  "version": "0.6.0-beta",
+  "version": "1.0.0",
   "description": "ZDV Information Display System",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
   },
   "keywords": [],
   "author": "Raaj Patel, Simon Lovely",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "config": {
     "forge": {
       "packagerConfig": {
